@@ -1,7 +1,7 @@
 name: EIA Harvester
 on:
   schedule:
-    - cron: "0 9 12 * *"
+    - cron: "0 9 * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -14,10 +14,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests
-      - name: EIA data collect
+      - name: EIA monthly retail
         env:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
         run: python fetch_eia.py
+      - name: EIA hourly RTO
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+        run: python fetch_eia_hourly.py
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -25,6 +29,8 @@ jobs:
           path: |
             eia_industrial_prices_monthly.json
             eia_industrial_prices_monthly.csv
+            eia_hourly_rto.json
+            eia_hourly_rto.csv
       - name: commit back
         run: |
           git config user.name "eia-harvester-bot"
