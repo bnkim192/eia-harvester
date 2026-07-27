@@ -24,17 +24,18 @@ jobs:
         run: python fetch_eia_hourly.py
       - name: FX rates (ECB, no key)
         run: python fetch_fx.py
+      - name: MISO DA LMP (keyless)
+        run: python fetch_miso.py
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: eia-result
+          if-no-files-found: ignore
           path: |
             eia_industrial_prices_monthly.json
-            eia_industrial_prices_monthly.csv
             eia_hourly_rto.json
-            eia_hourly_rto.csv
             fx_krw.json
-            fx_krw.csv
+            miso_lmp_monthly.json
       - name: commit back
         run: |
           git config user.name "eia-harvester-bot"
