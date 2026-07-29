@@ -46,7 +46,7 @@ def parse_day(text, diag=False):
 
 def main():
     acc, last = load_state()
-    start=(date.fromisoformat(last)+timedelta(days=1)) if last else date.fromisoformat(BACKFILL_START)
+    start=(date.fromisoformat(last)+timedelta(days=1)) if (last and acc) else date.fromisoformat(BACKFILL_START)
     end=date.today()-timedelta(days=1)
     print(f"[RANGE] {start} ~ {end} (last={last})", flush=True)
     d, fetched, first = start, 0, True
