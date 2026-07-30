@@ -6,7 +6,7 @@ import os, sys, json, csv, io, time
 from datetime import date, timedelta
 import requests
 
-NODES = ["CONS.AZ"]     # 미시간 대표 허브. [Hub 노드 목록] 로그 보고 교체/추가 가능
+NODES = ["MICHIGAN.HUB"]     # 미시간 대표 허브. [Hub 노드 목록] 로그 보고 교체/추가 가능
 BASE  = "https://docs.misoenergy.org/marketreports/{ymd}_da_expost_lmp.csv"
 OUT_JSON = "miso_lmp_monthly.json"; OUT_CSV = "miso_lmp_monthly.csv"
 BACKFILL_START = os.environ.get("MISO_START", "2026-01-01")   # 첫 실행 백필 시작(가볍게 올해부터)
@@ -46,7 +46,9 @@ def parse_day(text, diag=False):
 
 def main():
     acc, last = load_state()
-    start=(date.fromisoformat(last)+timedelta(days=1)) if (last and acc) else date.fromisoformat(BACKFILL_START)
+        _need = (not last) or (not acc) or any(n not in acc for n in NODES)
+    if _need: acc = {}
+    start = date.fromisoformat(BACKFILL_START) if _need else (date.fromisoformat(last)+timedelta(days=1))
     end=date.today()-timedelta(days=1)
     print(f"[RANGE] {start} ~ {end} (last={last})", flush=True)
     d, fetched, first = start, 0, True
