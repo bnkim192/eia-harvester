@@ -1,0 +1,37 @@
+{
+ "checked_at": "2026-08-07T07:06",
+ "eia": {
+  "routes": [
+   "retail-sales",
+   "electric-power-operational-data",
+   "rto",
+   "state-electricity-profiles",
+   "operating-generator-capacity",
+   "facility-fuel"
+  ],
+  "/electricity/wholesale/prices/data/": {
+   "http": 404,
+   "head": "{\"error\":\"Not found.\",\"code\":404}"
+  },
+  "/electricity/wholesale-prices/data/": {
+   "http": 404,
+   "head": "{\"error\":\"Not found.\",\"code\":404}"
+  },
+  "/electricity/rto/daily-region-price/data/": {
+   "http": 404,
+   "head": "{\"error\":\"Not found.\",\"code\":404}"
+  },
+  "/electricity/rto/region-price/data/": {
+   "http": 404,
+   "head": "{\"error\":\"Not found.\",\"code\":404}"
+  },
+  "/electricity/rto/daily-interchange/data/": {
+   "http": 404,
+   "head": "{\"error\":\"Not found.\",\"code\":404}"
+  }
+ },
+ "pjm": {
+  "key": "absent",
+  "manual_csv_files": -1
+ }
+}
