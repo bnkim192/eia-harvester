@@ -1,7 +1,9 @@
+# 수집기 워크플로 — .github/workflows/collect.yml 경로에 두어야 인식됨.
+# EIA(월별요금·시간별수요발전) + FX(환율) 함께 수집.
 name: EIA Harvester
 on:
   schedule:
-    - cron: "0 9 * * *"
+    - cron: "0 9 * * *"        # 매일 09:00 UTC (환율·시간별 매일 갱신)
   workflow_dispatch:
 permissions:
   contents: write
@@ -24,8 +26,31 @@ jobs:
         run: python fetch_eia_hourly.py
       - name: FX rates (ECB, no key)
         run: python fetch_fx.py
-      - name: MISO DA LMP (keyless)
+      # PJM 경로 탐색 — EIA v2 도매가 라우트 / PJM DataMiner / 수동CSV 중 무엇이 살아있는지 로그로 확인
+      - name: PJM 경로 탐색(discover) — 로그 확인용, 실패해도 계속
+        continue-on-error: true
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+          PJM_API_KEY: ${{ secrets.PJM_API_KEY }}
+        run: python fetch_pjm_v2.py --discover
+      - name: PJM DA LMP via API v2 (키 있으면 수집)
+        continue-on-error: true
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+          PJM_API_KEY: ${{ secrets.PJM_API_KEY }}
+        run: python fetch_pjm_v2.py || echo "fetch_pjm_v2 스킵(경로 미확정/키없음)"
+      - name: PJM DA LMP via API (구버전 · 파일/키 없으면 자동 skip)
+        env:
+          PJM_API_KEY: ${{ secrets.PJM_API_KEY }}
+        run: python fetch_pjm.py || echo "fetch_pjm 스킵(파일없음/키없음)"
+      - name: PJM DA LMP via 수동CSV (파일/폴더 없으면 skip)
+        run: python aggregate_pjm_csv.py || echo "aggregate_pjm_csv 스킵"
+      - name: MISO DA LMP (monthly, Michigan Hub) — keyless
         run: python fetch_miso.py
+      - name: EIA STEO forward (Henry Hub 가스 forward · 단기 L1 앵커)
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+        run: python fetch_steo.py || echo "fetch_steo 스킵(키없음/시리즈확인)"
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -33,13 +58,22 @@ jobs:
           if-no-files-found: ignore
           path: |
             eia_industrial_prices_monthly.json
+            eia_industrial_prices_monthly.csv
             eia_hourly_rto.json
+            eia_hourly_rto.csv
             fx_krw.json
+            fx_krw.csv
+            pjm_lmp_monthly.json
+            pjm_lmp_monthly.csv
+            pjm_probe.json
             miso_lmp_monthly.json
+            miso_lmp_monthly.csv
+            steo_forward_monthly.json
+            steo_forward_monthly.csv
       - name: commit back
         run: |
           git config user.name "eia-harvester-bot"
           git config user.email "eia-harvester-bot@users.noreply.github.com"
           git add -A
-          git commit -m "chore: auto collect" || echo "no change"
+          git commit -m "chore: auto collect $(date +%F)" || echo "no change"
           git push || echo "push skip"
