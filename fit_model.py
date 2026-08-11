@@ -124,6 +124,8 @@ RESID_WIN = 60                 # boot60 의 최근 잔차 창(개월). 현재 �
 MIN_CONF = 20                  # 온라인 conformal 보정에 필요한 선행 origin 수
 BAND_DEFAULT = "conformal"     # growth 에 실을 기본 밴드 (폴백: boot → norm)
 
+EXCLUDE_LIVE = {"AZ"}
+
 # 타깃 정의 — (market, entity, var, L(가용지연 개월), pass_through, 부하권역)
 TARGETS = [
     ("US-RETAIL", "AZ", "retail_ind", 3, 1.0, None),
@@ -606,7 +608,7 @@ def main():
         tmode = pick_mode(vals)
         gmode = pick_mode([gas_hist[k] for k in gh]) if gh else "level"
         lag = yi(dt.date.today().strftime("%Y-%m")) - yi(yms[-1])
-        live_ok = lag <= LIVE_MAX_LAG
+        live_ok = (lag <= LIVE_MAX_LAG) and (entity not in EXCLUDE_LIVE)
         print(f"[TARGET] {name:34s} {len(yms)}개월 {yms[0]}~{yms[-1]} "
               f"transform={tmode} gas={gmode} lag={lag}개월 live={'Y' if live_ok else 'N'}",
               flush=True)
