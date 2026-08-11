@@ -22,6 +22,10 @@ jobs:
         env:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
         run: python fetch_eia_hourly.py
+      - name: EIA daily RTO (load history 10y)
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+        run: python fetch_eia_daily.py || echo "skip fetch_eia_daily"
       - name: FX rates (ECB, no key)
         run: python fetch_fx.py
       - name: FX history (ECB timeseries, no key)
@@ -62,6 +66,8 @@ jobs:
             eia_industrial_prices_monthly.csv
             eia_hourly_rto.json
             eia_hourly_rto.csv
+            eia_rto_monthly.csv
+            eia_rto_monthly.json
             fx_krw.json
             fx_krw.csv
             fx_krw_daily.csv
@@ -77,10 +83,3 @@ jobs:
             panel_monthly.csv
             steo_vintages.csv
             status.json
-      - name: commit back
-        run: |
-          git config user.name "eia-harvester-bot"
-          git config user.email "eia-harvester-bot@users.noreply.github.com"
-          git add -A
-          git commit -m "chore: auto collect $(date +%F)" || echo "no change"
-          git push || echo "push skip"
