@@ -11,7 +11,7 @@
    "transform": "log",
    "gas_transform": "log",
    "lag_months": 3,
-   "live": true,
+   "live": false,
    "pass_through": 1.0,
    "rto": null,
    "sets": {
@@ -376,7 +376,7 @@
  },
  "summary": {
   "scorecard_rows": 195,
-  "growth_rows": 36,
+  "growth_rows": 32,
   "pass": 24,
   "fail": 5,
   "insufficient_n": 31
