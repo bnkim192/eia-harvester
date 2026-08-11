@@ -50,6 +50,8 @@ jobs:
         env:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
         run: python fetch_steo.py || echo "skip fetch_steo"
+      - name: build panel (all sources -> panel_monthly.csv)
+        run: python build_panel.py || echo "skip build_panel"
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -72,6 +74,9 @@ jobs:
             miso_lmp_monthly.csv
             steo_forward_monthly.json
             steo_forward_monthly.csv
+            panel_monthly.csv
+            steo_vintages.csv
+            status.json
       - name: commit back
         run: |
           git config user.name "eia-harvester-bot"
