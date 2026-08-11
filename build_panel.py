@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-build_panel.py — 전력단가 예측 파일럿 패널 빌더 (v1)
+build_panel.py — 전력단가 예측 파일럿 패널 빌더 (v2)
 
 ■ 하는 일
   전 수집기의 raw 산출물을 읽어 모델 입력의 단일 진실인 tidy long 패널을 만든다.
@@ -9,7 +9,8 @@ build_panel.py — 전력단가 예측 파일럿 패널 빌더 (v1)
 
   입력 — 같은 레포(로컬 파일)
     eia_industrial_prices_monthly.json   주별 산업용 소매 (cents/kWh)
-    eia_hourly_rto.csv                   PJM·MISO 시간별 D/DF/NG (MWh) → 월 집계
+    eia_hourly_rto.csv                   PJM·MISO 시간별 D/DF/NG (MWh) → 월 집계 (32개월)
+    eia_rto_monthly.csv                  PJM·MISO 일별 월집계 (92개월, tz=Eastern 고정)
     steo_forward_monthly.json            Henry Hub 실적+전망 ($/MMBtu)
     miso_lmp_monthly.json                MICHIGAN.HUB·INDIANA.HUB 월평균 ($/MWh)
     fx_krw_monthly.csv                   ₩/현지통화 월평균·월말 (fetch_fx_history.py)
@@ -88,6 +89,17 @@ def fmt(v):
     if v is None:
         return ""
     return f"{float(v):.6g}"
+
+
+def fnum(r, col):
+    """CSV 셀 → float 또는 None (빈칸·비수치 안전)."""
+    v = (r.get(col) or "").strip()
+    if v == "":
+        return None
+    try:
+        return float(v)
+    except Exception:
+        return None
 
 
 # ── 로더 공통 ─────────────────────────────────────────
@@ -203,6 +215,45 @@ def load_rto():
             if ym in gNG and gNG[ym]:
                 rows.append(mk(ym, "US-RTO", resp, "ng_net", sum(gNG[ym]), "MWh", src))
     return report("eia_hourly_rto", rows, None, {"respondents": resps})
+
+
+# ── 2b) EIA 일별 RTO 월집계 (부하 히스토리 92개월) ──────
+def load_rto_daily():
+    """fetch_eia_daily.py v3 산출(tz=Eastern 고정). 시간별을 대체하지 않고 병행한다.
+       var 에 d_ 접두어를 붙여 분리 — d_peak_day_mwh(일 최대 에너지)는
+       peak_mw(순간 최대 수요)와 의미가 다르다. OT ③송전료 대리지표에는 peak_mw 만 쓴다."""
+    src = "eia_rto_monthly.csv"
+    if not os.path.exists(src):
+        return report("eia_rto_daily", [], "파일 없음 — fetch_eia_daily.py 실행 확인")
+    rows, partial = [], set()
+    try:
+        with open(src, encoding="utf-8-sig") as f:
+            for r in csv.DictReader(f):
+                ym = (r.get("ym") or "").strip()
+                resp = (r.get("respondent") or "").strip()
+                if not ym or not resp:
+                    continue
+                days = fnum(r, "days") or 0
+                # 부분월 가드 — 25일 미만은 월합·월최대로 쓸 수 없다(진행 중인 당월 등)
+                st = "ok" if days >= 25 else "partial"
+                if st == "partial":
+                    partial.add(f"{ym}({int(days)}일)")
+                peak = fnum(r, "peak_day_mwh")
+                mean = fnum(r, "mean_day_mwh")
+                for var, val, unit in (("d_load_mwh", fnum(r, "load_mwh"), "MWh"),
+                                       ("d_peak_day_mwh", peak, "MWh/day"),
+                                       ("d_df_err", fnum(r, "df_err"), "ratio"),
+                                       ("d_ng_mwh", fnum(r, "ng_mwh"), "MWh")):
+                    if val is not None:
+                        rows.append(mk(ym, "US-RTO", resp, var, val, unit, src, "actual", st))
+                if peak and mean is not None:
+                    rows.append(mk(ym, "US-RTO", resp, "d_load_factor", mean / peak,
+                                   "ratio", src, "actual", st))
+    except Exception as e:
+        return report("eia_rto_daily", [], f"CSV 읽기 실패 {e}")
+    if partial:
+        note(f"일별 RTO 부분월(일수<25) status=partial: {sorted(partial)}")
+    return report("eia_rto_daily", rows, None, {"partial_months": sorted(partial)})
 
 
 # ── 3) STEO Henry Hub (패널 + vintage 곡선) ─────────────
@@ -459,10 +510,10 @@ def merge_vintages(new):
 
 # ── main ─────────────────────────────────────────────
 def main():
-    print(f"=== build_panel v1 · {NOW.isoformat()[:19]} · 기준월 {CUR_YM} ===", flush=True)
+    print(f"=== build_panel v2 · {NOW.isoformat()[:19]} · 기준월 {CUR_YM} ===", flush=True)
     new = []
     steo_rows, vints = load_steo()
-    for part in (load_retail(), load_rto(), steo_rows, load_miso(),
+    for part in (load_retail(), load_rto(), load_rto_daily(), steo_rows, load_miso(),
                  load_fx(), load_ieso(), load_ga(), load_pl()):
         new += part
 
