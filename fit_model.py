@@ -1,8 +1,34 @@
 # -*- coding: utf-8 -*-
 """
-fit_model.py — 전력단가 예측 파일럿 성장경로·백테스트 (v2)
+fit_model.py — 전력단가 예측 파일럿 성장경로·백테스트 (v3)
 
-■ v2 변경 — 예측구간을 정규분포 가정에서 경험분위로 바꾼다
+■ v3 변경 — 밴드를 **온라인 conformal** 로 보정한다 (v2 부트스트랩 실패의 정면 대응)
+  v2 에서 경험분위(boot·boot60)를 넣었으나 **OH 를 고치지 못했다.** 세 방식이 거의 같은
+  값을 냈다는 것은 잔차 분포의 **모양이 문제가 아니라는 뜻**이다. 역산하면 명확하다.
+      OH h=12 : 밴드 ±1.28·s_in 인데 커버리지 50%  →  s_out / s_in = **1.90**
+      US h=12 : 커버리지 100%                      →  s_out / s_in ≤ **0.51**
+  즉 **표본내 잔차가 표본외 오차의 척도를 반대 방향으로 잘못 추정**한다.
+      · OH  — 소매경쟁 레짐 점프. 과거 점프는 학습에서 일부 적합돼 잔차가 작아지지만
+              미래 점프는 예측 불가라 실제 오차가 크다 → 밴드가 좁다(과신)
+      · US·TN — 학습 구간(2018~2021)이 최근보다 변동이 컸다 → 밴드가 넓다(보수)
+  분포 모양을 바꿔도 척도가 틀리면 고쳐지지 않는다. **표본외 오차로 직접 보정해야 한다.**
+
+  → **온라인 conformal.** origin O 의 밴드는 **O 이전 origin 들의 실제 예측오차**만 쓴다.
+      d_i   = r_실제_i − mu_i                       (변환공간의 표본외 오차)
+      band  = mu_O + quantile({d_i : i < O}, 10%·90%)
+  · 부호를 보존한 분위(|d| 가 아니라 d)를 쓰므로 **편의(bias)까지 자동 보정**된다.
+  · 각 밴드가 자기 시점 이전 정보만 쓰므로 **커버리지 측정이 정직하다**(누출 없음).
+  · 선행 origin 이 MIN_CONF(20) 개 이상 쌓인 뒤부터 밴드를 내고, 그 전은 norm 폴백.
+  · live 예측의 밴드는 해당 (타깃·세트·h) 백테스트 오차 풀 전체의 분위를 쓴다.
+
+  ■ 한계를 명시한다 — h 가 클수록 검증 표본이 남지 않는다
+    OH h=12 는 `n_origins`=24 이므로 앞 20개를 보정에 쓰면 **4개로만 커버리지를 측정**한다.
+    통계적으로 의미 있는 수가 아니다. h=1·3(46·42 origin)에서는 제대로 작동하지만
+    **h≥12 의 밴드 검증은 표본이 더 쌓인 뒤에나 가능하다** → `n_conf` 를 함께 싣고
+    작으면 "밴드 미검증"으로 읽어야 한다. 비교 공정성을 위해 같은 부분집합에서 잰
+    `cover80_norm_sub` 도 함께 낸다.
+
+■ v2 변경 — 예측구간을 정규분포 가정에서 경험분위로 바꾼다 (v3에서 비교군으로 유지)
   1차 백테스트(2026-08-11)에서 명목 80% 밴드의 실제 커버리지가 양방향으로 크게 벗어났다.
       OH  67 → 62 → 56 → 50 → 14 %  (h 커질수록 붕괴 — 과신)
       TN·US·PL·OT  92~100 %          (과대 — 보수)
@@ -22,8 +48,8 @@ fit_model.py — 전력단가 예측 파일럿 성장경로·백테스트 (v2)
       cover80_norm    정규분포 가정 (v1 방식)
       cover80_boot    경험분위, 전 잔차
       cover80_boot60  경험분위, 최근 60개 잔차만 (현재 변동성 국면 반영)
-  `growth_monthly.csv` 는 기본값으로 boot 를 싣고 norm 을 비교용으로 함께 낸다.
-  스코어카드에서 boot60 이 이기면 다음 버전에서 기본값을 바꾼다.
+  [v3에서 대체됨] 실측 결과 boot60 이 23행 중 14행으로 근소하게 이겼으나 OH 를 못 고쳤다.
+  growth 의 기본 밴드는 conformal 이고, boot·norm 은 폴백·비교군으로만 남긴다.
 
 ■ 입력  panel_monthly.csv (build_panel.py v2 산출) · steo_vintages.csv
 ■ 산출  growth_monthly.csv     앵커 없는 성장경로 + 80% 밴드
@@ -95,7 +121,8 @@ Z80 = 1.2815515655446004       # 80% 양측 (정규 비교용)
 LIVE_MAX_LAG = 4               # 최신 실적이 이보다 오래되면 live 예측 생략
 BAND_LO, BAND_HI = 10.0, 90.0  # 경험분위 백분율 (80% 구간)
 RESID_WIN = 60                 # boot60 의 최근 잔차 창(개월). 현재 변동성 국면 반영용
-BAND_DEFAULT = "boot"          # growth 에 실을 기본 밴드. 스코어카드로 재판정한다
+MIN_CONF = 20                  # 온라인 conformal 보정에 필요한 선행 origin 수
+BAND_DEFAULT = "conformal"     # growth 에 실을 기본 밴드 (폴백: boot → norm)
 
 # 타깃 정의 — (market, entity, var, L(가용지연 개월), pass_through, 부하권역)
 TARGETS = [
@@ -220,14 +247,27 @@ def band_quantiles(X, yy, beta, XtXi, x0, window=None):
             float(np.percentile(es, BAND_HI)) * scale)
 
 
-def cover(act, lo, hi):
-    """실측이 밴드 안에 들어온 비율(%). 밴드가 없으면 None."""
-    if not act or lo is None or hi is None:
-        return None
-    a = np.array(act, dtype=float)
-    l = np.array([v if v is not None else -np.inf for v in lo], dtype=float)
-    u = np.array([v if v is not None else np.inf for v in hi], dtype=float)
-    return round(float(np.mean((a >= l) & (a <= u)) * 100.0), 1)
+def cover(act, lo, hi, mask=None):
+    """실측이 밴드 안에 들어온 비율(%). mask 가 있으면 True 인 원소만 센다.
+       반환 (비율, 표본수). 표본이 없으면 (None, 0)."""
+    if not act:
+        return None, 0
+    idx = [i for i in range(len(act))
+           if (mask is None or mask[i]) and lo[i] is not None and hi[i] is not None]
+    if not idx:
+        return None, 0
+    a = np.array([act[i] for i in idx], dtype=float)
+    l = np.array([lo[i] for i in idx], dtype=float)
+    u = np.array([hi[i] for i in idx], dtype=float)
+    return round(float(np.mean((a >= l) & (a <= u)) * 100.0), 1), len(idx)
+
+
+def conf_offsets(errs):
+    """표본외 오차 풀의 부호보존 분위 → (lo_off, hi_off). 편의까지 함께 보정된다."""
+    if len(errs) < MIN_CONF:
+        return None, None
+    return (float(np.percentile(errs, BAND_LO)),
+            float(np.percentile(errs, BAND_HI)))
 
 
 # ── ETS (가법 Holt-Winters, numpy 없이도 되는 순수 파이썬) ──
@@ -374,8 +414,10 @@ def backtest(name, y, gas, h, L, featfns, tmode, gmode):
         return None
     p = len(ex_all[0][3])
     acc = {k: [] for k in ("act", "pred", "lk", "b_last", "b_s12", "b_ets",
-                           "lo_n", "hi_n", "lo_b", "hi_b", "lo_b60", "hi_b60")}
+                           "lo_n", "hi_n", "lo_b", "hi_b", "lo_b60", "hi_b60",
+                           "lo_c", "hi_c", "conf_ok")}
     coefs = []
+    errs = []          # 표본외 오차 풀(시간순). origin O 는 O 이전 것만 쓴다 → 누출 없음
     # origin O 는 y_(O+h) 가 실적으로 있는 구간만 (사후 채점 가능해야 한다)
     for Oi in range(lo_i + L + h, hi_i - h + 1):
         actual = y.get(ys(Oi + h))
@@ -406,6 +448,15 @@ def backtest(name, y, gas, h, L, featfns, tmode, gmode):
             ql, qh = band_quantiles(X, yy, beta, XtXi, x0v, win)
             acc["lo_" + tag].append(untf(base, mu + ql, tmode) if ql is not None else None)
             acc["hi_" + tag].append(untf(base, mu + qh, tmode) if qh is not None else None)
+        # v3) 온라인 conformal — 이 origin 이전의 표본외 오차만 쓴다
+        clo, chi = conf_offsets(errs)
+        if clo is None:
+            acc["lo_c"].append(None); acc["hi_c"].append(None)
+            acc["conf_ok"].append(False)
+        else:
+            acc["lo_c"].append(untf(base, mu + clo, tmode))
+            acc["hi_c"].append(untf(base, mu + chi, tmode))
+            acc["conf_ok"].append(True)
         # 벤치마크 1) 마지막값 유지
         acc["b_last"].append(base)
         # 벤치마크 2) 계절나이브 — 같은 달의 가장 최근 실적(O−L 이하)
@@ -421,14 +472,21 @@ def backtest(name, y, gas, h, L, featfns, tmode, gmode):
         st = hw_state(name, y, lo_i, Oi - L)
         ev = hw_forecast(st, h + L) if st else None
         acc["b_ets"].append(ev if (ev is not None and math.isfinite(ev)) else base)
+        # 채점이 끝난 뒤에 오차를 보정 풀에 넣는다 — 순서가 뒤바뀌면 누출이다
+        errs.append((tf(actual, tmode) - tf(base, tmode)) - mu)
 
     m = metrics(acc["act"], acc["pred"], acc["lk"])
     if not m:
         return None
+    cn, _ = cover(acc["act"], acc["lo_n"], acc["hi_n"])
+    cb, _ = cover(acc["act"], acc["lo_b"], acc["hi_b"])
+    c60, _ = cover(acc["act"], acc["lo_b60"], acc["hi_b60"])
+    cc, n_conf = cover(acc["act"], acc["lo_c"], acc["hi_c"], acc["conf_ok"])
+    cn_sub, _ = cover(acc["act"], acc["lo_n"], acc["hi_n"], acc["conf_ok"])
     out = {"model": m, "coef_gas_mean": round(float(np.mean(coefs)), 4) if coefs else None,
-           "cover80_norm": cover(acc["act"], acc["lo_n"], acc["hi_n"]),
-           "cover80_boot": cover(acc["act"], acc["lo_b"], acc["hi_b"]),
-           "cover80_boot60": cover(acc["act"], acc["lo_b60"], acc["hi_b60"])}
+           "cover80_norm": cn, "cover80_boot": cb, "cover80_boot60": c60,
+           "cover80_conf": cc, "n_conf": n_conf, "cover80_norm_sub": cn_sub,
+           "conf": conf_offsets(errs), "n_errs": len(errs)}
     for bn, key in (("naive_last", "b_last"), ("naive_s12", "b_s12"), ("ets", "b_ets")):
         bm = metrics(acc["act"], acc[key], acc["lk"])
         out[bn] = bm
@@ -437,8 +495,9 @@ def backtest(name, y, gas, h, L, featfns, tmode, gmode):
 
 
 # ── live 성장경로 ────────────────────────────────────
-def growth(name, y, gas_live, gas_hist, h, L, featfns, tmode, gmode, kinds):
-    """마지막 실적 기준 origin 에서 h 앞을 예측. gas_live 는 실적+forward 병합."""
+def growth(name, y, gas_live, gas_hist, h, L, featfns, tmode, gmode, kinds, conf=None):
+    """마지막 실적 기준 origin 에서 h 앞을 예측. gas_live 는 실적+forward 병합.
+       밴드 우선순위: conformal(백테스트 오차 풀) → boot(학습 잔차) → norm."""
     yms = sorted(y)
     if not yms:
         return None
@@ -466,11 +525,18 @@ def growth(name, y, gas_live, gas_hist, h, L, featfns, tmode, gmode, kinds):
     lo_n = untf(base, mu - Z80 * se, tmode)
     hi_n = untf(base, mu + Z80 * se, tmode)
     ql, qh = band_quantiles(X, yy, beta, XtXi, x0v, None)
-    lo = untf(base, mu + ql, tmode) if ql is not None else lo_n
-    hi = untf(base, mu + qh, tmode) if qh is not None else hi_n
+    lo_b = untf(base, mu + ql, tmode) if ql is not None else lo_n
+    hi_b = untf(base, mu + qh, tmode) if qh is not None else hi_n
+    if conf and conf[0] is not None:
+        lo, hi, method = (untf(base, mu + conf[0], tmode),
+                          untf(base, mu + conf[1], tmode), "conformal")
+    elif ql is not None:
+        lo, hi, method = lo_b, hi_b, "boot"
+    else:
+        lo, hi, method = lo_n, hi_n, "norm"
     return {"target_ym": t, "level": lvl, "lo": lo, "hi": hi,
             "lo_norm": lo_n, "hi_norm": hi_n, "base": b,
-            "band_method": BAND_DEFAULT if ql is not None else "norm_fallback",
+            "band_method": method,
             "index": (lvl / b) if b else None,
             "index_lo": (lo / b) if b else None,
             "index_hi": (hi / b) if b else None,
@@ -489,7 +555,7 @@ def coef_flag(mode, b):
 
 
 def main():
-    print(f"=== fit_model v2 · {NOW.isoformat()[:19]} ===", flush=True)
+    print(f"=== fit_model v3 · {NOW.isoformat()[:19]} ===", flush=True)
     A, F = load_panel()
     if A is None:
         STATUSJ["fatal"] = f"{IN_PANEL} 없음"
@@ -569,9 +635,12 @@ def main():
             else:
                 note(f"{name}: 부하 계열({rto}) 없음 → 세트 B 생략")
 
+        conf_by_h = {}                     # (세트, h) → conformal 오프셋. growth 가 재사용한다
         for sname, featfns in sets:
             for h in HORIZONS:
                 res = backtest(name, y, gas_hist, h, L, featfns, tmode, gmode)
+                if res:
+                    conf_by_h[(sname, h)] = res.get("conf")
                 if not res:
                     score_rows.append({"target": name, "set": sname, "model": "direct_ols",
                                        "horizon": h, "n_origins": 0, "gate": "insufficient_n",
@@ -594,6 +663,9 @@ def main():
                        "cover80_norm": res.get("cover80_norm"),
                        "cover80_boot": res.get("cover80_boot"),
                        "cover80_boot60": res.get("cover80_boot60"),
+                       "cover80_conf": res.get("cover80_conf"),
+                       "n_conf": res.get("n_conf"),
+                       "cover80_norm_sub": res.get("cover80_norm_sub"),
                        "skill_vs_naive_last": res.get("skill_vs_naive_last"),
                        "skill_vs_naive_s12": res.get("skill_vs_naive_s12"),
                        "skill_vs_ets": res.get("skill_vs_ets"),
@@ -603,9 +675,11 @@ def main():
                        "run_vintage": TODAY}
                 score_rows.append(row)
                 print(f"   {sname} h={h:2d} n={m['n']:3d} MAPE={m['mape']:6.2f}% "
-                      f"cov80(norm/boot/boot60)={res.get('cover80_norm')}/"
-                      f"{res.get('cover80_boot')}/{res.get('cover80_boot60')} "
-                      f"skill(last/s12/ets)={sk[0]}/{sk[1]}/{sk[2]} → {gate}", flush=True)
+                      f"cov80 norm={res.get('cover80_norm')} boot={res.get('cover80_boot')} "
+                      f"b60={res.get('cover80_boot60')} "
+                      f"CONF={res.get('cover80_conf')}(n={res.get('n_conf')} "
+                      f"vs norm_sub={res.get('cover80_norm_sub')}) "
+                      f"skill={sk[0]}/{sk[1]}/{sk[2]} → {gate}", flush=True)
                 STATUSJ["targets"][name]["sets"].setdefault(sname, {})[str(h)] = {
                     "n_origins": m["n"], "mape": m["mape"], "gate": gate}
 
@@ -625,7 +699,8 @@ def main():
             if not live_ok:
                 continue
             for h in HORIZONS:
-                g = growth(name, y, gas_live, gas_hist, h, L, featfns, tmode, gmode, kinds)
+                g = growth(name, y, gas_live, gas_hist, h, L, featfns, tmode, gmode,
+                           kinds, conf_by_h.get((sname, h)))
                 if not g:
                     continue
                 growth_rows.append({
@@ -650,7 +725,8 @@ def main():
     # ── 저장 ──
     sc_cols = ["target", "set", "model", "horizon", "n_origins", "mape", "smape", "mae",
                "rmse", "bias", "dir_acc", "cover80_norm", "cover80_boot",
-               "cover80_boot60", "skill_vs_naive_last", "skill_vs_naive_s12",
+               "cover80_boot60", "cover80_conf", "n_conf", "cover80_norm_sub",
+               "skill_vs_naive_last", "skill_vs_naive_s12",
                "skill_vs_ets", "coef_gas", "coef_flag", "gate", "gas_path",
                "transform", "run_vintage"]
     gr_cols = ["target", "market", "entity", "var", "set", "horizon", "ym", "tier", "kind",
