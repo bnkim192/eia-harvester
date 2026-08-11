@@ -260,21 +260,33 @@ def load_fx():
         note("fx_krw_monthly.csv 없음 → 최신 스냅샷만 적재(status=partial). ₩환산 백테스트 불가. "
              "fetch_fx_history.py 실행 확인 필요.")
         return report("fx", rows, None, {"fallback": True})
-    rows = []
+    rows, partial = [], set()
     try:
         with open(src, encoding="utf-8-sig") as f:
             for r in csv.DictReader(f):
                 ym, ccy = (r.get("ym") or "").strip(), (r.get("ccy") or "").strip()
                 if not ym or not ccy:
                     continue
+                # 부분월 가드 — 영업일 15일 미만은 월평균으로 쓸 수 없다.
+                # 실측 2014-12는 1일뿐이다(2015-01-01이 ECB 휴일이라 직전 영업일 2014-12-31이
+                # 범위 조회에 딸려온 것). 진행 중인 당월도 여기 걸린다.
+                try:
+                    nd = int(float(r.get("n_days") or 0))
+                except Exception:
+                    nd = 0
+                st = "ok" if nd >= 15 else "partial"
+                if st == "partial":
+                    partial.add(f"{ym}({nd}일)")
                 for col, var in (("fx_krw_avg", "fx_krw_avg"), ("fx_krw_eom", "fx_krw_eom")):
                     v = (r.get(col) or "").strip()
                     if v == "":
                         continue
-                    rows.append(mk(ym, "GLOBAL", ccy, var, v, "KRW/unit", src))
+                    rows.append(mk(ym, "GLOBAL", ccy, var, v, "KRW/unit", src, "actual", st))
     except Exception as e:
         return report("fx", [], f"CSV 읽기 실패 {e}")
-    return report("fx", rows)
+    if partial:
+        note(f"FX 부분월(영업일<15) status=partial: {sorted(partial)}")
+    return report("fx", rows, None, {"partial_months": sorted(partial)})
 
 
 # ── 6) IESO 온타리오 (HOEP · 존가격 · 성분) ─────────────
