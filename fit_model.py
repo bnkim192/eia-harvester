@@ -1,6 +1,29 @@
 # -*- coding: utf-8 -*-
 """
-fit_model.py — 전력단가 예측 파일럿 성장경로·백테스트 (v1)
+fit_model.py — 전력단가 예측 파일럿 성장경로·백테스트 (v2)
+
+■ v2 변경 — 예측구간을 정규분포 가정에서 경험분위로 바꾼다
+  1차 백테스트(2026-08-11)에서 명목 80% 밴드의 실제 커버리지가 양방향으로 크게 벗어났다.
+      OH  67 → 62 → 56 → 50 → 14 %  (h 커질수록 붕괴 — 과신)
+      TN·US·PL·OT  92~100 %          (과대 — 보수)
+  OH 는 소매경쟁 레짐 점프가 잔차 분포를 두껍게 만드는데 `mu ± z·s·sqrt(1+h0)` 의
+  **정규분포 가정이 그 꼬리를 담지 못한다.** 위험 판단에서 과신은 과대보다 해롭다.
+
+  → **스튜던트화 잔차의 경험분위**로 교체한다(잔차 부트스트랩의 해석적 형태).
+      e_i        = y_i − x_i·beta                (학습 잔차)
+      h_i        = x_i' (X'X)^-1 x_i             (관측별 leverage)
+      es_i       = e_i / sqrt(1 − h_i)           (표준화 — 적합점 근처 과소분산 보정)
+      h0         = x0' (X'X)^-1 x0
+      band       = mu + quantile(es, 10%·90%) × sqrt(1 + h0)
+  리샘플 루프가 없어 비용이 0 에 가깝고, **꼬리 모양을 잔차에서 그대로 가져온다.**
+  log 변환 타깃은 이 구간을 지수화하므로 수준 공간에서 자동으로 **비대칭 밴드**가 된다.
+
+  ■ 어느 방식이 맞는지 추측하지 않는다 — 3개를 동시에 재고 데이터가 고르게 한다
+      cover80_norm    정규분포 가정 (v1 방식)
+      cover80_boot    경험분위, 전 잔차
+      cover80_boot60  경험분위, 최근 60개 잔차만 (현재 변동성 국면 반영)
+  `growth_monthly.csv` 는 기본값으로 boot 를 싣고 norm 을 비교용으로 함께 낸다.
+  스코어카드에서 boot60 이 이기면 다음 버전에서 기본값을 바꾼다.
 
 ■ 입력  panel_monthly.csv (build_panel.py v2 산출) · steo_vintages.csv
 ■ 산출  growth_monthly.csv     앵커 없는 성장경로 + 80% 밴드
@@ -68,8 +91,11 @@ TODAY = NOW.date().isoformat()
 HORIZONS = [1, 3, 6, 12, 17, 24]
 MIN_TRAIN = 48                 # 최소 학습 예제 수 (§5-2)
 MIN_ORIGINS = 24               # 게이트 (§5-5)
-Z80 = 1.2815515655446004       # 80% 양측
+Z80 = 1.2815515655446004       # 80% 양측 (정규 비교용)
 LIVE_MAX_LAG = 4               # 최신 실적이 이보다 오래되면 live 예측 생략
+BAND_LO, BAND_HI = 10.0, 90.0  # 경험분위 백분율 (80% 구간)
+RESID_WIN = 60                 # boot60 의 최근 잔차 창(개월). 현재 변동성 국면 반영용
+BAND_DEFAULT = "boot"          # growth 에 실을 기본 밴드. 스코어카드로 재판정한다
 
 # 타깃 정의 — (market, entity, var, L(가용지연 개월), pass_through, 부하권역)
 TARGETS = [
@@ -178,7 +204,33 @@ def ols_pred(beta, s2, XtXi, x0):
     return mu, math.sqrt(max(var, 0.0))
 
 
-# ── ETS (가법 Holt-Winters, 순수 파이썬) ──────────────
+def band_quantiles(X, yy, beta, XtXi, x0, window=None):
+    """스튜던트화 잔차의 경험분위로 예측구간 오프셋 (lo, hi) 를 낸다.
+       정규분포 가정 없이 꼬리 모양을 잔차에서 그대로 가져온다.
+       X 는 시간 오름차순이므로 window 는 '최근 N개 잔차'를 뜻한다."""
+    resid = yy - X @ beta
+    h = np.einsum("ij,jk,ik->i", X, XtXi, X)          # 관측별 leverage
+    es = resid / np.sqrt(np.clip(1.0 - h, 1e-6, None))
+    if window and es.size > window:
+        es = es[-window:]
+    if es.size < 8:                                   # 분위가 불안정하면 포기
+        return None, None
+    scale = math.sqrt(1.0 + float(x0 @ XtXi @ x0))
+    return (float(np.percentile(es, BAND_LO)) * scale,
+            float(np.percentile(es, BAND_HI)) * scale)
+
+
+def cover(act, lo, hi):
+    """실측이 밴드 안에 들어온 비율(%). 밴드가 없으면 None."""
+    if not act or lo is None or hi is None:
+        return None
+    a = np.array(act, dtype=float)
+    l = np.array([v if v is not None else -np.inf for v in lo], dtype=float)
+    u = np.array([v if v is not None else np.inf for v in hi], dtype=float)
+    return round(float(np.mean((a >= l) & (a <= u)) * 100.0), 1)
+
+
+# ── ETS (가법 Holt-Winters, numpy 없이도 되는 순수 파이썬) ──
 def hw_fit(y, m=12, grid=(0.1, 0.2, 0.3, 0.5)):
     """(a,b,g) 격자탐색으로 SSE 최소. 반환 (level, trend, seasonal, n) 또는 None."""
     n = len(y)
@@ -281,7 +333,8 @@ def build_examples(y, gas, h, L, featfns, tmode, gmode, oi_lo, oi_hi):
 
 
 # ── 지표 ─────────────────────────────────────────────
-def metrics(act, pred, lo, hi, last_known):
+def metrics(act, pred, last_known):
+    """커버리지는 밴드 방식별로 따로 재므로(cover()) 여기서는 정확도만 낸다."""
     n = len(act)
     if n == 0:
         return None
@@ -298,10 +351,9 @@ def metrics(act, pred, lo, hi, last_known):
     bias = float(np.mean(err))
     lk = np.array(last_known, dtype=float)
     da = float(np.mean(np.sign(p - lk) == np.sign(a - lk)) * 100.0)
-    cov = float(np.mean((a >= np.array(lo)) & (a <= np.array(hi))) * 100.0)
     return {"n": n, "mape": round(mape, 3), "smape": round(smape, 3),
             "mae": round(mae, 4), "rmse": round(rmse, 4), "bias": round(bias, 4),
-            "dir_acc": round(da, 1), "cover80": round(cov, 1)}
+            "dir_acc": round(da, 1)}
 
 
 def skill(m_model, m_bench):
@@ -321,8 +373,8 @@ def backtest(name, y, gas, h, L, featfns, tmode, gmode):
     if len(ex_all) < MIN_TRAIN + 2:
         return None
     p = len(ex_all[0][3])
-    acc = {k: [] for k in ("act", "pred", "lo", "hi", "lk",
-                           "b_last", "b_s12", "b_ets")}
+    acc = {k: [] for k in ("act", "pred", "lk", "b_last", "b_s12", "b_ets",
+                           "lo_n", "hi_n", "lo_b", "hi_b", "lo_b60", "hi_b60")}
     coefs = []
     # origin O 는 y_(O+h) 가 실적으로 있는 구간만 (사후 채점 가능해야 한다)
     for Oi in range(lo_i + L + h, hi_i - h + 1):
@@ -340,14 +392,20 @@ def backtest(name, y, gas, h, L, featfns, tmode, gmode):
         yy = np.array([e[2] for e in train], dtype=float)
         if X.shape[0] <= p:
             continue
+        x0v = np.array(x0, dtype=float)
         beta, s2, XtXi = ols_fit(X, yy)
-        mu, se = ols_pred(beta, s2, XtXi, np.array(x0, dtype=float))
+        mu, se = ols_pred(beta, s2, XtXi, x0v)
         acc["act"].append(actual)
         acc["pred"].append(untf(base, mu, tmode))
-        acc["lo"].append(untf(base, mu - Z80 * se, tmode))
-        acc["hi"].append(untf(base, mu + Z80 * se, tmode))
         acc["lk"].append(base)
         coefs.append(float(beta[1]))
+        # 밴드 3종을 동시에 재서 어느 방식이 맞는지 데이터가 고르게 한다
+        acc["lo_n"].append(untf(base, mu - Z80 * se, tmode))
+        acc["hi_n"].append(untf(base, mu + Z80 * se, tmode))
+        for tag, win in (("b", None), ("b60", RESID_WIN)):
+            ql, qh = band_quantiles(X, yy, beta, XtXi, x0v, win)
+            acc["lo_" + tag].append(untf(base, mu + ql, tmode) if ql is not None else None)
+            acc["hi_" + tag].append(untf(base, mu + qh, tmode) if qh is not None else None)
         # 벤치마크 1) 마지막값 유지
         acc["b_last"].append(base)
         # 벤치마크 2) 계절나이브 — 같은 달의 가장 최근 실적(O−L 이하)
@@ -364,13 +422,15 @@ def backtest(name, y, gas, h, L, featfns, tmode, gmode):
         ev = hw_forecast(st, h + L) if st else None
         acc["b_ets"].append(ev if (ev is not None and math.isfinite(ev)) else base)
 
-    m = metrics(acc["act"], acc["pred"], acc["lo"], acc["hi"], acc["lk"])
+    m = metrics(acc["act"], acc["pred"], acc["lk"])
     if not m:
         return None
-    out = {"model": m, "coef_gas_mean": round(float(np.mean(coefs)), 4) if coefs else None}
+    out = {"model": m, "coef_gas_mean": round(float(np.mean(coefs)), 4) if coefs else None,
+           "cover80_norm": cover(acc["act"], acc["lo_n"], acc["hi_n"]),
+           "cover80_boot": cover(acc["act"], acc["lo_b"], acc["hi_b"]),
+           "cover80_boot60": cover(acc["act"], acc["lo_b60"], acc["hi_b60"])}
     for bn, key in (("naive_last", "b_last"), ("naive_s12", "b_s12"), ("ets", "b_ets")):
-        # 벤치마크의 cover80 은 모델 밴드를 쓰므로 의미가 없다 → 출력 컬럼에서 제외한다.
-        bm = metrics(acc["act"], acc[key], acc["lo"], acc["hi"], acc["lk"])
+        bm = metrics(acc["act"], acc[key], acc["lk"])
         out[bn] = bm
         out["skill_vs_" + bn] = skill(m, bm)
     return out
@@ -397,14 +457,20 @@ def growth(name, y, gas_live, gas_hist, h, L, featfns, tmode, gmode, kinds):
     yy = np.array([e[2] for e in ex], dtype=float)
     if X.shape[0] <= X.shape[1]:
         return None
+    x0v = np.array(x0, dtype=float)
     beta, s2, XtXi = ols_fit(X, yy)
-    mu, se = ols_pred(beta, s2, XtXi, np.array(x0, dtype=float))
+    mu, se = ols_pred(beta, s2, XtXi, x0v)
     base12 = [y[ys(i)] for i in range(last_i - 11, last_i + 1) if ys(i) in y]
     b = (sum(base12) / len(base12)) if base12 else base
     lvl = untf(base, mu, tmode)
-    lo = untf(base, mu - Z80 * se, tmode)
-    hi = untf(base, mu + Z80 * se, tmode)
-    return {"target_ym": t, "level": lvl, "lo": lo, "hi": hi, "base": b,
+    lo_n = untf(base, mu - Z80 * se, tmode)
+    hi_n = untf(base, mu + Z80 * se, tmode)
+    ql, qh = band_quantiles(X, yy, beta, XtXi, x0v, None)
+    lo = untf(base, mu + ql, tmode) if ql is not None else lo_n
+    hi = untf(base, mu + qh, tmode) if qh is not None else hi_n
+    return {"target_ym": t, "level": lvl, "lo": lo, "hi": hi,
+            "lo_norm": lo_n, "hi_norm": hi_n, "base": b,
+            "band_method": BAND_DEFAULT if ql is not None else "norm_fallback",
             "index": (lvl / b) if b else None,
             "index_lo": (lo / b) if b else None,
             "index_hi": (hi / b) if b else None,
@@ -423,7 +489,7 @@ def coef_flag(mode, b):
 
 
 def main():
-    print(f"=== fit_model v1 · {NOW.isoformat()[:19]} ===", flush=True)
+    print(f"=== fit_model v2 · {NOW.isoformat()[:19]} ===", flush=True)
     A, F = load_panel()
     if A is None:
         STATUSJ["fatal"] = f"{IN_PANEL} 없음"
@@ -524,7 +590,10 @@ def main():
                 row = {"target": name, "set": sname, "model": "direct_ols", "horizon": h,
                        "n_origins": m["n"], "mape": m["mape"], "smape": m["smape"],
                        "mae": m["mae"], "rmse": m["rmse"], "bias": m["bias"],
-                       "dir_acc": m["dir_acc"], "cover80": m["cover80"],
+                       "dir_acc": m["dir_acc"],
+                       "cover80_norm": res.get("cover80_norm"),
+                       "cover80_boot": res.get("cover80_boot"),
+                       "cover80_boot60": res.get("cover80_boot60"),
                        "skill_vs_naive_last": res.get("skill_vs_naive_last"),
                        "skill_vs_naive_s12": res.get("skill_vs_naive_s12"),
                        "skill_vs_ets": res.get("skill_vs_ets"),
@@ -534,8 +603,9 @@ def main():
                        "run_vintage": TODAY}
                 score_rows.append(row)
                 print(f"   {sname} h={h:2d} n={m['n']:3d} MAPE={m['mape']:6.2f}% "
-                      f"cov80={m['cover80']:5.1f}% skill(last/s12/ets)="
-                      f"{sk[0]}/{sk[1]}/{sk[2]} → {gate}", flush=True)
+                      f"cov80(norm/boot/boot60)={res.get('cover80_norm')}/"
+                      f"{res.get('cover80_boot')}/{res.get('cover80_boot60')} "
+                      f"skill(last/s12/ets)={sk[0]}/{sk[1]}/{sk[2]} → {gate}", flush=True)
                 STATUSJ["targets"][name]["sets"].setdefault(sname, {})[str(h)] = {
                     "n_origins": m["n"], "mape": m["mape"], "gate": gate}
 
@@ -568,6 +638,9 @@ def main():
                     "index_hi": round(g["index_hi"], 5) if g["index_hi"] else "",
                     "level_native": round(g["level"], 4),
                     "level_lo": round(g["lo"], 4), "level_hi": round(g["hi"], 4),
+                    "level_lo_norm": round(g["lo_norm"], 4),
+                    "level_hi_norm": round(g["hi_norm"], 4),
+                    "band_method": g["band_method"],
                     "pass_through": ptr, "base_window": g["base_window"],
                     "base_level": round(g["base"], 4), "gas_path": g["gas_kind"],
                     "n_train": g["n_train"], "coef_gas": g["coef_gas"],
@@ -576,12 +649,14 @@ def main():
 
     # ── 저장 ──
     sc_cols = ["target", "set", "model", "horizon", "n_origins", "mape", "smape", "mae",
-               "rmse", "bias", "dir_acc", "cover80", "skill_vs_naive_last",
-               "skill_vs_naive_s12", "skill_vs_ets", "coef_gas", "coef_flag", "gate",
-               "gas_path", "transform", "run_vintage"]
+               "rmse", "bias", "dir_acc", "cover80_norm", "cover80_boot",
+               "cover80_boot60", "skill_vs_naive_last", "skill_vs_naive_s12",
+               "skill_vs_ets", "coef_gas", "coef_flag", "gate", "gas_path",
+               "transform", "run_vintage"]
     gr_cols = ["target", "market", "entity", "var", "set", "horizon", "ym", "tier", "kind",
                "transform", "index", "index_lo", "index_hi", "level_native", "level_lo",
-               "level_hi", "pass_through", "base_window", "base_level", "gas_path",
+               "level_hi", "level_lo_norm", "level_hi_norm", "band_method",
+               "pass_through", "base_window", "base_level", "gas_path",
                "n_train", "coef_gas", "coef_flag", "vintage"]
     for path, cols, rows in ((OUT_SCORE, sc_cols, score_rows),
                              (OUT_GROWTH, gr_cols, growth_rows)):
