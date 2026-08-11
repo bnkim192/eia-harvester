@@ -1,0 +1,296 @@
+{
+ "built_at": "2026-08-11",
+ "base_ym": "2026-08",
+ "sources": {
+  "steo_gas": {
+   "rows": 120,
+   "latest_ym": "2027-12",
+   "first_ym": "2018-01",
+   "ok": true,
+   "note": ""
+  },
+  "eia_retail": {
+   "rows": 822,
+   "latest_ym": "2026-05",
+   "first_ym": "2015-01",
+   "ok": true,
+   "note": ""
+  },
+  "eia_hourly_rto": {
+   "rows": 320,
+   "latest_ym": "2026-08",
+   "first_ym": "2024-01",
+   "ok": true,
+   "note": "",
+   "respondents": [
+    "MISO",
+    "PJM"
+   ]
+  },
+  "miso_lmp": {
+   "rows": 8,
+   "latest_ym": "2026-08",
+   "first_ym": "2026-01",
+   "ok": true,
+   "note": ""
+  },
+  "fx": {
+   "rows": 1692,
+   "latest_ym": "2026-08",
+   "first_ym": "2014-12",
+   "ok": true,
+   "note": "",
+   "partial_months": [
+    "2014-12(1일)",
+    "2026-08(6일)"
+   ]
+  },
+  "ieso_price": {
+   "rows": 97,
+   "latest_ym": "2026-08",
+   "first_ym": "2018-01",
+   "ok": true,
+   "note": "",
+   "gap_months": 13,
+   "zonal_months": 3,
+   "hoep_months": 88
+  },
+  "ieso_ga": {
+   "rows": 39,
+   "latest_ym": "2026-07",
+   "first_ym": "2025-07",
+   "ok": true,
+   "note": "",
+   "gate_fail": []
+  },
+  "entsoe_pl": {
+   "rows": 81,
+   "latest_ym": "2026-08",
+   "first_ym": "2019-12",
+   "ok": true,
+   "note": ""
+  }
+ },
+ "panel": {
+  "added": 3179,
+  "revised": 0,
+  "unchanged": 0,
+  "rows": 3179,
+  "keys": 3179
+ },
+ "vintages": {
+  "rows": 17,
+  "added": 17
+ },
+ "coverage": {
+  "CA-IESO/ga_class_b_amount": {
+   "months": 13,
+   "range": [
+    "2025-07",
+    "2026-07"
+   ],
+   "entities": [
+    "OT"
+   ]
+  },
+  "CA-IESO/ga_class_b_rate": {
+   "months": 13,
+   "range": [
+    "2025-07",
+    "2026-07"
+   ],
+   "entities": [
+    "OT"
+   ]
+  },
+  "CA-IESO/ga_first_estimate_rate": {
+   "months": 13,
+   "range": [
+    "2025-07",
+    "2026-07"
+   ],
+   "entities": [
+    "OT"
+   ]
+  },
+  "CA-IESO/ot_cong": {
+   "months": 3,
+   "range": [
+    "2026-06",
+    "2026-08"
+   ],
+   "entities": [
+    "OT"
+   ]
+  },
+  "CA-IESO/ot_energy_hoep": {
+   "months": 88,
+   "range": [
+    "2018-01",
+    "2025-04"
+   ],
+   "entities": [
+    "OT"
+   ]
+  },
+  "CA-IESO/ot_energy_zonal": {
+   "months": 3,
+   "range": [
+    "2026-06",
+    "2026-08"
+   ],
+   "entities": [
+    "OT"
+   ]
+  },
+  "CA-IESO/ot_loss": {
+   "months": 3,
+   "range": [
+    "2026-06",
+    "2026-08"
+   ],
+   "entities": [
+    "OT"
+   ]
+  },
+  "GLOBAL/fx_krw_avg": {
+   "months": 141,
+   "range": [
+    "2014-12",
+    "2026-08"
+   ],
+   "entities": [
+    "CAD",
+    "CNY",
+    "EUR",
+    "IDR",
+    "PLN",
+    "USD"
+   ]
+  },
+  "GLOBAL/fx_krw_eom": {
+   "months": 141,
+   "range": [
+    "2014-12",
+    "2026-08"
+   ],
+   "entities": [
+    "CAD",
+    "CNY",
+    "EUR",
+    "IDR",
+    "PLN",
+    "USD"
+   ]
+  },
+  "GLOBAL/hh_gas": {
+   "months": 120,
+   "range": [
+    "2018-01",
+    "2027-12"
+   ],
+   "entities": [
+    "US"
+   ]
+  },
+  "PL-ENTSOE/pl_price": {
+   "months": 81,
+   "range": [
+    "2019-12",
+    "2026-08"
+   ],
+   "entities": [
+    "PL"
+   ]
+  },
+  "US-MISO/lmp_da": {
+   "months": 8,
+   "range": [
+    "2026-01",
+    "2026-08"
+   ],
+   "entities": [
+    "MICHIGAN.HUB"
+   ]
+  },
+  "US-RETAIL/retail_ind": {
+   "months": 137,
+   "range": [
+    "2015-01",
+    "2026-05"
+   ],
+   "entities": [
+    "AZ",
+    "GA",
+    "MI",
+    "OH",
+    "TN",
+    "US"
+   ]
+  },
+  "US-RTO/df_err": {
+   "months": 32,
+   "range": [
+    "2024-01",
+    "2026-08"
+   ],
+   "entities": [
+    "MISO",
+    "PJM"
+   ]
+  },
+  "US-RTO/load_factor": {
+   "months": 32,
+   "range": [
+    "2024-01",
+    "2026-08"
+   ],
+   "entities": [
+    "MISO",
+    "PJM"
+   ]
+  },
+  "US-RTO/load_mwh": {
+   "months": 32,
+   "range": [
+    "2024-01",
+    "2026-08"
+   ],
+   "entities": [
+    "MISO",
+    "PJM"
+   ]
+  },
+  "US-RTO/ng_net": {
+   "months": 32,
+   "range": [
+    "2024-01",
+    "2026-08"
+   ],
+   "entities": [
+    "MISO",
+    "PJM"
+   ]
+  },
+  "US-RTO/peak_mw": {
+   "months": 32,
+   "range": [
+    "2024-01",
+    "2026-08"
+   ],
+   "entities": [
+    "MISO",
+    "PJM"
+   ]
+  }
+ },
+ "notes": [
+  "STEO 실적/전망 경계는 '발표월 이전=실적' 휴리스틱이다. 최근 1~2개월은 잠정치 가능.",
+  "FX 부분월(영업일<15) status=partial: ['2014-12(1일)', '2026-08(6일)']",
+  "OT 에너지 계열에 13개월 영구 결손(HOEP 종료~존가격 보존 시작). 두 계열은 가격 정의가 달라 결합하지 않는다."
+ ],
+ "excluded": {
+  "US-PJM": "확보 불가 종결 — EIA v2 라우트 404, Data Miner2 로그인 도메인 사내망 차단"
+ },
+ "anchor_policy": "앵커(사업장 회피단가)는 사내 데이터이므로 이 Public 레포에 두지 않는다. 수준 환산은 HTML 또는 사내 경로에서 수행한다."
+}
