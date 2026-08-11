@@ -35,13 +35,12 @@
    "note": ""
   },
   "fx": {
-   "rows": 1692,
+   "rows": 1680,
    "latest_ym": "2026-08",
-   "first_ym": "2014-12",
+   "first_ym": "2015-01",
    "ok": true,
    "note": "",
    "partial_months": [
-    "2014-12(1일)",
     "2026-08(6일)"
    ]
   },
@@ -72,15 +71,15 @@
   }
  },
  "panel": {
-  "added": 3179,
+  "added": 0,
   "revised": 0,
-  "unchanged": 0,
+  "unchanged": 3167,
   "rows": 3179,
   "keys": 3179
  },
  "vintages": {
   "rows": 17,
-  "added": 17
+  "added": 0
  },
  "coverage": {
   "CA-IESO/ga_class_b_amount": {
@@ -286,7 +285,7 @@
  },
  "notes": [
   "STEO 실적/전망 경계는 '발표월 이전=실적' 휴리스틱이다. 최근 1~2개월은 잠정치 가능.",
-  "FX 부분월(영업일<15) status=partial: ['2014-12(1일)', '2026-08(6일)']",
+  "FX 부분월(영업일<15) status=partial: ['2026-08(6일)']",
   "OT 에너지 계열에 13개월 영구 결손(HOEP 종료~존가격 보존 시작). 두 계열은 가격 정의가 달라 결합하지 않는다."
  ],
  "excluded": {
