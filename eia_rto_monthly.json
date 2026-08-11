@@ -2,10 +2,11 @@
  "source": "EIA v2 electricity/rto (daily) — 월 집계",
  "adopted": {
   "route": "electricity/rto/daily-region-data",
-  "frequency": "daily"
+  "frequency": "daily",
+  "timezone": "Eastern"
  },
  "probe": {
-  "checked_at": "2026-08-11T05:49",
+  "checked_at": "2026-08-11T06:04",
   "rto_routes": [
    "region-data",
    "fuel-type-data",
@@ -16,26 +17,7 @@
    "daily-fuel-type-data",
    "daily-interchange-data"
   ],
-  "rto_routes_daily": [
-   "daily-region-data",
-   "daily-region-sub-ba-data",
-   "daily-fuel-type-data",
-   "daily-interchange-data"
-  ],
   "route_meta": {
-   "electricity/rto/region-data": {
-    "frequency": [
-     "hourly",
-     "local-hourly"
-    ],
-    "facets": [
-     "respondent",
-     "type"
-    ],
-    "data": [
-     "value"
-    ]
-   },
    "electricity/rto/daily-region-data": {
     "frequency": [
      "daily"
@@ -50,26 +32,34 @@
     ]
    }
   },
+  "timezone_values": [
+   "Pacific",
+   "Eastern",
+   "Arizona",
+   "Mountain",
+   "Central"
+  ],
   "candidates": [
-   {
-    "route": "electricity/rto/region-data",
-    "freq": "daily",
-    "reason": "미지원 ['hourly', 'local-hourly']"
-   },
    {
     "route": "electricity/rto/daily-region-data",
     "freq": "daily",
+    "tz": "Eastern",
     "http": 200,
     "rows": 3,
     "ok": true
    }
   ],
-  "adopted": {
-   "route": "electricity/rto/daily-region-data",
-   "frequency": "daily"
-  }
+  "rowcount_check": {
+   "actual": 16647,
+   "expect_max": 25446,
+   "ratio": 0.654
+  },
+  "timezone_in_response": {
+   "Eastern": 16647
+  },
+  "duplicate_overwrites": 0
  },
- "note": "peak_day_mwh 는 일 최대 에너지이며 시간별 peak_mw(순간 최대 수요)가 아니다. build_panel 은 일별 계열을 d_ 접두어 var 로 적재해 시간별과 분리한다.",
+ "note": "peak_day_mwh 는 일 최대 에너지이며 시간별 peak_mw(순간 최대 수요)가 아니다. build_panel 은 일별 계열을 d_ 접두어 var 로 적재해 시간별과 분리한다. 하루 경계는 adopted.timezone 기준이다.",
  "respondents": [
   "MISO",
   "PJM"
@@ -80,7 +70,7 @@
   "NG"
  ],
  "start": "2015-01-01",
- "daily_rows": 82454,
+ "daily_rows": 16647,
  "months": 92,
  "range": [
   "2019-01",
@@ -90,1477 +80,1477 @@
   "MISO": {
    "2019-01": {
     "days": 31,
-    "load_mwh": 57854396.0,
-    "peak_day_mwh": 2204691.0,
-    "mean_day_mwh": 1866270.8,
-    "df_err": -0.026009,
-    "ng_mwh": 54960575.0
+    "load_mwh": 57809756.0,
+    "peak_day_mwh": 2205538.0,
+    "mean_day_mwh": 1864830.8,
+    "df_err": -0.026055,
+    "ng_mwh": 54910631.0
    },
    "2019-02": {
     "days": 28,
-    "load_mwh": 50503005.0,
-    "peak_day_mwh": 2030427.0,
-    "mean_day_mwh": 1803678.8,
-    "df_err": -0.024888,
-    "ng_mwh": 47710137.0
+    "load_mwh": 50524436.0,
+    "peak_day_mwh": 2016098.0,
+    "mean_day_mwh": 1804444.1,
+    "df_err": -0.024879,
+    "ng_mwh": 47735022.0
    },
    "2019-03": {
     "days": 31,
-    "load_mwh": 52378631.0,
-    "peak_day_mwh": 2086157.0,
-    "mean_day_mwh": 1689633.3,
-    "df_err": -0.027832,
-    "ng_mwh": 49754222.0
+    "load_mwh": 52398806.0,
+    "peak_day_mwh": 2067881.0,
+    "mean_day_mwh": 1690284.1,
+    "df_err": -0.027904,
+    "ng_mwh": 49770201.0
    },
    "2019-04": {
     "days": 30,
-    "load_mwh": 47143871.0,
-    "peak_day_mwh": 1706700.0,
-    "mean_day_mwh": 1571462.4,
-    "df_err": -0.026266,
-    "ng_mwh": 43782860.0
+    "load_mwh": 47149484.0,
+    "peak_day_mwh": 1703187.0,
+    "mean_day_mwh": 1571649.5,
+    "df_err": -0.026167,
+    "ng_mwh": 43800273.0
    },
    "2019-05": {
     "days": 31,
-    "load_mwh": 51303599.0,
-    "peak_day_mwh": 1843100.0,
-    "mean_day_mwh": 1654954.8,
-    "df_err": -0.031276,
-    "ng_mwh": 46766577.0
+    "load_mwh": 51292035.0,
+    "peak_day_mwh": 1833564.0,
+    "mean_day_mwh": 1654581.8,
+    "df_err": -0.031323,
+    "ng_mwh": 46743849.0
    },
    "2019-06": {
     "days": 30,
-    "load_mwh": 54504786.0,
-    "peak_day_mwh": 2078832.0,
-    "mean_day_mwh": 1816826.2,
-    "df_err": -0.037237,
-    "ng_mwh": 50213326.0
+    "load_mwh": 54484766.0,
+    "peak_day_mwh": 2073892.0,
+    "mean_day_mwh": 1816158.9,
+    "df_err": -0.037163,
+    "ng_mwh": 50201974.0
    },
    "2019-07": {
     "days": 31,
-    "load_mwh": 63936901.0,
-    "peak_day_mwh": 2372684.0,
-    "mean_day_mwh": 2062480.7,
-    "df_err": -0.026045,
-    "ng_mwh": 59877407.0
+    "load_mwh": 63942671.0,
+    "peak_day_mwh": 2375776.0,
+    "mean_day_mwh": 2062666.8,
+    "df_err": -0.026126,
+    "ng_mwh": 59886164.0
    },
    "2019-08": {
     "days": 31,
-    "load_mwh": 60994384.0,
-    "peak_day_mwh": 2168587.0,
-    "mean_day_mwh": 1967560.8,
-    "df_err": -0.031361,
-    "ng_mwh": 56662017.0
+    "load_mwh": 61014966.0,
+    "peak_day_mwh": 2160180.0,
+    "mean_day_mwh": 1968224.7,
+    "df_err": -0.031348,
+    "ng_mwh": 56680301.0
    },
    "2019-09": {
     "days": 30,
-    "load_mwh": 55991749.0,
-    "peak_day_mwh": 2075808.0,
-    "mean_day_mwh": 1866391.6,
-    "df_err": -0.035341,
-    "ng_mwh": 51795053.0
+    "load_mwh": 55968577.0,
+    "peak_day_mwh": 2077822.0,
+    "mean_day_mwh": 1865619.2,
+    "df_err": -0.035302,
+    "ng_mwh": 51767478.0
    },
    "2019-10": {
     "days": 31,
-    "load_mwh": 50147289.0,
-    "peak_day_mwh": 1985831.0,
-    "mean_day_mwh": 1617654.5,
-    "df_err": -0.035436,
-    "ng_mwh": 47113466.0
+    "load_mwh": 50160813.0,
+    "peak_day_mwh": 1988476.0,
+    "mean_day_mwh": 1618090.7,
+    "df_err": -0.035523,
+    "ng_mwh": 47121208.0
    },
    "2019-11": {
     "days": 30,
-    "load_mwh": 51067219.0,
-    "peak_day_mwh": 2008987.0,
-    "mean_day_mwh": 1702240.6,
-    "df_err": -0.027056,
-    "ng_mwh": 48799714.0
+    "load_mwh": 51090644.0,
+    "peak_day_mwh": 2014338.0,
+    "mean_day_mwh": 1703021.5,
+    "df_err": -0.027141,
+    "ng_mwh": 48828883.0
    },
    "2019-12": {
     "days": 31,
-    "load_mwh": 53708162.0,
-    "peak_day_mwh": 2015708.0,
-    "mean_day_mwh": 1732521.4,
-    "df_err": -0.032386,
-    "ng_mwh": 50910717.0
+    "load_mwh": 53687679.0,
+    "peak_day_mwh": 2012561.0,
+    "mean_day_mwh": 1731860.6,
+    "df_err": -0.032245,
+    "ng_mwh": 50886307.0
    },
    "2020-01": {
     "days": 31,
-    "load_mwh": 54880559.0,
-    "peak_day_mwh": 1983251.0,
-    "mean_day_mwh": 1770340.6,
-    "df_err": -0.027566,
-    "ng_mwh": 51388317.0
+    "load_mwh": 54882577.0,
+    "peak_day_mwh": 1989008.0,
+    "mean_day_mwh": 1770405.7,
+    "df_err": -0.027513,
+    "ng_mwh": 51387554.0
    },
    "2020-02": {
     "days": 29,
-    "load_mwh": 50866761.0,
-    "peak_day_mwh": 1969434.0,
-    "mean_day_mwh": 1754026.2,
-    "df_err": -0.029603,
-    "ng_mwh": 47365427.0
+    "load_mwh": 50874185.0,
+    "peak_day_mwh": 1981851.0,
+    "mean_day_mwh": 1754282.2,
+    "df_err": -0.029749,
+    "ng_mwh": 47377733.0
    },
    "2020-03": {
     "days": 31,
-    "load_mwh": 49260157.0,
-    "peak_day_mwh": 1703242.0,
-    "mean_day_mwh": 1589037.3,
-    "df_err": -0.04309,
-    "ng_mwh": 44837444.0
+    "load_mwh": 49275479.0,
+    "peak_day_mwh": 1697959.0,
+    "mean_day_mwh": 1589531.6,
+    "df_err": -0.042765,
+    "ng_mwh": 44856334.0
    },
    "2020-04": {
     "days": 30,
-    "load_mwh": 43165146.0,
-    "peak_day_mwh": 1530993.0,
-    "mean_day_mwh": 1438838.2,
-    "df_err": -0.050469,
-    "ng_mwh": 38610487.0
+    "load_mwh": 43177083.0,
+    "peak_day_mwh": 1530392.0,
+    "mean_day_mwh": 1439236.1,
+    "df_err": -0.050743,
+    "ng_mwh": 38623498.0
    },
    "2020-05": {
     "days": 31,
-    "load_mwh": 46162397.0,
-    "peak_day_mwh": 1791110.0,
-    "mean_day_mwh": 1489109.6,
-    "df_err": -0.017431,
-    "ng_mwh": 40903510.0
+    "load_mwh": 46156026.0,
+    "peak_day_mwh": 1779134.0,
+    "mean_day_mwh": 1488904.1,
+    "df_err": -0.017891,
+    "ng_mwh": 40895711.0
    },
    "2020-06": {
     "days": 30,
-    "load_mwh": 55215786.0,
-    "peak_day_mwh": 2091023.0,
-    "mean_day_mwh": 1840526.2,
-    "df_err": -0.018121,
-    "ng_mwh": 50475954.0
+    "load_mwh": 55155612.0,
+    "peak_day_mwh": 2090283.0,
+    "mean_day_mwh": 1838520.4,
+    "df_err": -0.018151,
+    "ng_mwh": 50420376.0
    },
    "2020-07": {
     "days": 31,
-    "load_mwh": 64249504.0,
-    "peak_day_mwh": 2240040.0,
-    "mean_day_mwh": 2072564.6,
-    "df_err": -0.023279,
-    "ng_mwh": 59837258.0
+    "load_mwh": 64270158.0,
+    "peak_day_mwh": 2234633.0,
+    "mean_day_mwh": 2073230.9,
+    "df_err": -0.023238,
+    "ng_mwh": 59852765.0
    },
    "2020-08": {
     "days": 31,
-    "load_mwh": 60325291.0,
-    "peak_day_mwh": 2213202.0,
-    "mean_day_mwh": 1945977.1,
-    "df_err": -0.026745,
-    "ng_mwh": 56393052.0
+    "load_mwh": 60333136.0,
+    "peak_day_mwh": 2197626.0,
+    "mean_day_mwh": 1946230.2,
+    "df_err": -0.02671,
+    "ng_mwh": 56403358.0
    },
    "2020-09": {
     "days": 30,
-    "load_mwh": 49741553.0,
-    "peak_day_mwh": 1897226.0,
-    "mean_day_mwh": 1658051.8,
-    "df_err": -0.028334,
-    "ng_mwh": 45865299.0
+    "load_mwh": 49769539.0,
+    "peak_day_mwh": 1898391.0,
+    "mean_day_mwh": 1658984.6,
+    "df_err": -0.028404,
+    "ng_mwh": 45895467.0
    },
    "2020-10": {
     "days": 31,
-    "load_mwh": 48530045.0,
-    "peak_day_mwh": 1684661.0,
-    "mean_day_mwh": 1565485.3,
-    "df_err": -0.017202,
-    "ng_mwh": 45074289.0
+    "load_mwh": 48534309.0,
+    "peak_day_mwh": 1684628.0,
+    "mean_day_mwh": 1565622.9,
+    "df_err": -0.017205,
+    "ng_mwh": 45065999.0
    },
    "2020-11": {
     "days": 30,
-    "load_mwh": 47619690.0,
-    "peak_day_mwh": 1814115.0,
-    "mean_day_mwh": 1587323.0,
-    "df_err": -0.018251,
-    "ng_mwh": 44105225.0
+    "load_mwh": 47570988.0,
+    "peak_day_mwh": 1785029.0,
+    "mean_day_mwh": 1585699.6,
+    "df_err": -0.01832,
+    "ng_mwh": 44062011.0
    },
    "2020-12": {
     "days": 31,
-    "load_mwh": 54135079.0,
-    "peak_day_mwh": 1925288.0,
-    "mean_day_mwh": 1746292.9,
-    "df_err": -0.021647,
-    "ng_mwh": 51397431.0
+    "load_mwh": 54152690.0,
+    "peak_day_mwh": 1929643.0,
+    "mean_day_mwh": 1746861.0,
+    "df_err": -0.021653,
+    "ng_mwh": 51412656.0
    },
    "2021-01": {
     "days": 31,
-    "load_mwh": 55202527.0,
-    "peak_day_mwh": 1958182.0,
-    "mean_day_mwh": 1780726.7,
-    "df_err": -0.013186,
-    "ng_mwh": 53193942.0
+    "load_mwh": 55199512.0,
+    "peak_day_mwh": 1948226.0,
+    "mean_day_mwh": 1780629.4,
+    "df_err": -0.013076,
+    "ng_mwh": 53183680.0
    },
    "2021-02": {
     "days": 28,
-    "load_mwh": 52973582.0,
-    "peak_day_mwh": 2260772.0,
-    "mean_day_mwh": 1891913.6,
-    "df_err": -0.014246,
-    "ng_mwh": 50886138.0
+    "load_mwh": 52987584.0,
+    "peak_day_mwh": 2256896.0,
+    "mean_day_mwh": 1892413.7,
+    "df_err": -0.014377,
+    "ng_mwh": 50912281.0
    },
    "2021-03": {
     "days": 31,
-    "load_mwh": 49238235.0,
-    "peak_day_mwh": 1763008.0,
-    "mean_day_mwh": 1588330.2,
-    "df_err": -0.010201,
-    "ng_mwh": 46577890.0
+    "load_mwh": 49235186.0,
+    "peak_day_mwh": 1763519.0,
+    "mean_day_mwh": 1588231.8,
+    "df_err": -0.010122,
+    "ng_mwh": 46574497.0
    },
    "2021-04": {
     "days": 30,
-    "load_mwh": 46173813.0,
-    "peak_day_mwh": 1640700.0,
-    "mean_day_mwh": 1539127.1,
-    "df_err": -0.006077,
-    "ng_mwh": 43583601.0
+    "load_mwh": 46195586.0,
+    "peak_day_mwh": 1642947.0,
+    "mean_day_mwh": 1539852.9,
+    "df_err": -0.005988,
+    "ng_mwh": 43596216.0
    },
    "2021-05": {
     "days": 31,
-    "load_mwh": 49308647.0,
-    "peak_day_mwh": 1903972.0,
-    "mean_day_mwh": 1590601.5,
-    "df_err": -0.014774,
-    "ng_mwh": 46725214.0
+    "load_mwh": 49305915.0,
+    "peak_day_mwh": 1903527.0,
+    "mean_day_mwh": 1590513.4,
+    "df_err": -0.014942,
+    "ng_mwh": 46727310.0
    },
    "2021-06": {
     "days": 30,
-    "load_mwh": 58404025.0,
-    "peak_day_mwh": 2168724.0,
-    "mean_day_mwh": 1946800.8,
-    "df_err": -0.012048,
-    "ng_mwh": 55178534.0
+    "load_mwh": 58351159.0,
+    "peak_day_mwh": 2168012.0,
+    "mean_day_mwh": 1945038.6,
+    "df_err": -0.012021,
+    "ng_mwh": 55121450.0
    },
    "2021-07": {
     "days": 31,
-    "load_mwh": 62152980.0,
-    "peak_day_mwh": 2278654.0,
-    "mean_day_mwh": 2004934.8,
-    "df_err": -0.02179,
-    "ng_mwh": 59628790.0
+    "load_mwh": 62170567.0,
+    "peak_day_mwh": 2277850.0,
+    "mean_day_mwh": 2005502.2,
+    "df_err": -0.0217,
+    "ng_mwh": 59644605.0
    },
    "2021-08": {
     "days": 31,
-    "load_mwh": 63751471.0,
-    "peak_day_mwh": 2290862.0,
-    "mean_day_mwh": 2056499.1,
-    "df_err": -0.026153,
-    "ng_mwh": 62017203.0
+    "load_mwh": 63756492.0,
+    "peak_day_mwh": 2290697.0,
+    "mean_day_mwh": 2056661.0,
+    "df_err": -0.026154,
+    "ng_mwh": 62022532.0
    },
    "2021-09": {
     "days": 30,
-    "load_mwh": 52266196.0,
-    "peak_day_mwh": 1943143.0,
-    "mean_day_mwh": 1742206.5,
-    "df_err": -0.023207,
-    "ng_mwh": 50449637.0
+    "load_mwh": 52271539.0,
+    "peak_day_mwh": 1941816.0,
+    "mean_day_mwh": 1742384.6,
+    "df_err": -0.023281,
+    "ng_mwh": 50459021.0
    },
    "2021-10": {
     "days": 31,
-    "load_mwh": 50810241.0,
-    "peak_day_mwh": 1770360.0,
-    "mean_day_mwh": 1639040.0,
-    "df_err": -0.015434,
-    "ng_mwh": 48837601.0
+    "load_mwh": 50831453.0,
+    "peak_day_mwh": 1770357.0,
+    "mean_day_mwh": 1639724.3,
+    "df_err": -0.015422,
+    "ng_mwh": 48856554.0
    },
    "2021-11": {
     "days": 30,
-    "load_mwh": 49385614.0,
-    "peak_day_mwh": 1753709.0,
-    "mean_day_mwh": 1646187.1,
-    "df_err": -0.020265,
-    "ng_mwh": 49303124.0
+    "load_mwh": 49366869.0,
+    "peak_day_mwh": 1759431.0,
+    "mean_day_mwh": 1645562.3,
+    "df_err": -0.020242,
+    "ng_mwh": 49271987.0
    },
    "2021-12": {
     "days": 31,
-    "load_mwh": 52602156.0,
-    "peak_day_mwh": 1892083.0,
-    "mean_day_mwh": 1696843.7,
-    "df_err": -0.028401,
-    "ng_mwh": 50869375.0
+    "load_mwh": 52606750.0,
+    "peak_day_mwh": 1891906.0,
+    "mean_day_mwh": 1696991.9,
+    "df_err": -0.028156,
+    "ng_mwh": 50893297.0
    },
    "2022-01": {
     "days": 31,
-    "load_mwh": 58895154.0,
-    "peak_day_mwh": 2107519.0,
-    "mean_day_mwh": 1899843.7,
-    "df_err": -0.01687,
-    "ng_mwh": 59554732.0
+    "load_mwh": 58877930.0,
+    "peak_day_mwh": 2114375.0,
+    "mean_day_mwh": 1899288.1,
+    "df_err": -0.016888,
+    "ng_mwh": 59508034.0
    },
    "2022-02": {
     "days": 28,
-    "load_mwh": 51534847.0,
-    "peak_day_mwh": 2080872.0,
-    "mean_day_mwh": 1840530.2,
-    "df_err": -0.016055,
-    "ng_mwh": 51192240.0
+    "load_mwh": 51537908.0,
+    "peak_day_mwh": 2076075.0,
+    "mean_day_mwh": 1840639.6,
+    "df_err": -0.015892,
+    "ng_mwh": 51220116.0
    },
    "2022-03": {
     "days": 31,
-    "load_mwh": 51013035.0,
-    "peak_day_mwh": 1824561.0,
-    "mean_day_mwh": 1645581.8,
-    "df_err": -0.018861,
-    "ng_mwh": 48791131.0
+    "load_mwh": 51022499.0,
+    "peak_day_mwh": 1831619.0,
+    "mean_day_mwh": 1645887.1,
+    "df_err": -0.018903,
+    "ng_mwh": 48806053.0
    },
    "2022-04": {
     "days": 30,
-    "load_mwh": 47570469.0,
-    "peak_day_mwh": 1668616.0,
-    "mean_day_mwh": 1585682.3,
-    "df_err": -0.016348,
-    "ng_mwh": 45828939.0
+    "load_mwh": 47590579.0,
+    "peak_day_mwh": 1659943.0,
+    "mean_day_mwh": 1586352.6,
+    "df_err": -0.016392,
+    "ng_mwh": 45835857.0
    },
    "2022-05": {
     "days": 31,
-    "load_mwh": 52783355.0,
-    "peak_day_mwh": 2008564.0,
-    "mean_day_mwh": 1702688.9,
-    "df_err": -0.018875,
-    "ng_mwh": 49655087.0
+    "load_mwh": 52736334.0,
+    "peak_day_mwh": 1997948.0,
+    "mean_day_mwh": 1701172.1,
+    "df_err": -0.019058,
+    "ng_mwh": 49612827.0
    },
    "2022-06": {
     "days": 30,
-    "load_mwh": 58813477.0,
-    "peak_day_mwh": 2302557.0,
-    "mean_day_mwh": 1960449.2,
-    "df_err": -0.032337,
-    "ng_mwh": 56093473.0
+    "load_mwh": 58798405.0,
+    "peak_day_mwh": 2290705.0,
+    "mean_day_mwh": 1959946.8,
+    "df_err": -0.032185,
+    "ng_mwh": 56081713.0
    },
    "2022-07": {
     "days": 31,
-    "load_mwh": 63870526.0,
-    "peak_day_mwh": 2315998.0,
-    "mean_day_mwh": 2060339.5,
-    "df_err": -0.028869,
-    "ng_mwh": 62746702.0
+    "load_mwh": 63884794.0,
+    "peak_day_mwh": 2319129.0,
+    "mean_day_mwh": 2060799.8,
+    "df_err": -0.028814,
+    "ng_mwh": 62762646.0
    },
    "2022-08": {
     "days": 31,
-    "load_mwh": 61378386.0,
-    "peak_day_mwh": 2183722.0,
-    "mean_day_mwh": 1979947.9,
-    "df_err": -0.027269,
-    "ng_mwh": 59584373.0
+    "load_mwh": 61381094.0,
+    "peak_day_mwh": 2191306.0,
+    "mean_day_mwh": 1980035.3,
+    "df_err": -0.027347,
+    "ng_mwh": 59589719.0
    },
    "2022-09": {
     "days": 30,
-    "load_mwh": 53016244.0,
-    "peak_day_mwh": 2047109.0,
-    "mean_day_mwh": 1767208.1,
-    "df_err": -0.038644,
-    "ng_mwh": 51180074.0
+    "load_mwh": 53065051.0,
+    "peak_day_mwh": 2041558.0,
+    "mean_day_mwh": 1768835.0,
+    "df_err": -0.038508,
+    "ng_mwh": 51222654.0
    },
    "2022-10": {
     "days": 31,
-    "load_mwh": 48234505.0,
-    "peak_day_mwh": 1658177.0,
-    "mean_day_mwh": 1555951.8,
-    "df_err": -0.030921,
-    "ng_mwh": 47862506.0
+    "load_mwh": 48229287.0,
+    "peak_day_mwh": 1657351.0,
+    "mean_day_mwh": 1555783.5,
+    "df_err": -0.030897,
+    "ng_mwh": 47855136.0
    },
    "2022-11": {
     "days": 30,
-    "load_mwh": 50038596.0,
-    "peak_day_mwh": 1878820.0,
-    "mean_day_mwh": 1667953.2,
-    "df_err": -0.028249,
-    "ng_mwh": 50112865.0
+    "load_mwh": 49995561.0,
+    "peak_day_mwh": 1883438.0,
+    "mean_day_mwh": 1666518.7,
+    "df_err": -0.028402,
+    "ng_mwh": 50064332.0
    },
    "2022-12": {
     "days": 31,
-    "load_mwh": 56040126.0,
-    "peak_day_mwh": 2305389.0,
-    "mean_day_mwh": 1807746.0,
-    "df_err": -0.030217,
-    "ng_mwh": 57233660.0
+    "load_mwh": 56079358.0,
+    "peak_day_mwh": 2299624.0,
+    "mean_day_mwh": 1809011.5,
+    "df_err": -0.03014,
+    "ng_mwh": 57276996.0
    },
    "2023-01": {
     "days": 31,
-    "load_mwh": 54412454.0,
-    "peak_day_mwh": 2011303.0,
-    "mean_day_mwh": 1755240.5,
-    "df_err": -0.021222,
-    "ng_mwh": 54218703.0
+    "load_mwh": 54358404.0,
+    "peak_day_mwh": 2011136.0,
+    "mean_day_mwh": 1753496.9,
+    "df_err": -0.021187,
+    "ng_mwh": 54148779.0
    },
    "2023-02": {
     "days": 28,
-    "load_mwh": 48424610.0,
-    "peak_day_mwh": 1991633.0,
-    "mean_day_mwh": 1729450.4,
-    "df_err": -0.025377,
-    "ng_mwh": 46827696.0
+    "load_mwh": 48467767.0,
+    "peak_day_mwh": 1997180.0,
+    "mean_day_mwh": 1730991.7,
+    "df_err": -0.025153,
+    "ng_mwh": 46888237.0
    },
    "2023-03": {
     "days": 31,
-    "load_mwh": 51576911.0,
-    "peak_day_mwh": 1769935.0,
-    "mean_day_mwh": 1663771.3,
-    "df_err": -0.025322,
-    "ng_mwh": 49514129.0
+    "load_mwh": 51588676.0,
+    "peak_day_mwh": 1775791.0,
+    "mean_day_mwh": 1664150.8,
+    "df_err": -0.025218,
+    "ng_mwh": 49526265.0
    },
    "2023-04": {
     "days": 30,
-    "load_mwh": 46375894.0,
-    "peak_day_mwh": 1683022.0,
-    "mean_day_mwh": 1545863.1,
-    "df_err": -0.026595,
-    "ng_mwh": 44357912.0
+    "load_mwh": 46381428.0,
+    "peak_day_mwh": 1676672.0,
+    "mean_day_mwh": 1546047.6,
+    "df_err": -0.02672,
+    "ng_mwh": 44367300.0
    },
    "2023-05": {
     "days": 31,
-    "load_mwh": 51022159.0,
-    "peak_day_mwh": 1983154.0,
-    "mean_day_mwh": 1645876.1,
-    "df_err": -0.026584,
-    "ng_mwh": 47023043.0
+    "load_mwh": 50980288.0,
+    "peak_day_mwh": 1978121.0,
+    "mean_day_mwh": 1644525.4,
+    "df_err": -0.026614,
+    "ng_mwh": 46986276.0
    },
    "2023-06": {
     "days": 30,
-    "load_mwh": 57092272.0,
-    "peak_day_mwh": 2158980.0,
-    "mean_day_mwh": 1903075.7,
-    "df_err": -0.034882,
-    "ng_mwh": 53467496.0
+    "load_mwh": 57070782.0,
+    "peak_day_mwh": 2156426.0,
+    "mean_day_mwh": 1902359.4,
+    "df_err": -0.034939,
+    "ng_mwh": 53442105.0
    },
    "2023-07": {
     "days": 31,
-    "load_mwh": 62895314.0,
-    "peak_day_mwh": 2337087.0,
-    "mean_day_mwh": 2028881.1,
-    "df_err": -0.030544,
-    "ng_mwh": 60493930.0
+    "load_mwh": 62904857.0,
+    "peak_day_mwh": 2327438.0,
+    "mean_day_mwh": 2029188.9,
+    "df_err": -0.030466,
+    "ng_mwh": 60501237.0
    },
    "2023-08": {
     "days": 31,
-    "load_mwh": 63784288.0,
-    "peak_day_mwh": 2428208.0,
-    "mean_day_mwh": 2057557.7,
-    "df_err": -0.029297,
-    "ng_mwh": 60862180.0
+    "load_mwh": 63808541.0,
+    "peak_day_mwh": 2434714.0,
+    "mean_day_mwh": 2058340.0,
+    "df_err": -0.029186,
+    "ng_mwh": 60892854.0
    },
    "2023-09": {
     "days": 30,
-    "load_mwh": 54108399.0,
-    "peak_day_mwh": 2218667.0,
-    "mean_day_mwh": 1803613.3,
-    "df_err": -0.024484,
-    "ng_mwh": 51553322.0
+    "load_mwh": 54118895.0,
+    "peak_day_mwh": 2211700.0,
+    "mean_day_mwh": 1803963.2,
+    "df_err": -0.024523,
+    "ng_mwh": 51561720.0
    },
    "2023-10": {
     "days": 31,
-    "load_mwh": 49881232.0,
-    "peak_day_mwh": 1875212.0,
-    "mean_day_mwh": 1609072.0,
-    "df_err": -0.030843,
-    "ng_mwh": 48993711.0
+    "load_mwh": 49866749.0,
+    "peak_day_mwh": 1870353.0,
+    "mean_day_mwh": 1608604.8,
+    "df_err": -0.030951,
+    "ng_mwh": 48970680.0
    },
    "2023-11": {
     "days": 30,
-    "load_mwh": 49055314.0,
-    "peak_day_mwh": 1886542.0,
-    "mean_day_mwh": 1635177.1,
-    "df_err": -0.023584,
-    "ng_mwh": 47919198.0
+    "load_mwh": 49064392.0,
+    "peak_day_mwh": 1883220.0,
+    "mean_day_mwh": 1635479.7,
+    "df_err": -0.023471,
+    "ng_mwh": 47931230.0
    },
    "2023-12": {
     "days": 31,
-    "load_mwh": 52373753.0,
-    "peak_day_mwh": 1879888.0,
-    "mean_day_mwh": 1689475.9,
-    "df_err": -0.029961,
-    "ng_mwh": 51314272.0
+    "load_mwh": 52377303.0,
+    "peak_day_mwh": 1881506.0,
+    "mean_day_mwh": 1689590.4,
+    "df_err": -0.029942,
+    "ng_mwh": 51317463.0
    },
    "2024-01": {
     "days": 31,
-    "load_mwh": 58364215.0,
-    "peak_day_mwh": 2328762.0,
-    "mean_day_mwh": 1882716.6,
-    "df_err": -0.016691,
-    "ng_mwh": 58196003.0
+    "load_mwh": 58355524.0,
+    "peak_day_mwh": 2323769.0,
+    "mean_day_mwh": 1882436.3,
+    "df_err": -0.016625,
+    "ng_mwh": 58182591.0
    },
    "2024-02": {
     "days": 29,
-    "load_mwh": 48228385.0,
-    "peak_day_mwh": 1794447.0,
-    "mean_day_mwh": 1663047.8,
-    "df_err": -0.029913,
-    "ng_mwh": 47169359.0
+    "load_mwh": 48230636.0,
+    "peak_day_mwh": 1786703.0,
+    "mean_day_mwh": 1663125.4,
+    "df_err": -0.030035,
+    "ng_mwh": 47159950.0
    },
    "2024-03": {
     "days": 31,
-    "load_mwh": 48770736.0,
-    "peak_day_mwh": 1703165.0,
-    "mean_day_mwh": 1573249.5,
-    "df_err": -0.036119,
-    "ng_mwh": 48367337.0
+    "load_mwh": 48798655.0,
+    "peak_day_mwh": 1691485.0,
+    "mean_day_mwh": 1574150.2,
+    "df_err": -0.036065,
+    "ng_mwh": 48408104.0
    },
    "2024-04": {
     "days": 30,
-    "load_mwh": 46792063.0,
-    "peak_day_mwh": 1648978.0,
-    "mean_day_mwh": 1559735.4,
-    "df_err": -0.026557,
-    "ng_mwh": 46593688.0
+    "load_mwh": 46780814.0,
+    "peak_day_mwh": 1648708.0,
+    "mean_day_mwh": 1559360.5,
+    "df_err": -0.026487,
+    "ng_mwh": 46584743.0
    },
    "2024-05": {
     "days": 31,
-    "load_mwh": 52007699.0,
-    "peak_day_mwh": 1901595.0,
-    "mean_day_mwh": 1677667.7,
-    "df_err": -0.023758,
-    "ng_mwh": 51266096.0
+    "load_mwh": 52001991.0,
+    "peak_day_mwh": 1897629.0,
+    "mean_day_mwh": 1677483.6,
+    "df_err": -0.023888,
+    "ng_mwh": 51266827.0
    },
    "2024-06": {
     "days": 30,
-    "load_mwh": 58273708.0,
-    "peak_day_mwh": 2205366.0,
-    "mean_day_mwh": 1942456.9,
-    "df_err": -0.029097,
-    "ng_mwh": 56184779.0
+    "load_mwh": 58254658.0,
+    "peak_day_mwh": 2213296.0,
+    "mean_day_mwh": 1941821.9,
+    "df_err": -0.029078,
+    "ng_mwh": 56149223.0
    },
    "2024-07": {
     "days": 31,
-    "load_mwh": 62873572.0,
-    "peak_day_mwh": 2303280.0,
-    "mean_day_mwh": 2028179.7,
-    "df_err": -0.01041,
-    "ng_mwh": 61463030.0
+    "load_mwh": 62827903.0,
+    "peak_day_mwh": 2299235.0,
+    "mean_day_mwh": 2026706.5,
+    "df_err": -0.009779,
+    "ng_mwh": 61424589.0
    },
    "2024-08": {
     "days": 31,
-    "load_mwh": 63154716.0,
-    "peak_day_mwh": 2377162.0,
-    "mean_day_mwh": 2037248.9,
-    "df_err": -0.02226,
-    "ng_mwh": 61380767.0
+    "load_mwh": 63202435.0,
+    "peak_day_mwh": 2360048.0,
+    "mean_day_mwh": 2038788.2,
+    "df_err": -0.022354,
+    "ng_mwh": 61423046.0
    },
    "2024-09": {
     "days": 30,
-    "load_mwh": 53870495.0,
-    "peak_day_mwh": 2013155.0,
-    "mean_day_mwh": 1795683.2,
-    "df_err": -0.012838,
-    "ng_mwh": 52392902.0
+    "load_mwh": 53881009.0,
+    "peak_day_mwh": 2007465.0,
+    "mean_day_mwh": 1796033.6,
+    "df_err": -0.012688,
+    "ng_mwh": 52409387.0
    },
    "2024-10": {
     "days": 31,
-    "load_mwh": 50104852.0,
-    "peak_day_mwh": 1730382.0,
-    "mean_day_mwh": 1616285.5,
-    "df_err": -0.021452,
-    "ng_mwh": 50176674.0
+    "load_mwh": 50114313.0,
+    "peak_day_mwh": 1737357.0,
+    "mean_day_mwh": 1616590.7,
+    "df_err": -0.021554,
+    "ng_mwh": 50189490.0
    },
    "2024-11": {
     "days": 30,
-    "load_mwh": 49201982.0,
-    "peak_day_mwh": 1782454.0,
-    "mean_day_mwh": 1640066.1,
-    "df_err": -0.01655,
-    "ng_mwh": 49457548.0
+    "load_mwh": 49174038.0,
+    "peak_day_mwh": 1783519.0,
+    "mean_day_mwh": 1639134.6,
+    "df_err": -0.016717,
+    "ng_mwh": 49415067.0
    },
    "2024-12": {
     "days": 31,
-    "load_mwh": 54947809.0,
-    "peak_day_mwh": 2036742.0,
-    "mean_day_mwh": 1772510.0,
-    "df_err": -0.008394,
-    "ng_mwh": 55329050.0
+    "load_mwh": 54964582.0,
+    "peak_day_mwh": 2038444.0,
+    "mean_day_mwh": 1773051.0,
+    "df_err": -0.008219,
+    "ng_mwh": 55359039.0
    },
    "2025-01": {
     "days": 31,
-    "load_mwh": 60658013.0,
-    "peak_day_mwh": 2388104.0,
-    "mean_day_mwh": 1956710.1,
-    "df_err": -0.008338,
-    "ng_mwh": 61494553.0
+    "load_mwh": 60653314.0,
+    "peak_day_mwh": 2377146.0,
+    "mean_day_mwh": 1956558.5,
+    "df_err": -0.0084,
+    "ng_mwh": 61479761.0
    },
    "2025-02": {
     "days": 28,
-    "load_mwh": 51855629.0,
-    "peak_day_mwh": 2227886.0,
-    "mean_day_mwh": 1851986.8,
-    "df_err": -0.010742,
-    "ng_mwh": 52458821.0
+    "load_mwh": 51867842.0,
+    "peak_day_mwh": 2233958.0,
+    "mean_day_mwh": 1852422.9,
+    "df_err": -0.010722,
+    "ng_mwh": 52473606.0
    },
    "2025-03": {
     "days": 31,
-    "load_mwh": 49767868.0,
-    "peak_day_mwh": 1763709.0,
-    "mean_day_mwh": 1605415.1,
-    "df_err": -0.022526,
-    "ng_mwh": 49204067.0
+    "load_mwh": 49766622.0,
+    "peak_day_mwh": 1771924.0,
+    "mean_day_mwh": 1605374.9,
+    "df_err": -0.022499,
+    "ng_mwh": 49212266.0
    },
    "2025-04": {
     "days": 30,
-    "load_mwh": 47810026.0,
-    "peak_day_mwh": 1704660.0,
-    "mean_day_mwh": 1593667.5,
-    "df_err": -0.017255,
-    "ng_mwh": 47363221.0
+    "load_mwh": 47814269.0,
+    "peak_day_mwh": 1706213.0,
+    "mean_day_mwh": 1593809.0,
+    "df_err": -0.017308,
+    "ng_mwh": 47368148.0
    },
    "2025-05": {
     "days": 31,
-    "load_mwh": 50591192.0,
-    "peak_day_mwh": 1918454.0,
-    "mean_day_mwh": 1631973.9,
-    "df_err": -0.018548,
-    "ng_mwh": 47984585.0
+    "load_mwh": 50597592.0,
+    "peak_day_mwh": 1917980.0,
+    "mean_day_mwh": 1632180.4,
+    "df_err": -0.018594,
+    "ng_mwh": 48001437.0
    },
    "2025-06": {
     "days": 30,
-    "load_mwh": 59149322.0,
-    "peak_day_mwh": 2383048.0,
-    "mean_day_mwh": 1971644.1,
-    "df_err": -0.024015,
-    "ng_mwh": 57085292.0
+    "load_mwh": 59092198.0,
+    "peak_day_mwh": 2392212.0,
+    "mean_day_mwh": 1969739.9,
+    "df_err": -0.024032,
+    "ng_mwh": 57014432.0
    },
    "2025-07": {
     "days": 31,
-    "load_mwh": 67308283.0,
-    "peak_day_mwh": 2424751.0,
-    "mean_day_mwh": 2171234.9,
-    "df_err": -0.016061,
-    "ng_mwh": 66005184.0
+    "load_mwh": 67326044.0,
+    "peak_day_mwh": 2429281.0,
+    "mean_day_mwh": 2171807.9,
+    "df_err": -0.015978,
+    "ng_mwh": 66023664.0
    },
    "2025-08": {
     "days": 31,
-    "load_mwh": 62621843.0,
-    "peak_day_mwh": 2304726.0,
-    "mean_day_mwh": 2020059.5,
-    "df_err": -0.017507,
-    "ng_mwh": 60533028.0
+    "load_mwh": 62652211.0,
+    "peak_day_mwh": 2297139.0,
+    "mean_day_mwh": 2021039.1,
+    "df_err": -0.017421,
+    "ng_mwh": 60569804.0
    },
    "2025-09": {
     "days": 30,
-    "load_mwh": 54976772.0,
-    "peak_day_mwh": 2038041.0,
-    "mean_day_mwh": 1832559.1,
-    "df_err": -0.021547,
-    "ng_mwh": 53770139.0
+    "load_mwh": 54962001.0,
+    "peak_day_mwh": 2033480.0,
+    "mean_day_mwh": 1832066.7,
+    "df_err": -0.021572,
+    "ng_mwh": 53748976.0
    },
    "2025-10": {
     "days": 31,
-    "load_mwh": 51620398.0,
-    "peak_day_mwh": 1881019.0,
-    "mean_day_mwh": 1665174.1,
-    "df_err": -0.022556,
-    "ng_mwh": 52562860.0
+    "load_mwh": 51644450.0,
+    "peak_day_mwh": 1882802.0,
+    "mean_day_mwh": 1665950.0,
+    "df_err": -0.022511,
+    "ng_mwh": 52574569.0
    },
    "2025-11": {
     "days": 30,
-    "load_mwh": 51087628.0,
-    "peak_day_mwh": 1888815.0,
-    "mean_day_mwh": 1702920.9,
-    "df_err": 0.001576,
-    "ng_mwh": 51273887.0
+    "load_mwh": 51067254.0,
+    "peak_day_mwh": 1884603.0,
+    "mean_day_mwh": 1702241.8,
+    "df_err": 0.00125,
+    "ng_mwh": 51265206.0
    },
    "2025-12": {
     "days": 31,
-    "load_mwh": 58858880.0,
-    "peak_day_mwh": 2145596.0,
-    "mean_day_mwh": 1898673.5,
-    "df_err": -0.006118,
-    "ng_mwh": 59159163.0
+    "load_mwh": 58870770.0,
+    "peak_day_mwh": 2158181.0,
+    "mean_day_mwh": 1899057.1,
+    "df_err": -0.00624,
+    "ng_mwh": 59172895.0
    },
    "2026-01": {
     "days": 31,
-    "load_mwh": 60395948.0,
-    "peak_day_mwh": 2290254.0,
-    "mean_day_mwh": 1948256.4,
-    "df_err": -0.024996,
-    "ng_mwh": 61657993.0
+    "load_mwh": 60347703.0,
+    "peak_day_mwh": 2283965.0,
+    "mean_day_mwh": 1946700.1,
+    "df_err": -0.025171,
+    "ng_mwh": 61591089.0
    },
    "2026-02": {
     "days": 28,
-    "load_mwh": 50392296.0,
-    "peak_day_mwh": 2082669.0,
-    "mean_day_mwh": 1799724.9,
-    "df_err": -0.027947,
-    "ng_mwh": 52236971.0
+    "load_mwh": 50462258.0,
+    "peak_day_mwh": 2101897.0,
+    "mean_day_mwh": 1802223.5,
+    "df_err": -0.02789,
+    "ng_mwh": 52336221.0
    },
    "2026-03": {
     "days": 31,
-    "load_mwh": 51867156.0,
-    "peak_day_mwh": 1924499.0,
-    "mean_day_mwh": 1673134.1,
-    "df_err": -0.02143,
-    "ng_mwh": 52525054.0
+    "load_mwh": 51868264.0,
+    "peak_day_mwh": 1933993.0,
+    "mean_day_mwh": 1673169.8,
+    "df_err": -0.021569,
+    "ng_mwh": 52515976.0
    },
    "2026-04": {
     "days": 30,
-    "load_mwh": 49374398.0,
-    "peak_day_mwh": 1775667.0,
-    "mean_day_mwh": 1645813.3,
-    "df_err": -0.0199,
-    "ng_mwh": 49708453.0
+    "load_mwh": 49381470.0,
+    "peak_day_mwh": 1772604.0,
+    "mean_day_mwh": 1646049.0,
+    "df_err": -0.019614,
+    "ng_mwh": 49723875.0
    },
    "2026-05": {
     "days": 31,
-    "load_mwh": 52407157.0,
-    "peak_day_mwh": 1954397.0,
-    "mean_day_mwh": 1690553.5,
-    "df_err": -0.018808,
-    "ng_mwh": 51756309.0
+    "load_mwh": 52389282.0,
+    "peak_day_mwh": 1954981.0,
+    "mean_day_mwh": 1689976.8,
+    "df_err": -0.018913,
+    "ng_mwh": 51749873.0
    },
    "2026-06": {
     "days": 30,
-    "load_mwh": 59145261.0,
-    "peak_day_mwh": 2491814.0,
-    "mean_day_mwh": 1971508.7,
-    "df_err": -0.023512,
-    "ng_mwh": 57027896.0
+    "load_mwh": 59068062.0,
+    "peak_day_mwh": 2488181.0,
+    "mean_day_mwh": 1968935.4,
+    "df_err": -0.023529,
+    "ng_mwh": 56943066.0
    },
    "2026-07": {
     "days": 31,
-    "load_mwh": 69188782.0,
-    "peak_day_mwh": 2460535.0,
-    "mean_day_mwh": 2231896.2,
-    "df_err": -0.025289,
-    "ng_mwh": 66818859.0
+    "load_mwh": 69227411.0,
+    "peak_day_mwh": 2468505.0,
+    "mean_day_mwh": 2233142.3,
+    "df_err": -0.025308,
+    "ng_mwh": 66846694.0
    },
    "2026-08": {
     "days": 10,
-    "load_mwh": 21325047.0,
-    "peak_day_mwh": 2337938.0,
-    "mean_day_mwh": 2132504.7,
-    "df_err": -0.011721,
-    "ng_mwh": 18748553.0
+    "load_mwh": 21316403.0,
+    "peak_day_mwh": 2332734.0,
+    "mean_day_mwh": 2131640.3,
+    "df_err": -0.011602,
+    "ng_mwh": 18758051.0
    }
   },
   "PJM": {
    "2019-01": {
     "days": 31,
-    "load_mwh": 75138717.0,
-    "peak_day_mwh": 3031096.0,
-    "mean_day_mwh": 2423829.6,
-    "df_err": 0.008352,
-    "ng_mwh": 71571795.0
+    "load_mwh": 75010176.0,
+    "peak_day_mwh": 3057906.0,
+    "mean_day_mwh": 2419683.1,
+    "df_err": 0.008367,
+    "ng_mwh": 71450536.0
    },
    "2019-02": {
     "days": 28,
-    "load_mwh": 64302437.0,
-    "peak_day_mwh": 2837531.0,
-    "mean_day_mwh": 2296515.6,
-    "df_err": 0.010899,
-    "ng_mwh": 65353223.0
+    "load_mwh": 64379188.0,
+    "peak_day_mwh": 2862343.0,
+    "mean_day_mwh": 2299256.7,
+    "df_err": 0.010799,
+    "ng_mwh": 65409739.0
    },
    "2019-03": {
     "days": 31,
-    "load_mwh": 66275211.0,
-    "peak_day_mwh": 2649603.0,
-    "mean_day_mwh": 2137910.0,
-    "df_err": 0.006828,
-    "ng_mwh": 67658590.0
+    "load_mwh": 66302793.0,
+    "peak_day_mwh": 2652398.0,
+    "mean_day_mwh": 2138799.8,
+    "df_err": 0.007175,
+    "ng_mwh": 67680994.0
    },
    "2019-04": {
     "days": 30,
-    "load_mwh": 55974819.0,
-    "peak_day_mwh": 2146670.0,
-    "mean_day_mwh": 1865827.3,
-    "df_err": 0.000301,
-    "ng_mwh": 58236224.0
+    "load_mwh": 56006050.0,
+    "peak_day_mwh": 2141244.0,
+    "mean_day_mwh": 1866868.3,
+    "df_err": 0.000229,
+    "ng_mwh": 58264750.0
    },
    "2019-05": {
     "days": 31,
-    "load_mwh": 61267745.0,
-    "peak_day_mwh": 2323247.0,
-    "mean_day_mwh": 1976378.9,
-    "df_err": 0.006625,
-    "ng_mwh": 64171145.0
+    "load_mwh": 61251456.0,
+    "peak_day_mwh": 2327367.0,
+    "mean_day_mwh": 1975853.4,
+    "df_err": 0.006572,
+    "ng_mwh": 64166560.0
    },
    "2019-06": {
     "days": 30,
-    "load_mwh": 65504563.0,
-    "peak_day_mwh": 2669343.0,
-    "mean_day_mwh": 2183485.4,
-    "df_err": 0.005875,
-    "ng_mwh": 68835198.0
+    "load_mwh": 65484079.0,
+    "peak_day_mwh": 2668592.0,
+    "mean_day_mwh": 2182802.6,
+    "df_err": 0.006082,
+    "ng_mwh": 68806638.0
    },
    "2019-07": {
     "days": 31,
-    "load_mwh": 81356469.0,
-    "peak_day_mwh": 3053312.0,
-    "mean_day_mwh": 2624402.2,
-    "df_err": 0.011102,
-    "ng_mwh": 84501298.0
+    "load_mwh": 81340855.0,
+    "peak_day_mwh": 3024882.0,
+    "mean_day_mwh": 2623898.5,
+    "df_err": 0.010995,
+    "ng_mwh": 84483384.0
    },
    "2019-08": {
     "days": 31,
-    "load_mwh": 74874096.0,
-    "peak_day_mwh": 2792392.0,
-    "mean_day_mwh": 2415293.4,
-    "df_err": 0.005468,
-    "ng_mwh": 78061976.0
+    "load_mwh": 74913667.0,
+    "peak_day_mwh": 2771654.0,
+    "mean_day_mwh": 2416569.9,
+    "df_err": 0.005582,
+    "ng_mwh": 78102667.0
    },
    "2019-09": {
     "days": 30,
-    "load_mwh": 65749658.0,
-    "peak_day_mwh": 2664071.0,
-    "mean_day_mwh": 2191655.3,
-    "df_err": 0.018124,
-    "ng_mwh": 69092848.0
+    "load_mwh": 65738073.0,
+    "peak_day_mwh": 2649331.0,
+    "mean_day_mwh": 2191269.1,
+    "df_err": 0.01809,
+    "ng_mwh": 69079927.0
    },
    "2019-10": {
     "days": 31,
-    "load_mwh": 58829472.0,
-    "peak_day_mwh": 2488032.0,
-    "mean_day_mwh": 1897724.9,
-    "df_err": 0.012628,
-    "ng_mwh": 60818460.0
+    "load_mwh": 58842148.0,
+    "peak_day_mwh": 2492836.0,
+    "mean_day_mwh": 1898133.8,
+    "df_err": 0.012766,
+    "ng_mwh": 60839911.0
    },
    "2019-11": {
     "days": 30,
-    "load_mwh": 62674635.0,
-    "peak_day_mwh": 2476845.0,
-    "mean_day_mwh": 2089154.5,
-    "df_err": 0.000743,
-    "ng_mwh": 63532807.0
+    "load_mwh": 62670345.0,
+    "peak_day_mwh": 2482566.0,
+    "mean_day_mwh": 2089011.5,
+    "df_err": 0.000956,
+    "ng_mwh": 63521927.0
    },
    "2019-12": {
     "days": 31,
-    "load_mwh": 68398130.0,
-    "peak_day_mwh": 2621703.0,
-    "mean_day_mwh": 2206391.3,
-    "df_err": 0.008926,
-    "ng_mwh": 69974589.0
+    "load_mwh": 68385091.0,
+    "peak_day_mwh": 2626574.0,
+    "mean_day_mwh": 2205970.7,
+    "df_err": 0.008993,
+    "ng_mwh": 69961680.0
    },
    "2020-01": {
     "days": 31,
-    "load_mwh": 69201688.0,
-    "peak_day_mwh": 2576484.0,
-    "mean_day_mwh": 2232312.5,
-    "df_err": 0.012198,
-    "ng_mwh": 71354421.0
+    "load_mwh": 69188658.0,
+    "peak_day_mwh": 2576851.0,
+    "mean_day_mwh": 2231892.2,
+    "df_err": 0.012121,
+    "ng_mwh": 71370527.0
    },
    "2020-02": {
     "days": 29,
-    "load_mwh": 63810023.0,
-    "peak_day_mwh": 2443431.0,
-    "mean_day_mwh": 2200345.6,
-    "df_err": 0.007696,
-    "ng_mwh": 60063714.0
+    "load_mwh": 63793703.0,
+    "peak_day_mwh": 2431470.0,
+    "mean_day_mwh": 2199782.9,
+    "df_err": 0.007679,
+    "ng_mwh": 60045365.0
    },
    "2020-03": {
     "days": 31,
-    "load_mwh": 60359512.0,
-    "peak_day_mwh": 2203913.0,
-    "mean_day_mwh": 1947081.0,
-    "df_err": -0.006429,
-    "ng_mwh": 61586119.0
+    "load_mwh": 60407955.0,
+    "peak_day_mwh": 2196649.0,
+    "mean_day_mwh": 1948643.7,
+    "df_err": -0.006368,
+    "ng_mwh": 61609496.0
    },
    "2020-04": {
     "days": 30,
-    "load_mwh": 52694310.0,
-    "peak_day_mwh": 1902579.0,
-    "mean_day_mwh": 1756477.0,
-    "df_err": -0.003036,
-    "ng_mwh": 55647905.0
+    "load_mwh": 52714099.0,
+    "peak_day_mwh": 1904545.0,
+    "mean_day_mwh": 1757136.6,
+    "df_err": -0.003034,
+    "ng_mwh": 55666209.0
    },
    "2020-05": {
     "days": 31,
-    "load_mwh": 55517168.0,
-    "peak_day_mwh": 2159059.0,
-    "mean_day_mwh": 1790876.4,
-    "df_err": 0.006681,
-    "ng_mwh": 58966025.0
+    "load_mwh": 55526729.0,
+    "peak_day_mwh": 2159160.0,
+    "mean_day_mwh": 1791184.8,
+    "df_err": 0.006706,
+    "ng_mwh": 58971518.0
    },
    "2020-06": {
     "days": 30,
-    "load_mwh": 66196659.0,
-    "peak_day_mwh": 2587783.0,
-    "mean_day_mwh": 2206555.3,
-    "df_err": 0.012246,
-    "ng_mwh": 70344464.0
+    "load_mwh": 66125844.0,
+    "peak_day_mwh": 2598188.0,
+    "mean_day_mwh": 2204194.8,
+    "df_err": 0.012084,
+    "ng_mwh": 70279639.0
    },
    "2020-07": {
     "days": 31,
-    "load_mwh": 82056514.0,
-    "peak_day_mwh": 2895542.0,
-    "mean_day_mwh": 2646984.3,
-    "df_err": 0.017887,
-    "ng_mwh": 85910136.0
+    "load_mwh": 82059183.0,
+    "peak_day_mwh": 2896287.0,
+    "mean_day_mwh": 2647070.4,
+    "df_err": 0.01793,
+    "ng_mwh": 85912993.0
    },
    "2020-08": {
     "days": 31,
-    "load_mwh": 75266072.0,
-    "peak_day_mwh": 2776659.0,
-    "mean_day_mwh": 2427937.8,
-    "df_err": 0.017303,
-    "ng_mwh": 79446577.0
+    "load_mwh": 75280340.0,
+    "peak_day_mwh": 2762373.0,
+    "mean_day_mwh": 2428398.1,
+    "df_err": 0.017228,
+    "ng_mwh": 79448037.0
    },
    "2020-09": {
     "days": 30,
-    "load_mwh": 60935444.0,
-    "peak_day_mwh": 2529860.0,
-    "mean_day_mwh": 2031181.5,
-    "df_err": 0.01112,
-    "ng_mwh": 64882892.0
+    "load_mwh": 60977214.0,
+    "peak_day_mwh": 2535031.0,
+    "mean_day_mwh": 2032573.8,
+    "df_err": 0.011463,
+    "ng_mwh": 64925911.0
    },
    "2020-10": {
     "days": 31,
-    "load_mwh": 57095513.0,
-    "peak_day_mwh": 1967129.0,
-    "mean_day_mwh": 1841790.7,
-    "df_err": 0.015319,
-    "ng_mwh": 60696769.0
+    "load_mwh": 57086585.0,
+    "peak_day_mwh": 1961248.0,
+    "mean_day_mwh": 1841502.7,
+    "df_err": 0.015373,
+    "ng_mwh": 60695540.0
    },
    "2020-11": {
     "days": 30,
-    "load_mwh": 57978903.0,
-    "peak_day_mwh": 2217233.0,
-    "mean_day_mwh": 1932630.1,
-    "df_err": 0.008353,
-    "ng_mwh": 61695423.0
+    "load_mwh": 57951063.0,
+    "peak_day_mwh": 2204173.0,
+    "mean_day_mwh": 1931702.1,
+    "df_err": 0.00829,
+    "ng_mwh": 61660720.0
    },
    "2020-12": {
     "days": 31,
-    "load_mwh": 69679613.0,
-    "peak_day_mwh": 2499312.0,
-    "mean_day_mwh": 2247729.5,
-    "df_err": 0.014298,
-    "ng_mwh": 73002004.0
+    "load_mwh": 69670123.0,
+    "peak_day_mwh": 2498714.0,
+    "mean_day_mwh": 2247423.3,
+    "df_err": 0.014476,
+    "ng_mwh": 72996771.0
    },
    "2021-01": {
     "days": 31,
-    "load_mwh": 71782611.0,
-    "peak_day_mwh": 2608122.0,
-    "mean_day_mwh": 2315568.1,
-    "df_err": 0.017447,
-    "ng_mwh": 74069252.0
+    "load_mwh": 71749872.0,
+    "peak_day_mwh": 2615472.0,
+    "mean_day_mwh": 2314512.0,
+    "df_err": 0.017184,
+    "ng_mwh": 74039320.0
    },
    "2021-02": {
     "days": 28,
-    "load_mwh": 67039770.0,
-    "peak_day_mwh": 2585580.0,
-    "mean_day_mwh": 2394277.5,
-    "df_err": 0.006923,
-    "ng_mwh": 71199310.0
+    "load_mwh": 67097042.0,
+    "peak_day_mwh": 2590585.0,
+    "mean_day_mwh": 2396322.9,
+    "df_err": 0.00711,
+    "ng_mwh": 71248475.0
    },
    "2021-03": {
     "days": 31,
-    "load_mwh": 62092660.0,
-    "peak_day_mwh": 2320430.0,
-    "mean_day_mwh": 2002989.0,
-    "df_err": 0.006806,
-    "ng_mwh": 64889242.0
+    "load_mwh": 62097959.0,
+    "peak_day_mwh": 2315261.0,
+    "mean_day_mwh": 2003160.0,
+    "df_err": 0.006756,
+    "ng_mwh": 64896659.0
    },
    "2021-04": {
     "days": 30,
-    "load_mwh": 55781467.0,
-    "peak_day_mwh": 2095172.0,
-    "mean_day_mwh": 1859382.2,
-    "df_err": 0.002108,
-    "ng_mwh": 58208867.0
+    "load_mwh": 55800196.0,
+    "peak_day_mwh": 2093027.0,
+    "mean_day_mwh": 1860006.5,
+    "df_err": 0.002217,
+    "ng_mwh": 58232092.0
    },
    "2021-05": {
     "days": 31,
-    "load_mwh": 59603569.0,
-    "peak_day_mwh": 2358285.0,
-    "mean_day_mwh": 1922695.8,
-    "df_err": 0.011308,
-    "ng_mwh": 61874269.0
+    "load_mwh": 59609565.0,
+    "peak_day_mwh": 2361824.0,
+    "mean_day_mwh": 1922889.2,
+    "df_err": 0.011114,
+    "ng_mwh": 61884434.0
    },
    "2021-06": {
     "days": 30,
-    "load_mwh": 70577377.0,
-    "peak_day_mwh": 2941629.0,
-    "mean_day_mwh": 2352579.2,
-    "df_err": 0.02725,
-    "ng_mwh": 74632645.0
+    "load_mwh": 70482189.0,
+    "peak_day_mwh": 2935763.0,
+    "mean_day_mwh": 2349406.3,
+    "df_err": 0.027194,
+    "ng_mwh": 74528566.0
    },
    "2021-07": {
     "days": 31,
-    "load_mwh": 77354016.0,
-    "peak_day_mwh": 2858707.0,
-    "mean_day_mwh": 2495290.8,
-    "df_err": 0.009353,
-    "ng_mwh": 81616096.0
+    "load_mwh": 77410027.0,
+    "peak_day_mwh": 2850819.0,
+    "mean_day_mwh": 2497097.6,
+    "df_err": 0.009182,
+    "ng_mwh": 81672196.0
    },
    "2021-08": {
     "days": 31,
-    "load_mwh": 79477443.0,
-    "peak_day_mwh": 2921181.0,
-    "mean_day_mwh": 2563788.5,
-    "df_err": 0.01926,
-    "ng_mwh": 83525323.0
+    "load_mwh": 79443491.0,
+    "peak_day_mwh": 2906092.0,
+    "mean_day_mwh": 2562693.3,
+    "df_err": 0.01932,
+    "ng_mwh": 83494720.0
    },
    "2021-09": {
     "days": 30,
-    "load_mwh": 64743921.0,
-    "peak_day_mwh": 2591508.0,
-    "mean_day_mwh": 2158130.7,
-    "df_err": 0.00882,
-    "ng_mwh": 67983534.0
+    "load_mwh": 64801660.0,
+    "peak_day_mwh": 2589163.0,
+    "mean_day_mwh": 2160055.3,
+    "df_err": 0.008979,
+    "ng_mwh": 68035528.0
    },
    "2021-10": {
     "days": 31,
-    "load_mwh": 59643732.0,
-    "peak_day_mwh": 2153891.0,
-    "mean_day_mwh": 1923991.4,
-    "df_err": 0.01035,
-    "ng_mwh": 62525866.0
+    "load_mwh": 59650312.0,
+    "peak_day_mwh": 2149523.0,
+    "mean_day_mwh": 1924203.6,
+    "df_err": 0.010436,
+    "ng_mwh": 62541751.0
    },
    "2021-11": {
     "days": 30,
-    "load_mwh": 62039621.0,
-    "peak_day_mwh": 2322157.0,
-    "mean_day_mwh": 2067987.4,
-    "df_err": 0.007851,
-    "ng_mwh": 63348296.0
+    "load_mwh": 61988062.0,
+    "peak_day_mwh": 2314544.0,
+    "mean_day_mwh": 2066268.7,
+    "df_err": 0.007869,
+    "ng_mwh": 63301786.0
    },
    "2021-12": {
     "days": 31,
-    "load_mwh": 65985880.0,
-    "peak_day_mwh": 2411193.0,
-    "mean_day_mwh": 2128576.8,
-    "df_err": 0.003569,
-    "ng_mwh": 70032697.0
+    "load_mwh": 66030630.0,
+    "peak_day_mwh": 2415004.0,
+    "mean_day_mwh": 2130020.3,
+    "df_err": 0.003645,
+    "ng_mwh": 70055987.0
    },
    "2022-01": {
     "days": 31,
-    "load_mwh": 77558752.0,
-    "peak_day_mwh": 2784084.0,
-    "mean_day_mwh": 2501895.2,
-    "df_err": 0.010336,
-    "ng_mwh": 80573426.0
+    "load_mwh": 77463729.0,
+    "peak_day_mwh": 2774704.0,
+    "mean_day_mwh": 2498830.0,
+    "df_err": 0.010195,
+    "ng_mwh": 80497688.0
    },
    "2022-02": {
     "days": 28,
-    "load_mwh": 64964011.0,
-    "peak_day_mwh": 2648957.0,
-    "mean_day_mwh": 2320143.2,
-    "df_err": 0.015473,
-    "ng_mwh": 68076379.0
+    "load_mwh": 65010864.0,
+    "peak_day_mwh": 2629075.0,
+    "mean_day_mwh": 2321816.6,
+    "df_err": 0.015684,
+    "ng_mwh": 68107110.0
    },
    "2022-03": {
     "days": 31,
-    "load_mwh": 64039201.0,
-    "peak_day_mwh": 2377908.0,
-    "mean_day_mwh": 2065780.7,
-    "df_err": 0.01331,
-    "ng_mwh": 67348843.0
+    "load_mwh": 64072382.0,
+    "peak_day_mwh": 2363664.0,
+    "mean_day_mwh": 2066851.0,
+    "df_err": 0.012566,
+    "ng_mwh": 67390736.0
    },
    "2022-04": {
     "days": 30,
-    "load_mwh": 57552901.0,
-    "peak_day_mwh": 2127393.0,
-    "mean_day_mwh": 1918430.0,
-    "df_err": 0.009338,
-    "ng_mwh": 58403416.0
+    "load_mwh": 57578307.0,
+    "peak_day_mwh": 2120795.0,
+    "mean_day_mwh": 1919276.9,
+    "df_err": 0.009262,
+    "ng_mwh": 58436733.0
    },
    "2022-05": {
     "days": 31,
-    "load_mwh": 62466559.0,
-    "peak_day_mwh": 2687677.0,
-    "mean_day_mwh": 2015050.3,
-    "df_err": 0.012437,
-    "ng_mwh": 64460755.0
+    "load_mwh": 62382324.0,
+    "peak_day_mwh": 2662097.0,
+    "mean_day_mwh": 2012333.0,
+    "df_err": 0.012375,
+    "ng_mwh": 64373761.0
    },
    "2022-06": {
     "days": 30,
-    "load_mwh": 69412912.0,
-    "peak_day_mwh": 2794695.0,
-    "mean_day_mwh": 2313763.7,
-    "df_err": 0.014473,
-    "ng_mwh": 72399678.0
+    "load_mwh": 69412903.0,
+    "peak_day_mwh": 2775230.0,
+    "mean_day_mwh": 2313763.4,
+    "df_err": 0.014331,
+    "ng_mwh": 72391226.0
    },
    "2022-07": {
     "days": 31,
-    "load_mwh": 79410200.0,
-    "peak_day_mwh": 2960076.0,
-    "mean_day_mwh": 2561619.4,
-    "df_err": 0.010795,
-    "ng_mwh": 82584270.0
+    "load_mwh": 79429785.0,
+    "peak_day_mwh": 2965738.0,
+    "mean_day_mwh": 2562251.1,
+    "df_err": 0.010816,
+    "ng_mwh": 82600267.0
    },
    "2022-08": {
     "days": 31,
-    "load_mwh": 78126300.0,
-    "peak_day_mwh": 2921203.0,
-    "mean_day_mwh": 2520203.2,
-    "df_err": 0.021907,
-    "ng_mwh": 82066714.0
+    "load_mwh": 78138774.0,
+    "peak_day_mwh": 2912235.0,
+    "mean_day_mwh": 2520605.6,
+    "df_err": 0.021902,
+    "ng_mwh": 82078561.0
    },
    "2022-09": {
     "days": 30,
-    "load_mwh": 64025524.0,
-    "peak_day_mwh": 2456820.0,
-    "mean_day_mwh": 2134184.1,
-    "df_err": 0.011835,
-    "ng_mwh": 67835494.0
+    "load_mwh": 64071263.0,
+    "peak_day_mwh": 2451335.0,
+    "mean_day_mwh": 2135708.8,
+    "df_err": 0.011937,
+    "ng_mwh": 67886972.0
    },
    "2022-10": {
     "days": 31,
-    "load_mwh": 58362318.0,
-    "peak_day_mwh": 2065994.0,
-    "mean_day_mwh": 1882655.4,
-    "df_err": 0.013847,
-    "ng_mwh": 60197965.0
+    "load_mwh": 58357348.0,
+    "peak_day_mwh": 2062891.0,
+    "mean_day_mwh": 1882495.1,
+    "df_err": 0.013875,
+    "ng_mwh": 60198687.0
    },
    "2022-11": {
     "days": 30,
-    "load_mwh": 61653754.0,
-    "peak_day_mwh": 2381427.0,
-    "mean_day_mwh": 2055125.1,
-    "df_err": 0.01261,
-    "ng_mwh": 63235172.0
+    "load_mwh": 61599281.0,
+    "peak_day_mwh": 2396296.0,
+    "mean_day_mwh": 2053309.4,
+    "df_err": 0.012673,
+    "ng_mwh": 63181725.0
    },
    "2022-12": {
     "days": 31,
-    "load_mwh": 72702522.0,
-    "peak_day_mwh": 2962654.0,
-    "mean_day_mwh": 2345242.6,
-    "df_err": 0.012426,
-    "ng_mwh": 74772877.0
+    "load_mwh": 72743637.0,
+    "peak_day_mwh": 2988278.0,
+    "mean_day_mwh": 2346568.9,
+    "df_err": 0.012512,
+    "ng_mwh": 74810218.0
    },
    "2023-01": {
     "days": 31,
-    "load_mwh": 69429361.0,
-    "peak_day_mwh": 2445482.0,
-    "mean_day_mwh": 2239656.8,
-    "df_err": 0.013217,
-    "ng_mwh": 71882576.0
+    "load_mwh": 69366945.0,
+    "peak_day_mwh": 2422829.0,
+    "mean_day_mwh": 2237643.4,
+    "df_err": 0.013239,
+    "ng_mwh": 71822618.0
    },
    "2023-02": {
     "days": 28,
-    "load_mwh": 61230387.0,
-    "peak_day_mwh": 2657789.0,
-    "mean_day_mwh": 2186799.5,
-    "df_err": 0.009098,
-    "ng_mwh": 64021609.0
+    "load_mwh": 61267380.0,
+    "peak_day_mwh": 2612727.0,
+    "mean_day_mwh": 2188120.7,
+    "df_err": 0.009052,
+    "ng_mwh": 64051158.0
    },
    "2023-03": {
     "days": 31,
-    "load_mwh": 64922314.0,
-    "peak_day_mwh": 2416942.0,
-    "mean_day_mwh": 2094268.2,
-    "df_err": 0.011506,
-    "ng_mwh": 67970153.0
+    "load_mwh": 64958184.0,
+    "peak_day_mwh": 2401917.0,
+    "mean_day_mwh": 2095425.3,
+    "df_err": 0.011429,
+    "ng_mwh": 68013145.0
    },
    "2023-04": {
     "days": 30,
-    "load_mwh": 56575406.0,
-    "peak_day_mwh": 2015070.0,
-    "mean_day_mwh": 1885846.9,
-    "df_err": 0.004768,
-    "ng_mwh": 58463671.0
+    "load_mwh": 56576430.0,
+    "peak_day_mwh": 2010910.0,
+    "mean_day_mwh": 1885881.0,
+    "df_err": 0.004759,
+    "ng_mwh": 58466340.0
    },
    "2023-05": {
     "days": 31,
-    "load_mwh": 59233403.0,
-    "peak_day_mwh": 2173311.0,
-    "mean_day_mwh": 1910754.9,
-    "df_err": 0.010126,
-    "ng_mwh": 61887370.0
+    "load_mwh": 59212566.0,
+    "peak_day_mwh": 2169490.0,
+    "mean_day_mwh": 1910082.8,
+    "df_err": 0.010039,
+    "ng_mwh": 61857008.0
    },
    "2023-06": {
     "days": 30,
-    "load_mwh": 64166816.0,
-    "peak_day_mwh": 2468469.0,
-    "mean_day_mwh": 2138893.9,
-    "df_err": 0.013132,
-    "ng_mwh": 68919044.0
+    "load_mwh": 64135705.0,
+    "peak_day_mwh": 2462574.0,
+    "mean_day_mwh": 2137856.8,
+    "df_err": 0.01308,
+    "ng_mwh": 68880252.0
    },
    "2023-07": {
     "days": 31,
-    "load_mwh": 79011011.0,
-    "peak_day_mwh": 2955301.0,
-    "mean_day_mwh": 2548742.3,
-    "df_err": 0.012769,
-    "ng_mwh": 83608366.0
+    "load_mwh": 79022493.0,
+    "peak_day_mwh": 2940820.0,
+    "mean_day_mwh": 2549112.7,
+    "df_err": 0.0128,
+    "ng_mwh": 83620480.0
    },
    "2023-08": {
     "days": 31,
-    "load_mwh": 75482947.0,
-    "peak_day_mwh": 2710705.0,
-    "mean_day_mwh": 2434933.8,
-    "df_err": 0.019844,
-    "ng_mwh": 81016097.0
+    "load_mwh": 75505950.0,
+    "peak_day_mwh": 2706936.0,
+    "mean_day_mwh": 2435675.8,
+    "df_err": 0.019916,
+    "ng_mwh": 81034533.0
    },
    "2023-09": {
     "days": 30,
-    "load_mwh": 64751023.0,
-    "peak_day_mwh": 2881743.0,
-    "mean_day_mwh": 2158367.4,
-    "df_err": 0.012595,
-    "ng_mwh": 69135006.0
+    "load_mwh": 64771009.0,
+    "peak_day_mwh": 2868218.0,
+    "mean_day_mwh": 2159033.6,
+    "df_err": 0.012602,
+    "ng_mwh": 69159392.0
    },
    "2023-10": {
     "days": 31,
-    "load_mwh": 59646351.0,
-    "peak_day_mwh": 2202529.0,
-    "mean_day_mwh": 1924075.8,
-    "df_err": 0.008874,
-    "ng_mwh": 61217542.0
+    "load_mwh": 59619944.0,
+    "peak_day_mwh": 2204672.0,
+    "mean_day_mwh": 1923224.0,
+    "df_err": 0.009064,
+    "ng_mwh": 61200203.0
    },
    "2023-11": {
     "days": 29,
-    "load_mwh": 60525756.0,
-    "peak_day_mwh": 2533389.0,
-    "mean_day_mwh": 2087095.0,
-    "df_err": 0.012376,
-    "ng_mwh": 63032728.0
+    "load_mwh": 60496524.0,
+    "peak_day_mwh": 2537621.0,
+    "mean_day_mwh": 2086087.0,
+    "df_err": 0.012303,
+    "ng_mwh": 62998557.0
    },
    "2023-12": {
     "days": 31,
-    "load_mwh": 68045682.0,
-    "peak_day_mwh": 2486829.0,
-    "mean_day_mwh": 2195022.0,
-    "df_err": 0.012818,
-    "ng_mwh": 71757024.0
+    "load_mwh": 68048785.0,
+    "peak_day_mwh": 2471221.0,
+    "mean_day_mwh": 2195122.1,
+    "df_err": 0.012945,
+    "ng_mwh": 71759803.0
    },
    "2024-01": {
     "days": 31,
-    "load_mwh": 75568399.0,
-    "peak_day_mwh": 2945982.0,
-    "mean_day_mwh": 2437690.3,
-    "df_err": 0.018007,
-    "ng_mwh": 79381637.0
+    "load_mwh": 75542720.0,
+    "peak_day_mwh": 2956977.0,
+    "mean_day_mwh": 2436861.9,
+    "df_err": 0.017843,
+    "ng_mwh": 79362500.0
    },
    "2024-02": {
     "days": 29,
-    "load_mwh": 64503194.0,
-    "peak_day_mwh": 2375401.0,
-    "mean_day_mwh": 2224248.1,
-    "df_err": 0.011091,
-    "ng_mwh": 67587570.0
+    "load_mwh": 64510396.0,
+    "peak_day_mwh": 2357694.0,
+    "mean_day_mwh": 2224496.4,
+    "df_err": 0.011236,
+    "ng_mwh": 67600302.0
    },
    "2024-03": {
     "days": 31,
-    "load_mwh": 62639474.0,
-    "peak_day_mwh": 2226461.0,
-    "mean_day_mwh": 2020628.2,
-    "df_err": 0.011212,
-    "ng_mwh": 65949646.0
+    "load_mwh": 62702614.0,
+    "peak_day_mwh": 2253797.0,
+    "mean_day_mwh": 2022665.0,
+    "df_err": 0.011128,
+    "ng_mwh": 66002446.0
    },
    "2024-04": {
     "days": 30,
-    "load_mwh": 58106693.0,
-    "peak_day_mwh": 2150154.0,
-    "mean_day_mwh": 1936889.8,
-    "df_err": 0.009857,
-    "ng_mwh": 60143224.0
+    "load_mwh": 58092674.0,
+    "peak_day_mwh": 2137739.0,
+    "mean_day_mwh": 1936422.5,
+    "df_err": 0.009797,
+    "ng_mwh": 60128819.0
    },
    "2024-05": {
     "days": 31,
-    "load_mwh": 63668451.0,
-    "peak_day_mwh": 2411507.0,
-    "mean_day_mwh": 2053821.0,
-    "df_err": 0.021788,
-    "ng_mwh": 65195892.0
+    "load_mwh": 63673394.0,
+    "peak_day_mwh": 2414185.0,
+    "mean_day_mwh": 2053980.5,
+    "df_err": 0.021632,
+    "ng_mwh": 65199246.0
    },
    "2024-06": {
     "days": 30,
-    "load_mwh": 73663298.0,
-    "peak_day_mwh": 2927549.0,
-    "mean_day_mwh": 2455443.3,
-    "df_err": 0.024587,
-    "ng_mwh": 77788261.0
+    "load_mwh": 73628053.0,
+    "peak_day_mwh": 2915857.0,
+    "mean_day_mwh": 2454268.4,
+    "df_err": 0.024581,
+    "ng_mwh": 77756624.0
    },
    "2024-07": {
     "days": 31,
-    "load_mwh": 81773062.0,
-    "peak_day_mwh": 3056320.0,
-    "mean_day_mwh": 2637840.7,
-    "df_err": 0.018977,
-    "ng_mwh": 84609715.0
+    "load_mwh": 81717066.0,
+    "peak_day_mwh": 3060663.0,
+    "mean_day_mwh": 2636034.4,
+    "df_err": 0.018909,
+    "ng_mwh": 84554590.0
    },
    "2024-08": {
     "days": 31,
-    "load_mwh": 77466020.0,
-    "peak_day_mwh": 2967841.0,
-    "mean_day_mwh": 2498903.9,
-    "df_err": 0.019208,
-    "ng_mwh": 81286091.0
+    "load_mwh": 77516271.0,
+    "peak_day_mwh": 2956110.0,
+    "mean_day_mwh": 2500524.9,
+    "df_err": 0.01929,
+    "ng_mwh": 81337548.0
    },
    "2024-09": {
     "days": 30,
-    "load_mwh": 64342000.0,
-    "peak_day_mwh": 2358037.0,
-    "mean_day_mwh": 2144733.3,
-    "df_err": 0.015859,
-    "ng_mwh": 67421651.0
+    "load_mwh": 64374175.0,
+    "peak_day_mwh": 2356744.0,
+    "mean_day_mwh": 2145805.8,
+    "df_err": 0.015947,
+    "ng_mwh": 67460221.0
    },
    "2024-10": {
     "days": 31,
-    "load_mwh": 59602826.0,
-    "peak_day_mwh": 2048112.0,
-    "mean_day_mwh": 1922671.8,
-    "df_err": 0.007186,
-    "ng_mwh": 60810059.0
+    "load_mwh": 59611041.0,
+    "peak_day_mwh": 2056659.0,
+    "mean_day_mwh": 1922936.8,
+    "df_err": 0.007248,
+    "ng_mwh": 60815223.0
    },
    "2024-11": {
     "days": 30,
-    "load_mwh": 60737389.0,
-    "peak_day_mwh": 2326974.0,
-    "mean_day_mwh": 2024579.6,
-    "df_err": 0.013417,
-    "ng_mwh": 62266945.0
+    "load_mwh": 60673927.0,
+    "peak_day_mwh": 2317841.0,
+    "mean_day_mwh": 2022464.2,
+    "df_err": 0.013553,
+    "ng_mwh": 62205294.0
    },
    "2024-12": {
     "days": 31,
-    "load_mwh": 72974116.0,
-    "peak_day_mwh": 2632997.0,
-    "mean_day_mwh": 2354003.7,
-    "df_err": 0.013438,
-    "ng_mwh": 75222961.0
+    "load_mwh": 73013877.0,
+    "peak_day_mwh": 2643097.0,
+    "mean_day_mwh": 2355286.4,
+    "df_err": 0.01337,
+    "ng_mwh": 75254007.0
    },
    "2025-01": {
     "days": 31,
-    "load_mwh": 82011220.0,
-    "peak_day_mwh": 3181603.0,
-    "mean_day_mwh": 2645523.2,
-    "df_err": 0.010198,
-    "ng_mwh": 84986387.0
+    "load_mwh": 81996616.0,
+    "peak_day_mwh": 3177791.0,
+    "mean_day_mwh": 2645052.1,
+    "df_err": 0.010085,
+    "ng_mwh": 84979340.0
    },
    "2025-02": {
     "days": 28,
-    "load_mwh": 68543713.0,
-    "peak_day_mwh": 2915351.0,
-    "mean_day_mwh": 2447989.8,
-    "df_err": 0.014518,
-    "ng_mwh": 71256830.0
+    "load_mwh": 68550116.0,
+    "peak_day_mwh": 2915460.0,
+    "mean_day_mwh": 2448218.4,
+    "df_err": 0.014501,
+    "ng_mwh": 71262575.0
    },
    "2025-03": {
     "days": 31,
-    "load_mwh": 64470141.0,
-    "peak_day_mwh": 2432104.0,
-    "mean_day_mwh": 2079682.0,
-    "df_err": 0.012797,
-    "ng_mwh": 67633221.0
+    "load_mwh": 64493682.0,
+    "peak_day_mwh": 2450966.0,
+    "mean_day_mwh": 2080441.4,
+    "df_err": 0.012947,
+    "ng_mwh": 67653528.0
    },
    "2025-04": {
     "days": 30,
-    "load_mwh": 59477709.0,
-    "peak_day_mwh": 2180775.0,
-    "mean_day_mwh": 1982590.3,
-    "df_err": 0.010562,
-    "ng_mwh": 61098421.0
+    "load_mwh": 59483388.0,
+    "peak_day_mwh": 2182722.0,
+    "mean_day_mwh": 1982779.6,
+    "df_err": 0.010469,
+    "ng_mwh": 61103469.0
    },
    "2025-05": {
     "days": 31,
-    "load_mwh": 61195726.0,
-    "peak_day_mwh": 2277799.0,
-    "mean_day_mwh": 1974055.7,
-    "df_err": 0.019332,
-    "ng_mwh": 64075462.0
+    "load_mwh": 61210913.0,
+    "peak_day_mwh": 2295679.0,
+    "mean_day_mwh": 1974545.6,
+    "df_err": 0.01931,
+    "ng_mwh": 64083415.0
    },
    "2025-06": {
     "days": 30,
-    "load_mwh": 74875284.0,
-    "peak_day_mwh": 3262296.0,
-    "mean_day_mwh": 2495842.8,
-    "df_err": 0.029691,
-    "ng_mwh": 78430304.0
+    "load_mwh": 74767915.0,
+    "peak_day_mwh": 3267277.0,
+    "mean_day_mwh": 2492263.8,
+    "df_err": 0.029483,
+    "ng_mwh": 78329839.0
    },
    "2025-07": {
     "days": 31,
-    "load_mwh": 86394273.0,
-    "peak_day_mwh": 3114391.0,
-    "mean_day_mwh": 2786912.0,
-    "df_err": 0.018085,
-    "ng_mwh": 90457795.0
+    "load_mwh": 86431179.0,
+    "peak_day_mwh": 3105921.0,
+    "mean_day_mwh": 2788102.5,
+    "df_err": 0.018129,
+    "ng_mwh": 90489896.0
    },
    "2025-08": {
     "days": 31,
-    "load_mwh": 75287944.0,
-    "peak_day_mwh": 2909410.0,
-    "mean_day_mwh": 2428643.4,
-    "df_err": 0.00889,
-    "ng_mwh": 80350457.0
+    "load_mwh": 75347069.0,
+    "peak_day_mwh": 2900387.0,
+    "mean_day_mwh": 2430550.6,
+    "df_err": 0.009019,
+    "ng_mwh": 80400020.0
    },
    "2025-09": {
     "days": 30,
-    "load_mwh": 65952737.0,
-    "peak_day_mwh": 2377892.0,
-    "mean_day_mwh": 2198424.6,
-    "df_err": 0.020673,
-    "ng_mwh": 69327507.0
+    "load_mwh": 65934367.0,
+    "peak_day_mwh": 2376275.0,
+    "mean_day_mwh": 2197812.2,
+    "df_err": 0.020677,
+    "ng_mwh": 69327475.0
    },
    "2025-10": {
     "days": 31,
-    "load_mwh": 62243306.0,
-    "peak_day_mwh": 2222734.0,
-    "mean_day_mwh": 2007848.6,
-    "df_err": 0.010245,
-    "ng_mwh": 62863851.0
+    "load_mwh": 62247447.0,
+    "peak_day_mwh": 2208357.0,
+    "mean_day_mwh": 2007982.2,
+    "df_err": 0.010232,
+    "ng_mwh": 62880708.0
    },
    "2025-11": {
     "days": 30,
-    "load_mwh": 64255223.0,
-    "peak_day_mwh": 2424495.0,
-    "mean_day_mwh": 2141840.8,
-    "df_err": 0.012291,
-    "ng_mwh": 64839790.0
+    "load_mwh": 64225499.0,
+    "peak_day_mwh": 2427821.0,
+    "mean_day_mwh": 2140850.0,
+    "df_err": 0.011829,
+    "ng_mwh": 64833569.0
    },
    "2025-12": {
     "days": 31,
-    "load_mwh": 78111203.0,
-    "peak_day_mwh": 3015225.0,
-    "mean_day_mwh": 2519716.2,
-    "df_err": 0.003967,
-    "ng_mwh": 79826598.0
+    "load_mwh": 78126881.0,
+    "peak_day_mwh": 3038972.0,
+    "mean_day_mwh": 2520222.0,
+    "df_err": 0.004079,
+    "ng_mwh": 79842989.0
    },
    "2026-01": {
     "days": 31,
-    "load_mwh": 82650506.0,
-    "peak_day_mwh": 3130127.0,
-    "mean_day_mwh": 2666145.4,
-    "df_err": 0.015364,
-    "ng_mwh": 85431907.0
+    "load_mwh": 82580492.0,
+    "peak_day_mwh": 3123838.0,
+    "mean_day_mwh": 2663886.8,
+    "df_err": 0.015271,
+    "ng_mwh": 85366986.0
    },
    "2026-02": {
     "days": 28,
-    "load_mwh": 72060273.0,
-    "peak_day_mwh": 2989555.0,
-    "mean_day_mwh": 2573581.2,
-    "df_err": 0.008598,
-    "ng_mwh": 73654112.0
+    "load_mwh": 72171070.0,
+    "peak_day_mwh": 3000565.0,
+    "mean_day_mwh": 2577538.2,
+    "df_err": 0.008439,
+    "ng_mwh": 73755773.0
    },
    "2026-03": {
     "days": 31,
-    "load_mwh": 67037655.0,
-    "peak_day_mwh": 2546810.0,
-    "mean_day_mwh": 2162505.0,
-    "df_err": 0.016005,
-    "ng_mwh": 68991223.0
+    "load_mwh": 67057885.0,
+    "peak_day_mwh": 2533910.0,
+    "mean_day_mwh": 2163157.6,
+    "df_err": 0.016146,
+    "ng_mwh": 69018156.0
    },
    "2026-04": {
     "days": 30,
-    "load_mwh": 61294647.0,
-    "peak_day_mwh": 2325941.0,
-    "mean_day_mwh": 2043154.9,
-    "df_err": 0.011615,
-    "ng_mwh": 62472089.0
+    "load_mwh": 61299264.0,
+    "peak_day_mwh": 2330810.0,
+    "mean_day_mwh": 2043308.8,
+    "df_err": 0.011622,
+    "ng_mwh": 62486011.0
    },
    "2026-05": {
     "days": 31,
-    "load_mwh": 64630400.0,
-    "peak_day_mwh": 2700461.0,
-    "mean_day_mwh": 2084851.6,
-    "df_err": 0.022406,
-    "ng_mwh": 65729691.0
+    "load_mwh": 64629936.0,
+    "peak_day_mwh": 2703656.0,
+    "mean_day_mwh": 2084836.6,
+    "df_err": 0.022267,
+    "ng_mwh": 65712857.0
    },
    "2026-06": {
     "days": 30,
-    "load_mwh": 73611309.0,
-    "peak_day_mwh": 3032193.0,
-    "mean_day_mwh": 2453710.3,
-    "df_err": 0.023235,
-    "ng_mwh": 76966158.0
+    "load_mwh": 73504632.0,
+    "peak_day_mwh": 3013058.0,
+    "mean_day_mwh": 2450154.4,
+    "df_err": 0.023051,
+    "ng_mwh": 76858584.0
    },
    "2026-07": {
     "days": 31,
-    "load_mwh": 85457517.0,
-    "peak_day_mwh": 3342487.0,
-    "mean_day_mwh": 2756694.1,
-    "df_err": 0.014036,
-    "ng_mwh": 88847099.0
+    "load_mwh": 85509481.0,
+    "peak_day_mwh": 3343083.0,
+    "mean_day_mwh": 2758370.4,
+    "df_err": 0.0142,
+    "ng_mwh": 88908729.0
    },
    "2026-08": {
     "days": 10,
-    "load_mwh": 27445788.0,
-    "peak_day_mwh": 2942061.0,
-    "mean_day_mwh": 2744578.8,
-    "df_err": 0.028006,
-    "ng_mwh": 25201888.0
+    "load_mwh": 27421795.0,
+    "peak_day_mwh": 2934172.0,
+    "mean_day_mwh": 2742179.5,
+    "df_err": 0.027823,
+    "ng_mwh": 25173153.0
    }
   }
  }
