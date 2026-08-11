@@ -1,0 +1,385 @@
+{
+ "built_at": "2026-08-11",
+ "notes": [],
+ "targets": {
+  "US-RETAIL/AZ/retail_ind": {
+   "months": 137,
+   "range": [
+    "2015-01",
+    "2026-05"
+   ],
+   "transform": "log",
+   "gas_transform": "log",
+   "lag_months": 3,
+   "live": true,
+   "pass_through": 1.0,
+   "rto": null,
+   "sets": {
+    "A": {
+     "1": {
+      "n_origins": 46,
+      "mape": 7.49,
+      "gate": "fail"
+     },
+     "3": {
+      "n_origins": 42,
+      "mape": 8.492,
+      "gate": "fail"
+     },
+     "6": {
+      "n_origins": 36,
+      "mape": 7.362,
+      "gate": "fail"
+     },
+     "12": {
+      "n_origins": 24,
+      "mape": 8.989,
+      "gate": "fail"
+     },
+     "17": {
+      "n_origins": 14,
+      "mape": 14.822,
+      "gate": "insufficient_n"
+     }
+    }
+   }
+  },
+  "US-RETAIL/GA/retail_ind": {
+   "months": 137,
+   "range": [
+    "2015-01",
+    "2026-05"
+   ],
+   "transform": "log",
+   "gas_transform": "log",
+   "lag_months": 3,
+   "live": true,
+   "pass_through": 1.0,
+   "rto": null,
+   "sets": {
+    "A": {
+     "1": {
+      "n_origins": 46,
+      "mape": 11.061,
+      "gate": "pass"
+     },
+     "3": {
+      "n_origins": 42,
+      "mape": 9.538,
+      "gate": "pass"
+     },
+     "6": {
+      "n_origins": 36,
+      "mape": 11.285,
+      "gate": "pass"
+     },
+     "12": {
+      "n_origins": 24,
+      "mape": 11.678,
+      "gate": "pass"
+     },
+     "17": {
+      "n_origins": 14,
+      "mape": 13.055,
+      "gate": "insufficient_n"
+     }
+    }
+   }
+  },
+  "US-RETAIL/MI/retail_ind": {
+   "months": 137,
+   "range": [
+    "2015-01",
+    "2026-05"
+   ],
+   "transform": "log",
+   "gas_transform": "log",
+   "lag_months": 3,
+   "live": true,
+   "pass_through": 1.0,
+   "rto": "MISO",
+   "sets": {
+    "A": {
+     "1": {
+      "n_origins": 46,
+      "mape": 2.921,
+      "gate": "pass"
+     },
+     "3": {
+      "n_origins": 42,
+      "mape": 3.043,
+      "gate": "pass"
+     },
+     "6": {
+      "n_origins": 36,
+      "mape": 2.956,
+      "gate": "pass"
+     },
+     "12": {
+      "n_origins": 24,
+      "mape": 3.412,
+      "gate": "pass"
+     },
+     "17": {
+      "n_origins": 14,
+      "mape": 3.792,
+      "gate": "insufficient_n"
+     }
+    },
+    "B": {
+     "1": {
+      "n_origins": 24,
+      "mape": 3.159,
+      "gate": "pass"
+     },
+     "3": {
+      "n_origins": 20,
+      "mape": 2.991,
+      "gate": "insufficient_n"
+     },
+     "6": {
+      "n_origins": 14,
+      "mape": 3.166,
+      "gate": "insufficient_n"
+     },
+     "12": {
+      "n_origins": 2,
+      "mape": 2.671,
+      "gate": "insufficient_n"
+     }
+    }
+   }
+  },
+  "US-RETAIL/OH/retail_ind": {
+   "months": 137,
+   "range": [
+    "2015-01",
+    "2026-05"
+   ],
+   "transform": "log",
+   "gas_transform": "log",
+   "lag_months": 3,
+   "live": true,
+   "pass_through": 1.0,
+   "rto": "PJM",
+   "sets": {
+    "A": {
+     "1": {
+      "n_origins": 46,
+      "mape": 6.005,
+      "gate": "pass"
+     },
+     "3": {
+      "n_origins": 42,
+      "mape": 6.91,
+      "gate": "pass"
+     },
+     "6": {
+      "n_origins": 36,
+      "mape": 8.229,
+      "gate": "pass"
+     },
+     "12": {
+      "n_origins": 24,
+      "mape": 12.521,
+      "gate": "pass"
+     },
+     "17": {
+      "n_origins": 14,
+      "mape": 18.94,
+      "gate": "insufficient_n"
+     }
+    },
+    "B": {
+     "1": {
+      "n_origins": 24,
+      "mape": 6.431,
+      "gate": "fail"
+     },
+     "3": {
+      "n_origins": 20,
+      "mape": 7.766,
+      "gate": "insufficient_n"
+     },
+     "6": {
+      "n_origins": 14,
+      "mape": 11.763,
+      "gate": "insufficient_n"
+     },
+     "12": {
+      "n_origins": 2,
+      "mape": 16.979,
+      "gate": "insufficient_n"
+     }
+    }
+   }
+  },
+  "US-RETAIL/TN/retail_ind": {
+   "months": 137,
+   "range": [
+    "2015-01",
+    "2026-05"
+   ],
+   "transform": "log",
+   "gas_transform": "log",
+   "lag_months": 3,
+   "live": true,
+   "pass_through": 1.0,
+   "rto": null,
+   "sets": {
+    "A": {
+     "1": {
+      "n_origins": 46,
+      "mape": 6.034,
+      "gate": "pass"
+     },
+     "3": {
+      "n_origins": 42,
+      "mape": 4.994,
+      "gate": "pass"
+     },
+     "6": {
+      "n_origins": 36,
+      "mape": 4.911,
+      "gate": "pass"
+     },
+     "12": {
+      "n_origins": 24,
+      "mape": 4.222,
+      "gate": "pass"
+     },
+     "17": {
+      "n_origins": 14,
+      "mape": 6.349,
+      "gate": "insufficient_n"
+     }
+    }
+   }
+  },
+  "US-RETAIL/US/retail_ind": {
+   "months": 137,
+   "range": [
+    "2015-01",
+    "2026-05"
+   ],
+   "transform": "log",
+   "gas_transform": "log",
+   "lag_months": 3,
+   "live": true,
+   "pass_through": 1.0,
+   "rto": null,
+   "sets": {
+    "A": {
+     "1": {
+      "n_origins": 46,
+      "mape": 3.004,
+      "gate": "pass"
+     },
+     "3": {
+      "n_origins": 42,
+      "mape": 3.081,
+      "gate": "pass"
+     },
+     "6": {
+      "n_origins": 36,
+      "mape": 2.788,
+      "gate": "pass"
+     },
+     "12": {
+      "n_origins": 24,
+      "mape": 2.517,
+      "gate": "pass"
+     },
+     "17": {
+      "n_origins": 14,
+      "mape": 2.39,
+      "gate": "insufficient_n"
+     }
+    }
+   }
+  },
+  "PL-ENTSOE/PL/pl_price": {
+   "months": 81,
+   "range": [
+    "2019-12",
+    "2026-08"
+   ],
+   "transform": "log",
+   "gas_transform": "log",
+   "lag_months": 0,
+   "live": true,
+   "pass_through": 0.6,
+   "rto": null,
+   "sets": {
+    "A": {
+     "1": {
+      "n_origins": 28,
+      "mape": 11.871,
+      "gate": "pass"
+     },
+     "3": {
+      "n_origins": 22,
+      "mape": 14.181,
+      "gate": "insufficient_n"
+     },
+     "6": {
+      "n_origins": 13,
+      "mape": 12.243,
+      "gate": "insufficient_n"
+     }
+    }
+   }
+  },
+  "CA-IESO/OT/ot_energy_hoep": {
+   "months": 88,
+   "range": [
+    "2018-01",
+    "2025-04"
+   ],
+   "transform": "log",
+   "gas_transform": "log",
+   "lag_months": 16,
+   "live": false,
+   "pass_through": 0.6,
+   "rto": null,
+   "sets": {
+    "A": {
+     "1": {
+      "n_origins": 36,
+      "mape": 21.016,
+      "gate": "pass"
+     },
+     "3": {
+      "n_origins": 30,
+      "mape": 25.993,
+      "gate": "pass"
+     },
+     "6": {
+      "n_origins": 21,
+      "mape": 25.107,
+      "gate": "insufficient_n"
+     },
+     "12": {
+      "n_origins": 3,
+      "mape": 21.566,
+      "gate": "insufficient_n"
+     }
+    }
+   }
+  }
+ },
+ "steo_vintages": {
+  "count": 1,
+  "list": [
+   "2026-08"
+  ]
+ },
+ "summary": {
+  "scorecard_rows": 195,
+  "growth_rows": 36,
+  "pass": 24,
+  "fail": 5,
+  "insufficient_n": 31
+ },
+ "gas_path_note": "백테스트는 gas_path=realized 다. STEO forward 의 과거 vintage 가 없어 완전연쇄(가스 예측오차 포함) 검증은 steo_vintages.csv 축적 후에 가능하다."
+}
