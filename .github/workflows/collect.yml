@@ -91,6 +91,9 @@ jobs:
             panel_monthly.csv
             steo_vintages.csv
             status.json
+            growth_monthly.csv
+            backtest_scorecard.csv
+            model_status.json
       - name: commit back
         run: |
           git config user.name "eia-harvester-bot"
