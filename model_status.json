@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-19",
+ "built_at": "2026-08-20",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
@@ -314,17 +314,17 @@
     "A": {
      "1": {
       "n_origins": 28,
-      "mape": 11.784,
-      "gate": "pass"
+      "mape": 30.844,
+      "gate": "fail"
      },
      "3": {
       "n_origins": 22,
-      "mape": 13.982,
+      "mape": 37.868,
       "gate": "insufficient_n"
      },
      "6": {
       "n_origins": 13,
-      "mape": 12.54,
+      "mape": 39.727,
       "gate": "insufficient_n"
      }
     }
@@ -377,8 +377,8 @@
  "summary": {
   "scorecard_rows": 195,
   "growth_rows": 32,
-  "pass": 24,
-  "fail": 5,
+  "pass": 23,
+  "fail": 6,
   "insufficient_n": 31
  },
  "gas_path_note": "백테스트는 gas_path=realized 다. STEO forward 의 과거 vintage 가 없어 완전연쇄(가스 예측오차 포함) 검증은 steo_vintages.csv 축적 후에 가능하다."
