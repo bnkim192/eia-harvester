@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install requests numpy openpyxl
+      - run: pip install requests numpy openpyxl pypdf
       # ── 실패 격리 정책 (2026-08-11) ──────────────────────────────────
       #   Actions 는 스텝이 0 이 아닌 코드로 끝나면 **이후 스텝을 전부 건너뛴다.**
       #   소스 하나가 죽어서 build_panel 까지 멈추면 status.json 에 결손 기록도 안 남는다.
