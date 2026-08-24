@@ -71,6 +71,23 @@ jobs:
       #   따라서 위 두 스텝이 401 로 죽어도 pjm_lmp_hourly/monthly 는 생성된다.
       - name: PJM DA LMP from manual CSV (키리스 주경로 · API 산출물과 합성)
         run: python aggregate_pjm_csv.py || echo "skip aggregate_pjm_csv"
+      # ── PJM 용량경매(RPM BRA) 낙찰가 프로브 (2026-08-24) ──────────────
+      #   근거: 2026-08-24 walk-forward 에서 오하이오 급등 48pp 중 가스 설명분이 11pp 뿐이고
+      #        **비연료(용량·송전) 몫이 약 37pp** 임을 특정했다. GM1·HD MAPE 15.25 를 내리려면
+      #        이 성분이 필요하다. 헨리허브는 방향만 맞고 기울기가 3.7배 부족했다.
+      #   ★ 위 PJM 스텝들과 **겹치지 않는다.** fetch_pjm_lmp.py 는 LMP(에너지) API 를 봤고,
+      #     용량경매 결과는 API 가 아니라 공개 보고서(PDF/XLS)로 공표되는 별개 산출물이다.
+      #   ★ 이 스텝을 PJM LMP 스텝 **뒤에** 두는 이유: api.pjm.com 익명은 분당 6회다.
+      #     스크립트 내부에서도 그 호스트에만 11초 간격을 강제한다(API_SLEEP).
+      #     앞 스텝들과 시간을 벌려 서로를 429 로 밀어내는 오판정을 막는다.
+      #   ★ URL 을 추측해 박지 않았다 — 인덱스 페이지를 받아 본문에서 링크를 발견한다
+      #     (World Bank Pink Sheet 에서 통한 방식).
+      - name: PJM capacity auction probe (RPM BRA · 공개보고서 탐색)
+        continue-on-error: true
+        env:
+          PJM_API_KEY: ${{ secrets.PJM_API_KEY }}
+          GRIDSTATUS_API_KEY: ${{ secrets.GRIDSTATUS_API_KEY }}
+        run: python fetch_pjm_capacity.py
       # MISO 백필 진단 손잡이 (2026-08-11)
       #   증상: 누적이 2026-01~ 8개월뿐이고 INDIANA.HUB 가 없다. 로그는
       #         `[RANGE] 2026-08-11 ~ 2026-08-10 (last=2026-08-10, need_backfill=False)`
@@ -136,6 +153,8 @@ jobs:
             pjm_drivers_probe.json
             pjm_probe.json
             pjm_csv_probe.json
+            pjm_capacity_probe.json
+            pjm_capacity_lines.txt
             miso_lmp_monthly.json
             miso_lmp_monthly.csv
             steo_forward_monthly.json
