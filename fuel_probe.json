@@ -137,6 +137,102 @@
       "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
     },
     {
+      "id": "EUA_EEXauc",
+      "tier": 1,
+      "url": "https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download",
+      "http": 200,
+      "ok": true,
+      "note": "파일 1건 ['https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx'] | 경로후보 9건 ['https://www.eex.com/en/markets/energy-certificates/french-auctions-power', 'https://www.eex.com/en/markets/energy-certificates/french-auctions-biogas', 'https://www.eex.com/en/markets/environmentals/eu-ets1-eu-ets2-auctions', 'https://www.eex.com/en/markets/environme"
+    },
+    {
+      "id": "EUA_EEXauc_dl",
+      "tier": 1,
+      "url": "https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx",
+      "http": 200,
+      "ok": true,
+      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 141건 → 월 7건"
+    },
+    {
+      "id": "EUA_EEXemis",
+      "tier": 1,
+      "url": "https://www.eex.com/en/market-data/environmental-markets",
+      "http": 200,
+      "ok": true,
+      "note": "파일 0건 [] | 경로후보 6건 ['https://www.eex.com/en/markets/energy-certificates/french-auctions-power', 'https://www.eex.com/en/markets/energy-certificates/french-auctions-biogas', 'https://www.eex.com/en/markets/environmentals/eu-ets1-eu-ets2-auctions', 'https://www.eex.com/en/markets/environmental-markets/nz-ets-auctions']"
+    },
+    {
+      "id": "EUA_ICAP",
+      "tier": 1,
+      "url": "https://icapcarbonaction.com/en/ets-prices",
+      "http": 200,
+      "ok": true,
+      "note": "파일 0건 [] | 경로후보 7건 ['https://icapcarbonaction.com/en/ets-prices', 'https://icapcarbonaction.com/en/terms-use-and-documentation-notes-allowance-price-explorer', 'https://icapcarbonaction.com/en/introducing-allowance-price-explorer', 'https://allowancepriceexplorer.icapcarbonaction.com']"
+    },
+    {
+      "id": "EC_spec",
+      "tier": 1,
+      "url": "https://api.energy-charts.info/openapi.json",
+      "http": 200,
+      "ok": true,
+      "note": "전체 37경로 · 관련 ['/v2/price', '/v2/price_current', '/v2/price_next_day', '/price']"
+    },
+    {
+      "id": "EMBER_spec",
+      "tier": 1,
+      "url": "https://api.ember-energy.org/openapi.json",
+      "http": 200,
+      "ok": false,
+      "note": "전체 0경로 · 관련 []"
+    },
+    {
+      "id": "YHR_KEUA#1",
+      "tier": 1,
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/KEUA?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "YHR_KEUA#2",
+      "tier": 1,
+      "url": "https://query2.finance.yahoo.com/v8/finance/chart/KEUA?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "YHR_KEUA#3",
+      "tier": 1,
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/KEUA?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "YHR_KRBN#1",
+      "tier": 1,
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/KRBN?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "YHR_KRBN#2",
+      "tier": 1,
+      "url": "https://query2.finance.yahoo.com/v8/finance/chart/KRBN?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "YHR_KRBN#3",
+      "tier": 1,
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/KRBN?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
       "id": "EEX_gvsi",
       "tier": 3,
       "url": "https://webservice-eex.gvsi.com/query/json/getDaily/close/tradedatetimegmt/?symbol=%2FE.FTBM",
@@ -214,6 +310,7 @@
     "WB_HH_US",
     "WB_LNG_JP",
     "WB_COAL_ZA",
-    "WB_COAL_AU"
+    "WB_COAL_AU",
+    "EUA_EUA_EEXauc"
   ]
 }
