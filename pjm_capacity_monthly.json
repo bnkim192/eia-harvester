@@ -1,0 +1,672 @@
+{
+  "source": "PJM RPM BRA 공개보고서 PDF 추출",
+  "note": "인도연도(6월~다음해5월)를 월로 확장한 계단형이다. BRA 는 인도 전에 확정되므로 최신 연도는 forward 로 쓸 수 있다. ATSI 가 오하이오(GM1·HD) LDA 이고 RTO 와 갈린다.",
+  "data": {
+    "ATSI": {
+      "label": "PJM RPM BRA 낙찰가 ATSI",
+      "unit": "USD/MW-day (UCAP)",
+      "source": "PJM RPM Base Residual Auction Report (공개 PDF)",
+      "points": [
+        {
+          "period": "2025-06",
+          "value": 269.92
+        },
+        {
+          "period": "2025-07",
+          "value": 269.92
+        },
+        {
+          "period": "2025-08",
+          "value": 269.92
+        },
+        {
+          "period": "2025-09",
+          "value": 269.92
+        },
+        {
+          "period": "2025-10",
+          "value": 269.92
+        },
+        {
+          "period": "2025-11",
+          "value": 269.92
+        },
+        {
+          "period": "2025-12",
+          "value": 269.92
+        },
+        {
+          "period": "2026-01",
+          "value": 269.92
+        },
+        {
+          "period": "2026-02",
+          "value": 269.92
+        },
+        {
+          "period": "2026-03",
+          "value": 269.92
+        },
+        {
+          "period": "2026-04",
+          "value": 269.92
+        },
+        {
+          "period": "2026-05",
+          "value": 269.92
+        },
+        {
+          "period": "2028-06",
+          "value": 325.0
+        },
+        {
+          "period": "2028-07",
+          "value": 325.0
+        },
+        {
+          "period": "2028-08",
+          "value": 325.0
+        },
+        {
+          "period": "2028-09",
+          "value": 325.0
+        },
+        {
+          "period": "2028-10",
+          "value": 325.0
+        },
+        {
+          "period": "2028-11",
+          "value": 325.0
+        },
+        {
+          "period": "2028-12",
+          "value": 325.0
+        },
+        {
+          "period": "2029-01",
+          "value": 325.0
+        },
+        {
+          "period": "2029-02",
+          "value": 325.0
+        },
+        {
+          "period": "2029-03",
+          "value": 325.0
+        },
+        {
+          "period": "2029-04",
+          "value": 325.0
+        },
+        {
+          "period": "2029-05",
+          "value": 325.0
+        }
+      ]
+    },
+    "ATSI-CLEVELAND": {
+      "label": "PJM RPM BRA 낙찰가 ATSI-CLEVELAND",
+      "unit": "USD/MW-day (UCAP)",
+      "source": "PJM RPM Base Residual Auction Report (공개 PDF)",
+      "points": [
+        {
+          "period": "2028-06",
+          "value": 325.0
+        },
+        {
+          "period": "2028-07",
+          "value": 325.0
+        },
+        {
+          "period": "2028-08",
+          "value": 325.0
+        },
+        {
+          "period": "2028-09",
+          "value": 325.0
+        },
+        {
+          "period": "2028-10",
+          "value": 325.0
+        },
+        {
+          "period": "2028-11",
+          "value": 325.0
+        },
+        {
+          "period": "2028-12",
+          "value": 325.0
+        },
+        {
+          "period": "2029-01",
+          "value": 325.0
+        },
+        {
+          "period": "2029-02",
+          "value": 325.0
+        },
+        {
+          "period": "2029-03",
+          "value": 325.0
+        },
+        {
+          "period": "2029-04",
+          "value": 325.0
+        },
+        {
+          "period": "2029-05",
+          "value": 325.0
+        }
+      ]
+    },
+    "COMED": {
+      "label": "PJM RPM BRA 낙찰가 COMED",
+      "unit": "USD/MW-day (UCAP)",
+      "source": "PJM RPM Base Residual Auction Report (공개 PDF)",
+      "points": [
+        {
+          "period": "2021-06",
+          "value": 187.87
+        },
+        {
+          "period": "2021-07",
+          "value": 187.87
+        },
+        {
+          "period": "2021-08",
+          "value": 187.87
+        },
+        {
+          "period": "2021-09",
+          "value": 187.87
+        },
+        {
+          "period": "2021-10",
+          "value": 187.87
+        },
+        {
+          "period": "2021-11",
+          "value": 187.87
+        },
+        {
+          "period": "2021-12",
+          "value": 187.87
+        },
+        {
+          "period": "2022-01",
+          "value": 187.87
+        },
+        {
+          "period": "2022-02",
+          "value": 187.87
+        },
+        {
+          "period": "2022-03",
+          "value": 187.87
+        },
+        {
+          "period": "2022-04",
+          "value": 187.87
+        },
+        {
+          "period": "2022-05",
+          "value": 187.87
+        },
+        {
+          "period": "2025-06",
+          "value": 269.92
+        },
+        {
+          "period": "2025-07",
+          "value": 269.92
+        },
+        {
+          "period": "2025-08",
+          "value": 269.92
+        },
+        {
+          "period": "2025-09",
+          "value": 269.92
+        },
+        {
+          "period": "2025-10",
+          "value": 269.92
+        },
+        {
+          "period": "2025-11",
+          "value": 269.92
+        },
+        {
+          "period": "2025-12",
+          "value": 269.92
+        },
+        {
+          "period": "2026-01",
+          "value": 269.92
+        },
+        {
+          "period": "2026-02",
+          "value": 269.92
+        },
+        {
+          "period": "2026-03",
+          "value": 269.92
+        },
+        {
+          "period": "2026-04",
+          "value": 269.92
+        },
+        {
+          "period": "2026-05",
+          "value": 269.92
+        },
+        {
+          "period": "2028-06",
+          "value": 325.0
+        },
+        {
+          "period": "2028-07",
+          "value": 325.0
+        },
+        {
+          "period": "2028-08",
+          "value": 325.0
+        },
+        {
+          "period": "2028-09",
+          "value": 325.0
+        },
+        {
+          "period": "2028-10",
+          "value": 325.0
+        },
+        {
+          "period": "2028-11",
+          "value": 325.0
+        },
+        {
+          "period": "2028-12",
+          "value": 325.0
+        },
+        {
+          "period": "2029-01",
+          "value": 325.0
+        },
+        {
+          "period": "2029-02",
+          "value": 325.0
+        },
+        {
+          "period": "2029-03",
+          "value": 325.0
+        },
+        {
+          "period": "2029-04",
+          "value": 325.0
+        },
+        {
+          "period": "2029-05",
+          "value": 325.0
+        }
+      ]
+    },
+    "DAY": {
+      "label": "PJM RPM BRA 낙찰가 DAY",
+      "unit": "USD/MW-day (UCAP)",
+      "source": "PJM RPM Base Residual Auction Report (공개 PDF)",
+      "points": [
+        {
+          "period": "2025-06",
+          "value": 269.92
+        },
+        {
+          "period": "2025-07",
+          "value": 269.92
+        },
+        {
+          "period": "2025-08",
+          "value": 269.92
+        },
+        {
+          "period": "2025-09",
+          "value": 269.92
+        },
+        {
+          "period": "2025-10",
+          "value": 269.92
+        },
+        {
+          "period": "2025-11",
+          "value": 269.92
+        },
+        {
+          "period": "2025-12",
+          "value": 269.92
+        },
+        {
+          "period": "2026-01",
+          "value": 269.92
+        },
+        {
+          "period": "2026-02",
+          "value": 269.92
+        },
+        {
+          "period": "2026-03",
+          "value": 269.92
+        },
+        {
+          "period": "2026-04",
+          "value": 269.92
+        },
+        {
+          "period": "2026-05",
+          "value": 269.92
+        },
+        {
+          "period": "2028-06",
+          "value": 325.0
+        },
+        {
+          "period": "2028-07",
+          "value": 325.0
+        },
+        {
+          "period": "2028-08",
+          "value": 325.0
+        },
+        {
+          "period": "2028-09",
+          "value": 325.0
+        },
+        {
+          "period": "2028-10",
+          "value": 325.0
+        },
+        {
+          "period": "2028-11",
+          "value": 325.0
+        },
+        {
+          "period": "2028-12",
+          "value": 325.0
+        },
+        {
+          "period": "2029-01",
+          "value": 325.0
+        },
+        {
+          "period": "2029-02",
+          "value": 325.0
+        },
+        {
+          "period": "2029-03",
+          "value": 325.0
+        },
+        {
+          "period": "2029-04",
+          "value": 325.0
+        },
+        {
+          "period": "2029-05",
+          "value": 325.0
+        }
+      ]
+    },
+    "DEOK": {
+      "label": "PJM RPM BRA 낙찰가 DEOK",
+      "unit": "USD/MW-day (UCAP)",
+      "source": "PJM RPM Base Residual Auction Report (공개 PDF)",
+      "points": [
+        {
+          "period": "2023-06",
+          "value": 126.5
+        },
+        {
+          "period": "2023-07",
+          "value": 126.5
+        },
+        {
+          "period": "2023-08",
+          "value": 126.5
+        },
+        {
+          "period": "2023-09",
+          "value": 126.5
+        },
+        {
+          "period": "2023-10",
+          "value": 126.5
+        },
+        {
+          "period": "2023-11",
+          "value": 126.5
+        },
+        {
+          "period": "2023-12",
+          "value": 126.5
+        },
+        {
+          "period": "2024-01",
+          "value": 126.5
+        },
+        {
+          "period": "2024-02",
+          "value": 126.5
+        },
+        {
+          "period": "2024-03",
+          "value": 126.5
+        },
+        {
+          "period": "2024-04",
+          "value": 126.5
+        },
+        {
+          "period": "2024-05",
+          "value": 126.5
+        },
+        {
+          "period": "2025-06",
+          "value": 269.92
+        },
+        {
+          "period": "2025-07",
+          "value": 269.92
+        },
+        {
+          "period": "2025-08",
+          "value": 269.92
+        },
+        {
+          "period": "2025-09",
+          "value": 269.92
+        },
+        {
+          "period": "2025-10",
+          "value": 269.92
+        },
+        {
+          "period": "2025-11",
+          "value": 269.92
+        },
+        {
+          "period": "2025-12",
+          "value": 269.92
+        },
+        {
+          "period": "2026-01",
+          "value": 269.92
+        },
+        {
+          "period": "2026-02",
+          "value": 269.92
+        },
+        {
+          "period": "2026-03",
+          "value": 269.92
+        },
+        {
+          "period": "2026-04",
+          "value": 269.92
+        },
+        {
+          "period": "2026-05",
+          "value": 269.92
+        },
+        {
+          "period": "2028-06",
+          "value": 325.0
+        },
+        {
+          "period": "2028-07",
+          "value": 325.0
+        },
+        {
+          "period": "2028-08",
+          "value": 325.0
+        },
+        {
+          "period": "2028-09",
+          "value": 325.0
+        },
+        {
+          "period": "2028-10",
+          "value": 325.0
+        },
+        {
+          "period": "2028-11",
+          "value": 325.0
+        },
+        {
+          "period": "2028-12",
+          "value": 325.0
+        },
+        {
+          "period": "2029-01",
+          "value": 325.0
+        },
+        {
+          "period": "2029-02",
+          "value": 325.0
+        },
+        {
+          "period": "2029-03",
+          "value": 325.0
+        },
+        {
+          "period": "2029-04",
+          "value": 325.0
+        },
+        {
+          "period": "2029-05",
+          "value": 325.0
+        }
+      ]
+    },
+    "RTO": {
+      "label": "PJM RPM BRA 낙찰가 RTO",
+      "unit": "USD/MW-day (UCAP)",
+      "source": "PJM RPM Base Residual Auction Report (공개 PDF)",
+      "points": [
+        {
+          "period": "2025-06",
+          "value": 269.92
+        },
+        {
+          "period": "2025-07",
+          "value": 269.92
+        },
+        {
+          "period": "2025-08",
+          "value": 269.92
+        },
+        {
+          "period": "2025-09",
+          "value": 269.92
+        },
+        {
+          "period": "2025-10",
+          "value": 269.92
+        },
+        {
+          "period": "2025-11",
+          "value": 269.92
+        },
+        {
+          "period": "2025-12",
+          "value": 269.92
+        },
+        {
+          "period": "2026-01",
+          "value": 269.92
+        },
+        {
+          "period": "2026-02",
+          "value": 269.92
+        },
+        {
+          "period": "2026-03",
+          "value": 269.92
+        },
+        {
+          "period": "2026-04",
+          "value": 269.92
+        },
+        {
+          "period": "2026-05",
+          "value": 269.92
+        },
+        {
+          "period": "2028-06",
+          "value": 325.0
+        },
+        {
+          "period": "2028-07",
+          "value": 325.0
+        },
+        {
+          "period": "2028-08",
+          "value": 325.0
+        },
+        {
+          "period": "2028-09",
+          "value": 325.0
+        },
+        {
+          "period": "2028-10",
+          "value": 325.0
+        },
+        {
+          "period": "2028-11",
+          "value": 325.0
+        },
+        {
+          "period": "2028-12",
+          "value": 325.0
+        },
+        {
+          "period": "2029-01",
+          "value": 325.0
+        },
+        {
+          "period": "2029-02",
+          "value": 325.0
+        },
+        {
+          "period": "2029-03",
+          "value": 325.0
+        },
+        {
+          "period": "2029-04",
+          "value": 325.0
+        },
+        {
+          "period": "2029-05",
+          "value": 325.0
+        }
+      ]
+    }
+  }
+}

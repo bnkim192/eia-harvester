@@ -5,113 +5,116 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "데이터파일링크 363건 · 본문 401KB"
+      "note": "링크 363건 · 본문 401KB"
     },
     {
       "id": "PJM_rpm_sub1",
       "url": "http://www.pjm.com/sso/pjmsignin?item=/markets-and-operations/rpm",
       "http": 200,
       "ok": false,
-      "note": "데이터파일링크 0건 · 본문 1KB"
+      "note": "링크 0건 · 본문 1KB"
     },
     {
       "id": "PJM_rpm_sub2",
       "url": "https://www.pjm.com/markets-and-operations/etools/capacity-exchange",
       "http": 200,
       "ok": true,
-      "note": "데이터파일링크 11건 · 본문 83KB"
+      "note": "링크 11건 · 본문 83KB"
     },
     {
       "id": "PJM_rpm_sub3",
       "url": "https://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
       "http": 200,
       "ok": false,
-      "note": "데이터파일링크 0건 · 본문 69KB"
+      "note": "링크 0건 · 본문 69KB"
     },
     {
       "id": "PJM_rpm_sub4",
       "url": "https://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
       "http": 200,
       "ok": true,
-      "note": "데이터파일링크 23건 · 본문 91KB"
+      "note": "링크 23건 · 본문 91KB"
     },
     {
       "id": "PJM_rpm_user",
       "url": "https://www.pjm.com/markets-and-operations/rpm/rpm-auction-user-info",
       "http": 200,
       "ok": false,
-      "note": "데이터파일링크 0건 · 본문 24KB"
+      "note": "링크 0건 · 본문 26KB"
     },
     {
       "id": "PJM_sitemap",
       "url": "https://www.pjm.com/sitemap.xml",
       "http": 200,
       "ok": true,
-      "note": "데이터파일링크 5건 · 본문 133KB"
+      "note": "링크 5건 · 본문 133KB"
     },
     {
-      "id": "IMM_som_index",
-      "url": "https://www.monitoringanalytics.com/reports/PJM_State_of_the_Market/",
-      "http": 200,
-      "ok": false,
-      "note": "데이터파일링크 0건 · 본문 0KB"
-    },
-    {
-      "id": "IMM_reports",
-      "url": "https://www.monitoringanalytics.com/reports/",
-      "http": 200,
-      "ok": false,
-      "note": "데이터파일링크 0건 · 본문 0KB"
-    },
-    {
-      "id": "PJM_api_root",
-      "url": "https://api.pjm.com/api/v1/",
-      "http": 401,
-      "ok": false,
-      "note": "key=없음 ct= | "
-    },
-    {
-      "id": "PJM_dm2_root",
-      "url": "https://dataminer2.pjm.com/",
+      "id": "PDF_2021-2022",
+      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2021-2022/2021-2022-base-residual-auction-report.pdf",
       "http": 200,
       "ok": true,
-      "note": "key=없음 ct=text/html | <!doctype html> <html> <head> <meta http-equiv=\"Cache-Control\" content=\"no-cache, no-store, must-revalidate\"> <meta http-equiv=\"Pragma\" content=\"no-cache\"> <meta http-equiv=\"Expires\" "
+      "note": "pages=27 행 2개"
     },
     {
-      "id": "GS_datasets",
-      "url": "https://api.gridstatus.io/v1/datasets",
-      "http": null,
-      "ok": false,
-      "note": "GRIDSTATUS_API_KEY 비어있음 — Secret 확인"
-    },
-    {
-      "id": "PDF_2028-2029-bra-results-re",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf",
+      "id": "PDF_2022-2023",
+      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2022-2023/2022-2023-base-residual-auction-report.pdf",
       "http": 200,
       "ok": true,
-      "note": "pages=20 낙찰가관련줄 70개"
+      "note": "pages=27 행 1개"
     },
     {
-      "id": "PDF_2028-2029-bra-report.pdf",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-report.pdf",
+      "id": "PDF_2023-2024",
+      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2023-2024/2023-2024-base-residual-auction-report.pdf",
       "http": 200,
       "ok": true,
-      "note": "pages=9 낙찰가관련줄 27개"
+      "note": "pages=25 행 2개"
     },
     {
-      "id": "PDF_2028-2029-bra-supply-cur",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-supply-curves.pdf",
+      "id": "PDF_2024-2025",
+      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2024-2025/2024-2025-base-residual-auction-report.pdf",
       "http": 200,
       "ok": true,
-      "note": "pages=2 낙찰가관련줄 6개"
+      "note": "pages=20 행 2개"
     },
     {
-      "id": "PDF_2027-2028-bra-report.pdf",
+      "id": "PDF_2025-2026",
+      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2025-2026/2025-2026-base-residual-auction-report.pdf",
+      "http": 200,
+      "ok": true,
+      "note": "pages=17 행 17개"
+    },
+    {
+      "id": "PDF_2026-2027",
+      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2026-2027/2026-2027-bra-report.pdf",
+      "http": 200,
+      "ok": true,
+      "note": "pages=20 행 34개"
+    },
+    {
+      "id": "PDF_2027-2028",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2027-2028/2027-2028-bra-report.pdf",
       "http": 200,
       "ok": true,
-      "note": "pages=20 낙찰가관련줄 67개"
+      "note": "pages=20 행 35개"
+    },
+    {
+      "id": "PDF_2028-2029",
+      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf",
+      "http": 200,
+      "ok": true,
+      "note": "pages=20 행 17개"
     }
+  ],
+  "braYears": [
+    "2021-2022",
+    "2022-2023",
+    "2023-2024",
+    "2024-2025",
+    "2025-2026",
+    "2026-2027",
+    "2027-2028",
+    "2028-2029"
   ],
   "files": [
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/rpm-auction-schedule.xlsx",
@@ -513,8 +516,104 @@
     "http://www.pjm.com/markets-and-operations/rpm",
     "http://www.pjm.com/markets-and-operations/etools/capacity-exchange",
     "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
-    "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
-    "http://www.pjm.com/planning/rtep-development/powerflow-cases/rpm-base-cases"
+    "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates"
   ],
-  "extractedLines": 178
+  "ambiguous": [
+    {
+      "lda": "ATSI",
+      "delivery_year": "2026-2027",
+      "prices": [
+        329.17,
+        388.57
+      ]
+    },
+    {
+      "lda": "ATSI",
+      "delivery_year": "2027-2028",
+      "prices": [
+        333.44,
+        529.8
+      ]
+    },
+    {
+      "lda": "ATSI-CLEVELAND",
+      "delivery_year": "2026-2027",
+      "prices": [
+        329.17,
+        388.57
+      ]
+    },
+    {
+      "lda": "ATSI-CLEVELAND",
+      "delivery_year": "2027-2028",
+      "prices": [
+        333.44,
+        529.8
+      ]
+    },
+    {
+      "lda": "COMED",
+      "delivery_year": "2026-2027",
+      "prices": [
+        329.17,
+        388.57
+      ]
+    },
+    {
+      "lda": "COMED",
+      "delivery_year": "2027-2028",
+      "prices": [
+        333.44,
+        529.8
+      ]
+    },
+    {
+      "lda": "DAY",
+      "delivery_year": "2026-2027",
+      "prices": [
+        329.17,
+        388.57
+      ]
+    },
+    {
+      "lda": "DAY",
+      "delivery_year": "2027-2028",
+      "prices": [
+        333.44,
+        529.8
+      ]
+    },
+    {
+      "lda": "DEOK",
+      "delivery_year": "2026-2027",
+      "prices": [
+        329.17,
+        388.57
+      ]
+    },
+    {
+      "lda": "DEOK",
+      "delivery_year": "2027-2028",
+      "prices": [
+        333.44,
+        529.8
+      ]
+    },
+    {
+      "lda": "RTO",
+      "delivery_year": "2026-2027",
+      "prices": [
+        329.17,
+        388.57
+      ]
+    },
+    {
+      "lda": "RTO",
+      "delivery_year": "2027-2028",
+      "prices": [
+        333.44,
+        529.8
+      ]
+    }
+  ]
 }
