@@ -354,4 +354,369 @@ def src_stooq():
 #  ■ 지금 위험의 성격 — 정확도가 아니라 '못 보는 것'
 #    폴란드 도매가에는 EUA 가 **이미 들어 있다**(한계발전기 탄소비가 시장가에 실린다).
 #    그래서 수준은 틀리지 않았다. 빠진 것은 **미래 EUA 를 보고 미리 아는 경로**다.
-#    지금은 도매가 실적 추세만 이어서, EUA 가 뛰면 도매가가 뛴
+#    지금은 도매가 실적 추세만 이어서, EUA 가 뛰면 도매가가 뛴 뒤에야 따라간다 —
+#    **오하이오와 같은 실패 형태다.** 폴란드 MAPE 7.0% 는 최근 44개월이 조용했기 때문이다.
+#
+#  ■ 1차 실행에서 EUA 만 실패한 이유와 대응
+#    Yahoo 429(러너 공용 IP 요율제한) · Stooq 봇차단(JS 챌린지) · EEX gvsi 연결거부.
+#    반면 **EEX 경매 페이지와 ICAP 페이지는 200(HTML)** 이었다. 그래서 여기서는
+#      (1) 그 페이지 본문에서 **데이터파일 링크·API 경로를 발견**한다(World Bank 방식)
+#      (2) Yahoo 는 백오프 + query2 호스트로 재시도한다(KEUA·KRBN 은 EUA 선물 보유 ETF)
+#      (3) FastAPI 계열은 **openapi.json 을 받아 엔드포인트 목록을 읽는다** — 경로를
+#          상상하지 않고 서버가 스스로 알려주게 한다
+# ══════════════════════════════════════════════════════════════════
+DATE_RE = re.compile(r"^\s*(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})")
+EP_RE   = re.compile(r"""["'](https?://[^"'\s]{12,200}|/[A-Za-z0-9._/\-]{6,140})["']""")
+EP_KEY  = re.compile(r"(api|\.json|\.csv|\.xlsx?|graphql|price|auction|chart|data)", re.I)
+FILE2_RE= re.compile(r"""["'(]([^"'()\s]{4,240}\.(?:csv|xlsx|xls|json))["')]""", re.I)
+PRICE_H = re.compile(r"(price|settle|clos|eur|auction|value)", re.I)
+MIN_DAYS = 15          # 월평균은 관측 15일 이상인 달만 인정(부분월 편향 방지)
+
+
+def _monthly_from_daily(pairs):
+    """pairs=[(YYYY-MM-DD, float)] → [(YYYY-MM, 월평균)] · 관측 15일 미만 달은 버린다."""
+    acc = {}
+    for d, v in pairs:
+        acc.setdefault(d[:7], []).append(v)
+    out = []
+    for ym in sorted(acc):
+        if len(acc[ym]) >= MIN_DAYS:
+            out.append((ym, sum(acc[ym]) / len(acc[ym])))
+    return out
+
+
+def parse_csv_prices(text):
+    """헤더에서 날짜열·가격열을 찾아 (일별 또는 월별) 시계열을 만든다.
+       열 이름을 고정하지 않는다 — 날짜 매치가 가장 많은 열을 날짜열로 본다."""
+    try:
+        rows = list(csv.reader(io.StringIO(text)))
+    except Exception:
+        return [], "csv 파싱 실패"
+    if len(rows) < 8:
+        return [], "행 %d개 (너무 적음)" % len(rows)
+    # 날짜열 = DATE_RE 매치가 가장 많은 열
+    ncol = max(len(r) for r in rows[:200])
+    hit = [0] * ncol
+    for r in rows:
+        for c in range(min(ncol, len(r))):
+            if DATE_RE.match(str(r[c])):
+                hit[c] += 1
+    if not any(hit):
+        return [], "날짜열 없음 (헤더=%s)" % (rows[0][:6],)
+    dcol = hit.index(max(hit))
+    hdr = rows[0]
+    # 가격열 = 헤더가 price/settle/close/eur 계열이고 숫자가 채워진 열
+    cands = [c for c, h in enumerate(hdr) if c != dcol and PRICE_H.search(str(h))]
+    if not cands:
+        cands = [c for c in range(ncol) if c != dcol]
+    best, bn = None, 0
+    for c in cands:
+        n = 0
+        for r in rows[1:]:
+            if len(r) > max(c, dcol) and DATE_RE.match(str(r[dcol])):
+                try:
+                    float(str(r[c]).replace(",", "").replace(" ", ""))
+                    n += 1
+                except (TypeError, ValueError):
+                    pass
+        if n > bn:
+            best, bn = c, n
+    if best is None or bn < 8:
+        return [], "가격열 없음 (헤더=%s)" % (hdr[:8],)
+    pairs = []
+    for r in rows[1:]:
+        if len(r) <= max(best, dcol):
+            continue
+        m = DATE_RE.match(str(r[dcol]))
+        if not m:
+            continue
+        d = "%04d-%02d-%02d" % (int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        try:
+            v = float(str(r[best]).replace(",", "").replace(" ", ""))
+        except (TypeError, ValueError):
+            continue
+        if v > 0:
+            pairs.append((d, v))
+    return _monthly_from_daily(pairs), "날짜열%d 가격열%d(%s) 일별 %d건" % (
+        dcol, best, str(hdr[best])[:24], len(pairs))
+
+
+def xlsx_dates(grid, price_rx=PRICE_H):
+    """날짜 셀(datetime) 또는 'YYYY-MM-DD' 문자열을 쓰는 xlsx 용 파서.
+       World Bank·IMF 는 '1960M01' 형식이라 xlsx_pick 이 맞지만, 거래소·경매 보고서는
+       **실제 날짜 셀**을 쓴다(openpyxl 이 datetime 객체로 준다). 두 경로를 나눠 둔다."""
+    import datetime as _dt
+
+    def asdate(v):
+        if isinstance(v, (_dt.datetime, _dt.date)):
+            return "%04d-%02d-%02d" % (v.year, v.month, v.day)
+        m = DATE_RE.match(str(v)) if v is not None else None
+        return "%04d-%02d-%02d" % (int(m.group(1)), int(m.group(2)), int(m.group(3))) if m else None
+
+    ncol = max((len(r) for r in grid), default=0)
+    if not ncol:
+        return [], "빈 시트"
+    hit = [0] * ncol
+    for r in grid:
+        for c in range(min(ncol, len(r))):
+            if asdate(r[c]):
+                hit[c] += 1
+    if not any(hit):
+        return [], "날짜 셀 없음"
+    dcol = hit.index(max(hit))
+    first = next(i for i, r in enumerate(grid) if len(r) > dcol and asdate(r[dcol]))
+    # 헤더 = 첫 데이터행 위쪽을 열 단위로 이어붙임(xlsx_pick 과 같은 규칙)
+    hdr = []
+    for c in range(ncol):
+        buf = [str(grid[i][c]).strip() for i in range(max(0, first - 12), first)
+               if len(grid[i]) > c and isinstance(grid[i][c], str) and grid[i][c].strip()]
+        hdr.append(" ".join(buf))
+    cands = [c for c in range(ncol) if c != dcol and hdr[c] and price_rx.search(hdr[c])] \
+            or [c for c in range(ncol) if c != dcol]
+    best, bn = None, 0
+    for c in cands:
+        n = sum(1 for r in grid[first:]
+                if len(r) > max(c, dcol) and asdate(r[dcol]) and isinstance(r[c], (int, float)))
+        if n > bn:
+            best, bn = c, n
+    if best is None or bn < 8:
+        return [], "가격열 없음(헤더=%s)" % [h[:20] for h in hdr[:8]]
+    pairs = []
+    for r in grid[first:]:
+        if len(r) <= max(best, dcol):
+            continue
+        d = asdate(r[dcol])
+        if d and isinstance(r[best], (int, float)) and r[best] > 0:
+            pairs.append((d, float(r[best])))
+    return _monthly_from_daily(pairs), "날짜열%d 가격열%d(%s) 일별 %d건" % (
+        dcol, best, hdr[best][:24], len(pairs))
+
+
+def page_hunt(pid, url, key_rx):
+    """페이지를 받아 (a) 데이터파일 링크 (b) API 경로 후보를 **발견**한다.
+       링크가 csv/xlsx 면 실제로 내려받아 파싱까지 시도한다. 못 하면 프로브로만 남긴다."""
+    try:
+        r = get(url)
+    except Exception as e:
+        rec(pid, 1, url, None, False, "EXC %s" % e)
+        return 0
+    if r.status_code != 200:
+        rec(pid, 1, url, r.status_code, False, r.text[:150])
+        return 0
+    body = r.text
+    files, eps = [], []
+    for f in FILE2_RE.findall(body):
+        if key_rx.search(f):
+            files.append(f if f.startswith("http") else _abs(url, f))
+    for e in EP_RE.findall(body):
+        if EP_KEY.search(e) and key_rx.search(e):
+            eps.append(e if e.startswith("http") else _abs(url, e))
+    files = list(dict.fromkeys(files))[:12]
+    eps = list(dict.fromkeys(eps))[:15]
+    rec(pid, 1, url, 200, bool(files or eps),
+        "파일 %d건 %s | 경로후보 %d건 %s" % (len(files), files[:4], len(eps), eps[:4]))
+
+    n = 0
+    for fi, f in enumerate(files):        # 한 페이지가 파일 여러 개를 주면 키가 겹쳐 덮어쓴다 -> 인덱스 부여
+        tag = pid + (("_%d" % (fi + 1)) if fi else "")
+        try:
+            rr = get(f)
+            if rr.status_code != 200:
+                rec(tag + "_dl", 1, f, rr.status_code, False, "")
+                continue
+            if f.lower().endswith((".xlsx", ".xls")):
+                sheet, grid = xlsx_grid(rr.content, "")
+                got, hrow, dcol = xlsx_pick(grid, {"EUA": (r"eua|allowance|auction|settle|price",
+                                                           "EUA (xlsx)")})
+                if got.get("EUA"):
+                    k = put("EUA_" + tag, "EUA 배출권 (xlsx: " + f.rsplit("/", 1)[-1][:32] + ")",
+                            "EUR/tCO2", url, got["EUA"])
+                    n += k
+                    rec(tag + "_dl", 1, f, 200, True, "xlsx(YYYYMnn) sheet=%s pts=%d" % (sheet, k))
+                else:
+                    # 거래소·경매 보고서는 실제 날짜 셀을 쓴다 → 두 번째 파서로 재시도
+                    pairs, note2 = xlsx_dates(grid)
+                    k = put("EUA_" + tag, "EUA 배출권 (xlsx: " + f.rsplit("/", 1)[-1][:32] + ")",
+                            "원문단위 · 확인 필요", url, pairs) if pairs else 0
+                    n += k
+                    rec(tag + "_dl", 1, f, 200, k > 0,
+                        "xlsx(YYYYMnn) 미발견 hdr=%s dcol=%s → 날짜셀 파서: %s → 월 %d건"
+                        % (hrow, dcol, note2, len(pairs)))
+            else:
+                pairs, note = parse_csv_prices(rr.text)
+                if pairs:
+                    n += put("EUA_" + tag, "EUA 배출권 (csv: " + f.rsplit("/", 1)[-1][:32] + ")",
+                             "EUR/tCO2(추정 · 단위 확인 필요)", url, pairs)
+                rec(tag + "_dl", 1, f, 200, bool(pairs), note + " → 월 %d건" % len(pairs))
+        except Exception as e:
+            rec(tag + "_dl", 1, f, None, False, "EXC %s" % e)
+    return n
+
+
+def _abs(base, href):
+    if href.startswith("http"):
+        return href
+    m = re.match(r"(https?://[^/]+)", base)
+    root = m.group(1) if m else ""
+    return (root + href) if href.startswith("/") else (base.rsplit("/", 1)[0] + "/" + href)
+
+
+EUA_KEY = re.compile(r"(eua|emission|allowance|carbon|co2|auction|ets)", re.I)
+EUA_PAGES = [
+    ("EEXauc",  "https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download"),
+    ("EEXemis", "https://www.eex.com/en/market-data/environmental-markets"),
+    ("ICAP",    "https://icapcarbonaction.com/en/ets-prices"),
+]
+# FastAPI 계열은 스펙을 스스로 알려준다 — 경로를 상상하지 않는다.
+OPENAPI = [
+    ("EC_spec",    "https://api.energy-charts.info/openapi.json"),
+    ("EMBER_spec", "https://api.ember-energy.org/openapi.json"),
+]
+YH_EUA = ["KEUA", "KRBN"]          # EUA 선물을 실제 보유하는 ETF (대리지표)
+
+
+def src_eua():
+    n = 0
+    for pid, u in EUA_PAGES:
+        try:
+            n += page_hunt("EUA_" + pid, u, EUA_KEY)
+        except Exception as e:
+            rec("EUA_" + pid, 1, u, None, False, "EXC %s" % e)
+
+    # openapi 스펙 → carbon/co2/price 관련 경로 목록만 뽑아 로그에 남긴다(호출은 안 한다)
+    for pid, u in OPENAPI:
+        try:
+            r = get(u)
+            if r.status_code != 200:
+                rec(pid, 1, u, r.status_code, False, r.text[:120])
+                continue
+            j = r.json()
+            paths = list((j.get("paths") or {}).keys())
+            hitp = [p for p in paths if re.search(r"co2|carbon|price|emission", p, re.I)]
+            rec(pid, 1, u, 200, bool(hitp),
+                "전체 %d경로 · 관련 %s" % (len(paths), hitp[:10]))
+        except Exception as e:
+            rec(pid, 1, u, None, False, "EXC %s" % e)
+
+    # Yahoo 재시도 — 1차 실행에서 5티커 전부 429 였다. 호스트 교대 + 백오프.
+    for sym in YH_EUA:
+        done = False
+        for attempt, host in enumerate(["query1", "query2", "query1"]):
+            u = ("https://%s.finance.yahoo.com/v8/finance/chart/%s"
+                 "?range=10y&interval=1mo" % (host, sym))
+            try:
+                if attempt:
+                    time.sleep(4 * attempt)          # 4s · 8s 백오프
+                r = get(u)
+                if r.status_code != 200:
+                    rec("YHR_%s#%d" % (sym, attempt + 1), 1, u, r.status_code, False,
+                        r.text[:90])
+                    continue
+                j = r.json()
+                res = ((j.get("chart") or {}).get("result") or [None])[0]
+                if not res:
+                    rec("YHR_%s#%d" % (sym, attempt + 1), 1, u, 200, False, "result 없음")
+                    continue
+                ts = res.get("timestamp") or []
+                ind = res.get("indicators") or {}
+                vals = ((ind.get("adjclose") or [{}])[0].get("adjclose")
+                        or (ind.get("quote") or [{}])[0].get("close") or [])
+                pairs = []
+                for t, v in zip(ts, vals):
+                    if v is None:
+                        continue
+                    g = time.gmtime(t)
+                    pairs.append(("%04d-%02d" % (g.tm_year, g.tm_mon), float(v)))
+                if pairs:
+                    pairs = pairs[:-1]               # ★ 마지막은 진행 중인 달 — 월평균 아님
+                k = put("YH_" + sym, sym + " (EUA 선물 보유 ETF · 대리지표)", "USD/주",
+                        "Yahoo Finance chart v8 (" + host + ")", pairs)
+                n += k
+                rec("YHR_%s#%d" % (sym, attempt + 1), 1, u, 200, k > 0,
+                    "pts=%d %s~%s" % (k, pairs[0][0] if pairs else "-",
+                                      pairs[-1][0] if pairs else "-"))
+                done = True
+                break
+            except Exception as e:
+                rec("YHR_%s#%d" % (sym, attempt + 1), 1, u, None, False, "EXC %s" % e)
+        if not done:
+            log("   !! %s 3회 모두 실패 — 러너 IP 요율제한이 지속적일 수 있다" % sym)
+    return n
+
+
+# ══════════════════════════════════════════════════════════════════
+#  T3  forward 곡선·1차시장 후보 — 파서 없음. 살아있는지만 본다.
+#      여기서 200 이 나오면 FUEL_FWD 자동화가 열린다(payoff 최대).
+#      쿼리 파라미터를 추측해 채우지 않는다 — 200 을 받은 뒤 본문 보고 짠다.
+# ══════════════════════════════════════════════════════════════════
+FWD_PROBE = [
+    ("EEX_gvsi",  "https://webservice-eex.gvsi.com/query/json/getDaily/close/tradedatetimegmt/?symbol=%2FE.FTBM"),
+    ("EEX_group", "https://api.eex-group.com/"),
+    ("EEX_auc",   "https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download"),
+    ("EEX_gas",   "https://www.eex.com/en/market-data/natural-gas/futures"),
+    ("ICE_report","https://www.theice.com/marketdata/reports/api/getReport?reportId=178"),
+    ("ICAP_api",  "https://icapcarbonaction.com/api/allowance-prices"),
+    ("ICAP_page", "https://icapcarbonaction.com/en/ets-prices"),
+    ("EMBER_api", "https://api.ember-energy.org/v1/carbon-price/monthly"),
+    ("EUROSTAT",  "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_203"
+                  "?format=JSON&lang=EN&geo=PL"),
+]
+
+
+def src_probe_only():
+    for pid, u in FWD_PROBE:
+        try:
+            r = get(u, allow_redirects=True)
+            ct = r.headers.get("Content-Type", "")
+            if "text" in ct or "json" in ct or "xml" in ct:
+                head = re.sub(r"\s+", " ", r.text[:220])
+            else:
+                head = "<bin %dB>" % len(r.content)
+            rec(pid, 3, u, r.status_code, r.status_code == 200, "ct=%s | %s" % (ct, head))
+        except Exception as e:
+            rec(pid, 3, u, None, False, "EXC %s" % e)
+
+
+# ══════════════════════════════════════════════════════════════════
+def main():
+    log("=== fetch_fuel.py  mode=%s ===" % ("DISCOVER" if DISCOVER else "COLLECT"))
+    for fn in (src_worldbank, src_imf, src_yahoo, src_stooq, src_eua, src_probe_only):
+        try:
+            fn()
+        except Exception as e:
+            log("!! %s 전체 실패: %s" % (fn.__name__, e))
+
+    ok = [p for p in PROBE if p["ok"]]
+    log("\n[요약] 후보 %d건 중 성공 %d건 · 계열 %d개" % (len(PROBE), len(ok), len(SERIES)))
+    for k, s in SERIES.items():
+        log("  %-22s n=%4d %s~%s  %s" % (k, len(s["points"]),
+            s["points"][0]["period"], s["points"][-1]["period"], s["label"]))
+
+    with open(OUT_PROBE, "w", encoding="utf-8") as f:
+        json.dump({"probe": PROBE, "seriesFound": list(SERIES)}, f, ensure_ascii=False, indent=2)
+    log("[OK] %s" % OUT_PROBE)
+
+    if DISCOVER:
+        log("[SKIP] --discover 이므로 fuel_monthly.* 는 갱신하지 않는다")
+        return
+    if not SERIES:
+        log("!! 계열 0개 — 출력파일을 덮어쓰지 않는다(기존 수집분 보호)")
+        return
+
+    with open(OUT_JSON, "w", encoding="utf-8") as f:
+        json.dump({"source": "무료 공개소스 다중(World Bank·IMF·Yahoo·Stooq)",
+                   "note": "월별 현물/월평균이다. forward 아님. 단위는 원문 그대로 — 환산은 파일럿에서.",
+                   "data": SERIES}, f, ensure_ascii=False, indent=2)
+    log("[OK] %s" % OUT_JSON)
+
+    with open(OUT_CSV, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.writer(f)
+        w.writerow(["series", "period", "value", "unit", "label", "source"])
+        for k, s in SERIES.items():
+            for p in s["points"]:
+                w.writerow([k, p["period"], p["value"], s["unit"], s["label"], s["source"]])
+    log("[OK] %s" % OUT_CSV)
+
+
+if __name__ == "__main__":
+    main()
