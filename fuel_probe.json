@@ -1,0 +1,219 @@
+{
+  "probe": [
+    {
+      "id": "WB_page",
+      "tier": 1,
+      "url": "https://www.worldbank.org/en/research/commodity-markets",
+      "http": 200,
+      "ok": true,
+      "note": "xlsx링크 1건 발견"
+    },
+    {
+      "id": "WB_xlsx",
+      "tier": 1,
+      "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
+      "http": 200,
+      "ok": true,
+      "note": "sheet=Monthly Prices headerRow=0~5(concat) dateCol=0 계열=['TTF_EU', 'HH_US', 'LNG_JP', 'COAL_ZA', 'COAL_AU'] pts=3383"
+    },
+    {
+      "id": "IMF_xlsx",
+      "tier": 1,
+      "url": "https://www.imf.org/-/media/Files/Research/CommodityPrices/Monthly/external-data.ashx",
+      "http": 403,
+      "ok": false,
+      "note": "len=464"
+    },
+    {
+      "id": "IMF_xlsx",
+      "tier": 1,
+      "url": "https://www.imf.org/-/media/Files/Research/CommodityPrices/Monthly/ExternalData.ashx",
+      "http": 403,
+      "ok": false,
+      "note": "len=461"
+    },
+    {
+      "id": "YH_KEUA",
+      "tier": 1,
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/KEUA?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "YH_KRBN",
+      "tier": 1,
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/KRBN?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "YH_TTF=F",
+      "tier": 1,
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/TTF=F?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "YH_MTF=F",
+      "tier": 1,
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MTF=F?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "YH_NG=F",
+      "tier": 1,
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/NG=F?range=10y&interval=1mo",
+      "http": 429,
+      "ok": false,
+      "note": "Too Many Requests\r\n"
+    },
+    {
+      "id": "STQ_ttf.f",
+      "tier": 2,
+      "url": "https://stooq.com/q/d/l/?s=ttf.f&i=m",
+      "http": 200,
+      "ok": false,
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
+    },
+    {
+      "id": "STQ_co2.f",
+      "tier": 2,
+      "url": "https://stooq.com/q/d/l/?s=co2.f&i=m",
+      "http": 200,
+      "ok": false,
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
+    },
+    {
+      "id": "STQ_eua.f",
+      "tier": 2,
+      "url": "https://stooq.com/q/d/l/?s=eua.f&i=m",
+      "http": 200,
+      "ok": false,
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
+    },
+    {
+      "id": "STQ_atw.f",
+      "tier": 2,
+      "url": "https://stooq.com/q/d/l/?s=atw.f&i=m",
+      "http": 200,
+      "ok": false,
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
+    },
+    {
+      "id": "STQ_coal.f",
+      "tier": 2,
+      "url": "https://stooq.com/q/d/l/?s=coal.f&i=m",
+      "http": 200,
+      "ok": false,
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
+    },
+    {
+      "id": "STQ_ng.f",
+      "tier": 2,
+      "url": "https://stooq.com/q/d/l/?s=ng.f&i=m",
+      "http": 200,
+      "ok": false,
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
+    },
+    {
+      "id": "STQ_ttfg.f",
+      "tier": 2,
+      "url": "https://stooq.com/q/d/l/?s=ttfg.f&i=m",
+      "http": 200,
+      "ok": false,
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
+    },
+    {
+      "id": "STQ_carb.f",
+      "tier": 2,
+      "url": "https://stooq.com/q/d/l/?s=carb.f&i=m",
+      "http": 200,
+      "ok": false,
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
+    },
+    {
+      "id": "EEX_gvsi",
+      "tier": 3,
+      "url": "https://webservice-eex.gvsi.com/query/json/getDaily/close/tradedatetimegmt/?symbol=%2FE.FTBM",
+      "http": null,
+      "ok": false,
+      "note": "EXC HTTPSConnectionPool(host='webservice-eex.gvsi.com', port=443): Max retries exceeded with url: /query/json/getDaily/close/tradedatetimegmt/?symbol=%2FE.FTBM (Caused by NewConnectionError(\"HTTPSConnection(host='webservice-eex.gvsi.com', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    },
+    {
+      "id": "EEX_group",
+      "tier": 3,
+      "url": "https://api.eex-group.com/",
+      "http": 404,
+      "ok": false,
+      "note": "ct=text/plain | 404 Not Found: The requested resource could not be found. This may be due to a typo in the URL or an attempt to access a non-existent endpoint."
+    },
+    {
+      "id": "EEX_auc",
+      "tier": 3,
+      "url": "https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download",
+      "http": 200,
+      "ok": true,
+      "note": "ct=text/html; charset=utf-8 | <!DOCTYPE html> <html lang=\"en-US\"> <head> <meta charset=\"utf-8\"> <!-- ________________________________________________________________________________________________ This website is powered by TYPO3 - inspiring pe"
+    },
+    {
+      "id": "EEX_gas",
+      "tier": 3,
+      "url": "https://www.eex.com/en/market-data/natural-gas/futures",
+      "http": 200,
+      "ok": true,
+      "note": "ct=text/html; charset=utf-8 | <!DOCTYPE html> <html lang=\"en-US\"> <head> <meta charset=\"utf-8\"> <!-- ________________________________________________________________________________________________ This website is powered by TYPO3 - inspiring pe"
+    },
+    {
+      "id": "ICE_report",
+      "tier": 3,
+      "url": "https://www.theice.com/marketdata/reports/api/getReport?reportId=178",
+      "http": 200,
+      "ok": true,
+      "note": "ct=text/html; charset=utf-8 | <!DOCTYPE html><html lang=\"en\" data-is-cms-page=\"true\" class=\"scroll-smooth\"><head><meta charset=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimum-scale=1\"/><meta http-equiv=\"X-UA-Compa"
+    },
+    {
+      "id": "ICAP_api",
+      "tier": 3,
+      "url": "https://icapcarbonaction.com/api/allowance-prices",
+      "http": 404,
+      "ok": false,
+      "note": "ct=text/html; charset=UTF-8 | <!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" prefix=\"og: https://ogp.me/ns#\" class=\"preload\"> <head> <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/themes/custom/theme-adelphi-icap/apple-touch-icon.png\"> <lin"
+    },
+    {
+      "id": "ICAP_page",
+      "tier": 3,
+      "url": "https://icapcarbonaction.com/en/ets-prices",
+      "http": 200,
+      "ok": true,
+      "note": "ct=text/html; charset=UTF-8 | <!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" prefix=\"og: https://ogp.me/ns#\" class=\"preload\"> <head> <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/themes/custom/theme-adelphi-icap/apple-touch-icon.png\"> <lin"
+    },
+    {
+      "id": "EMBER_api",
+      "tier": 3,
+      "url": "https://api.ember-energy.org/v1/carbon-price/monthly",
+      "http": 404,
+      "ok": false,
+      "note": "ct=application/json | {\"detail\":\"Not Found\"}"
+    },
+    {
+      "id": "EUROSTAT",
+      "tier": 3,
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_203?format=JSON&lang=EN&geo=PL",
+      "http": 200,
+      "ok": true,
+      "note": "ct=application/json | {\"version\":\"2.0\",\"class\":\"dataset\",\"label\":\"Gas prices for industrial consumers - bi-annual data (from 2007 onwards)\",\"source\":\"ESTAT\",\"updated\":\"2026-08-11T23:00:00+0200\",\"value\":{\"1939\":10.2653,\"1940\":11.1386,\"1941\":13"
+    }
+  ],
+  "seriesFound": [
+    "WB_TTF_EU",
+    "WB_HH_US",
+    "WB_LNG_JP",
+    "WB_COAL_ZA",
+    "WB_COAL_AU"
+  ]
+}
