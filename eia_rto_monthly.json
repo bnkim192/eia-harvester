@@ -6,7 +6,7 @@
   "timezone": "Eastern"
  },
  "probe": {
-  "checked_at": "2026-08-24T01:32",
+  "checked_at": "2026-08-24T02:12",
   "rto_routes": [
    "region-data",
    "fuel-type-data",
@@ -33,11 +33,11 @@
    }
   },
   "timezone_values": [
-   "Pacific",
    "Central",
    "Arizona",
    "Mountain",
-   "Eastern"
+   "Eastern",
+   "Pacific"
   ],
   "candidates": [
    {
