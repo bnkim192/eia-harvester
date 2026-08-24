@@ -34,6 +34,10 @@
   fuel_monthly.json / .csv   파서 성공 계열만. steo_forward_monthly.json 과 동일 스키마
   fuel_probe.json            후보별 판정표 (다음 단계 결정 근거)
 
+■ EUA 전용 블록 (2026-08-24)
+  EUA 는 폴란드 도매 공정가의 51% 를 차지한다(아래 T1-EUA 주석의 계산 참조).
+  1차 실행에서 유일하게 실패한 항목이라 별도 경로 4가지로 다시 판다.
+
 ■ 사용
   python fetch_fuel.py              수집 + 프로브
   python fetch_fuel.py --discover   프로브만 (출력파일 미갱신)
@@ -333,78 +337,21 @@ def src_stooq():
 
 
 # ══════════════════════════════════════════════════════════════════
-#  T3  forward 곡선·1차시장 후보 — 파서 없음. 살아있는지만 본다.
-#      여기서 200 이 나오면 FUEL_FWD 자동화가 열린다(payoff 최대).
-#      쿼리 파라미터를 추측해 채우지 않는다 — 200 을 받은 뒤 본문 보고 짠다.
-# ══════════════════════════════════════════════════════════════════
-FWD_PROBE = [
-    ("EEX_gvsi",  "https://webservice-eex.gvsi.com/query/json/getDaily/close/tradedatetimegmt/?symbol=%2FE.FTBM"),
-    ("EEX_group", "https://api.eex-group.com/"),
-    ("EEX_auc",   "https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download"),
-    ("EEX_gas",   "https://www.eex.com/en/market-data/natural-gas/futures"),
-    ("ICE_report","https://www.theice.com/marketdata/reports/api/getReport?reportId=178"),
-    ("ICAP_api",  "https://icapcarbonaction.com/api/allowance-prices"),
-    ("ICAP_page", "https://icapcarbonaction.com/en/ets-prices"),
-    ("EMBER_api", "https://api.ember-energy.org/v1/carbon-price/monthly"),
-    ("EUROSTAT",  "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_203"
-                  "?format=JSON&lang=EN&geo=PL"),
-]
-
-
-def src_probe_only():
-    for pid, u in FWD_PROBE:
-        try:
-            r = get(u, allow_redirects=True)
-            ct = r.headers.get("Content-Type", "")
-            if "text" in ct or "json" in ct or "xml" in ct:
-                head = re.sub(r"\s+", " ", r.text[:220])
-            else:
-                head = "<bin %dB>" % len(r.content)
-            rec(pid, 3, u, r.status_code, r.status_code == 200, "ct=%s | %s" % (ct, head))
-        except Exception as e:
-            rec(pid, 3, u, None, False, "EXC %s" % e)
-
-
-# ══════════════════════════════════════════════════════════════════
-def main():
-    log("=== fetch_fuel.py  mode=%s ===" % ("DISCOVER" if DISCOVER else "COLLECT"))
-    for fn in (src_worldbank, src_imf, src_yahoo, src_stooq, src_probe_only):
-        try:
-            fn()
-        except Exception as e:
-            log("!! %s 전체 실패: %s" % (fn.__name__, e))
-
-    ok = [p for p in PROBE if p["ok"]]
-    log("\n[요약] 후보 %d건 중 성공 %d건 · 계열 %d개" % (len(PROBE), len(ok), len(SERIES)))
-    for k, s in SERIES.items():
-        log("  %-22s n=%4d %s~%s  %s" % (k, len(s["points"]),
-            s["points"][0]["period"], s["points"][-1]["period"], s["label"]))
-
-    with open(OUT_PROBE, "w", encoding="utf-8") as f:
-        json.dump({"probe": PROBE, "seriesFound": list(SERIES)}, f, ensure_ascii=False, indent=2)
-    log("[OK] %s" % OUT_PROBE)
-
-    if DISCOVER:
-        log("[SKIP] --discover 이므로 fuel_monthly.* 는 갱신하지 않는다")
-        return
-    if not SERIES:
-        log("!! 계열 0개 — 출력파일을 덮어쓰지 않는다(기존 수집분 보호)")
-        return
-
-    with open(OUT_JSON, "w", encoding="utf-8") as f:
-        json.dump({"source": "무료 공개소스 다중(World Bank·IMF·Yahoo·Stooq)",
-                   "note": "월별 현물/월평균이다. forward 아님. 단위는 원문 그대로 — 환산은 파일럿에서.",
-                   "data": SERIES}, f, ensure_ascii=False, indent=2)
-    log("[OK] %s" % OUT_JSON)
-
-    with open(OUT_CSV, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.writer(f)
-        w.writerow(["series", "period", "value", "unit", "label", "source"])
-        for k, s in SERIES.items():
-            for p in s["points"]:
-                w.writerow([k, p["period"], p["value"], s["unit"], s["label"], s["source"]])
-    log("[OK] %s" % OUT_CSV)
-
-
-if __name__ == "__main__":
-    main()
+#  T1-EUA  배출권 전용 블록 (2026-08-24 추가)
+#
+#  ■ 왜 EUA 만 따로 파는가
+#    파일럿 SRMC 계수로 계산하면 **EUA 가 폴란드 도매 공정가의 51% 를 차지한다.**
+#      석탄 SRMC = 연료 34.3 + 탄소 65.6 + VOM 2 = 101.9 EUR/MWh  → 탄소 64.3%
+#      가스 SRMC = 연료 78.2 + 탄소 29.2 + VOM 2 = 109.4          → 탄소 26.7%
+#      혼합(석탄 β=0.6651)                        = 104.4          → **탄소 51.1%**
+#      (EUA 79 EUR/t · API2 114 USD/t · TTF 43 EUR/MWh · coalEmis 0.83 · coalEff 0.41)
+#    석탄 SRMC 에서 **탄소비가 연료비보다 크다**(65.6 vs 34.3). 석탄 비중이 높다는 건
+#    곧 EUA 노출이 크다는 뜻이다.
+#    민감도 — EUA €10 → 혼합 SRMC 6.76 EUR/MWh → **10.9 ₩/kWh**.
+#    WA 차년도 예측 195.0 ₩/kWh 의 5.6% 로 **MAPE 7.0% 와 맞먹는다.**
+#    EUA 는 2020 €25 → 2023 €100 을 오갔다. €30 움직이면 33 ₩/kWh(17%)다.
+#
+#  ■ 지금 위험의 성격 — 정확도가 아니라 '못 보는 것'
+#    폴란드 도매가에는 EUA 가 **이미 들어 있다**(한계발전기 탄소비가 시장가에 실린다).
+#    그래서 수준은 틀리지 않았다. 빠진 것은 **미래 EUA 를 보고 미리 아는 경로**다.
+#    지금은 도매가 실적 추세만 이어서, EUA 가 뛰면 도매가가 뛴
