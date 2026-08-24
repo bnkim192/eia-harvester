@@ -6,7 +6,7 @@
   "timezone": "Eastern"
  },
  "probe": {
-  "checked_at": "2026-08-24T05:15",
+  "checked_at": "2026-08-24T09:36",
   "rto_routes": [
    "region-data",
    "fuel-type-data",
@@ -33,11 +33,11 @@
    }
   },
   "timezone_values": [
-   "Arizona",
    "Mountain",
-   "Central",
+   "Pacific",
    "Eastern",
-   "Pacific"
+   "Central",
+   "Arizona"
   ],
   "candidates": [
    {
@@ -808,10 +808,10 @@
    },
    "2026-08": {
     "days": 23,
-    "load_mwh": 49376833.0,
+    "load_mwh": 49376013.0,
     "peak_day_mwh": 2303897.0,
-    "mean_day_mwh": 2146818.8,
-    "df_err": -0.021785,
+    "mean_day_mwh": 2146783.2,
+    "df_err": -0.021807,
     "ng_mwh": 46437556.0
    }
   },
