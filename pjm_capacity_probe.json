@@ -53,29 +53,29 @@
       "id": "PDF_2021-2022",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2021-2022/2021-2022-base-residual-auction-report.pdf",
       "http": 200,
-      "ok": false,
-      "note": "pages=27 행 0개 · simulated 페이지 0개 제외"
+      "ok": true,
+      "note": "pages=27 행 15개 · simulated 페이지 0개 제외"
     },
     {
       "id": "PDF_2022-2023",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2022-2023/2022-2023-base-residual-auction-report.pdf",
       "http": 200,
-      "ok": false,
-      "note": "pages=27 행 0개 · simulated 페이지 0개 제외"
+      "ok": true,
+      "note": "pages=27 행 15개 · simulated 페이지 0개 제외"
     },
     {
       "id": "PDF_2023-2024",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2023-2024/2023-2024-base-residual-auction-report.pdf",
       "http": 200,
-      "ok": false,
-      "note": "pages=25 행 0개 · simulated 페이지 0개 제외"
+      "ok": true,
+      "note": "pages=25 행 15개 · simulated 페이지 0개 제외"
     },
     {
       "id": "PDF_2024-2025",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2024-2025/2024-2025-base-residual-auction-report.pdf",
       "http": 200,
-      "ok": false,
-      "note": "pages=20 행 0개 · simulated 페이지 0개 제외"
+      "ok": true,
+      "note": "pages=20 행 15개 · simulated 페이지 0개 제외"
     },
     {
       "id": "PDF_2025-2026",

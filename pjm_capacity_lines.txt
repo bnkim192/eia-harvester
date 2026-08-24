@@ -1,15 +1,19 @@
 ==============================================================================
 SOURCE https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2021-2022/2021-2022-base-residual-auction-report.pdf  (인도연도 2021-2022)
-p15  [전치표 미해결] 값 15개 · 머리글후보 []
+p15  [전치표 머리글] RTO MAAC SWMAAC PEPCO BGE EMAAC DPL-SOUTH PSEG PS-NORTH ATSI ATSI-CLEVELAND PPL COMED DAY DEOK
+p15  [전치표 값]     140.00 140.00 140.00 140.00 200.30 165.73 165.73 204.29 204.29 171.33 171.33 140.00 195.55 140.00 140.00
 ==============================================================================
 SOURCE https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2022-2023/2022-2023-base-residual-auction-report.pdf  (인도연도 2022-2023)
-p15  [전치표 미해결] 값 15개 · 머리글후보 []
+p15  [전치표 머리글] RTO MAAC SWMAAC PEPCO BGE EMAAC DPL-SOUTH PSEG PS-NORTH ATSI ATSI-CLEVELAND PPL COMED DAY DEOK
+p15  [전치표 값]     50.00 95.79 95.79 95.79 126.50 97.86 97.86 97.86 97.86 50.00 50.00 95.79 68.96 50.00 71.69
 ==============================================================================
 SOURCE https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2023-2024/2023-2024-base-residual-auction-report.pdf  (인도연도 2023-2024)
-p15  [전치표 미해결] 값 15개 · 머리글후보 []
+p15  [전치표 머리글] RTO MAAC SWMAAC PEPCO BGE EMAAC DPL-SOUTH PSEG PS-NORTH ATSI ATSI-CLEVELAND PPL COMED DAY DEOK
+p15  [전치표 값]     34.13 49.49 49.49 49.49 69.95 49.49 69.95 49.49 49.49 34.13 34.13 49.49 34.13 34.13 34.13
 ==============================================================================
 SOURCE https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2024-2025/2024-2025-base-residual-auction-report.pdf  (인도연도 2024-2025)
-p8   [전치표 미해결] 값 15개 · 머리글후보 []
+p8   [전치표 머리글] RTO MAAC SWMAAC PEPCO BGE EMAAC DPL-SOUTH PSEG PS-NORTH ATSI ATSI-CLEVELAND PPL COMED DAY DEOK
+p8   [전치표 값]     28.92 49.49 49.49 49.49 73.00 53.60 426.17 53.60 53.60 28.92 28.92 49.49 28.92 28.92 96.24
 ==============================================================================
 SOURCE https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2025-2026/2025-2026-base-residual-auction-report.pdf  (인도연도 2025-2026)
 p9   ATSI 7,791.9 7,764.9 $269.92 $0.00 $269.92
