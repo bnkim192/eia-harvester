@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 PJM 용량경매(RPM Base Residual Auction) 낙찰가 수집기 — GitHub Actions 전용.
-v2 (2026-08-24): 프로브에서 **수집기로 승격**. 1차 프로브 결과가 아래를 확정했다.
+v3 (2026-08-24): 프로브 -> 수집기 승격(v2) 후, 1차 실행 결과로 파서를 고쳤다(v3).
 
   · PJM RPM 페이지 200 · 데이터파일링크 396건 발견 (URL 추측 없이 본문에서)
   · rpm-auction-info/ 디렉터리가 2007-2008 ~ 2029-2030 까지 존재
@@ -26,10 +26,9 @@ v2 (2026-08-24): 프로브에서 **수집기로 승격**. 1차 프로브 결과�
   1. URL 을 추측해 박지 않는다. 인덱스 페이지 본문에서 링크를 **발견**한다.
   2. 값을 만들어내지 않는다. PDF 에서 실제로 읽은 줄만 쓴다.
   3. **모호하면 버리지 말고 표시한다.** 한 LDA·연도에 서로 다른 가격이 2개 이상 나오면
-     (1차 프로브에서 2027/28 에 $333.44 와 $529.80 이 같이 나왔다) CSV 에는 둘 다 남기고
-     월별 시계열에서는 **제외**한다. 하나를 골라 넣지 않는다.
+     CSV 에는 둘 다 남기고 월별 시계열에서는 **제외**한다. 하나를 골라 넣지 않는다.
   4. 증분 수집 — 이미 CSV 에 있는 연도는 다시 내려받지 않는다(BRA 결과는 확정 후 불변).
-     전량 재수집은 PJM_CAP_REFRESH=1.
+     전량 재수집은 PJM_CAP_REFRESH=1. 파서 버전이 바뀌면 자동 무효화된다.
   5. 종료코드는 항상 0.
 
 ■ 산출
@@ -52,6 +51,9 @@ TIMEOUT   = 90
 API_SLEEP = 11          # api.pjm.com 익명 분당 6회 (collect.yml 기록 제약)
 MAX_REQ   = 140
 REFRESH   = os.environ.get("PJM_CAP_REFRESH", "").strip() == "1"
+# 파서를 고치면 캐시는 무효다. CSV 에 이 값을 박아두고 다르면 자동 전량 재수집한다.
+# (v1 은 구형 전치표를 못 읽고 simulated 페이지를 실제값으로 잡았다 — 그 CSV 를 이어쓰면 안 된다.)
+PARSER_VER = "v3-2026-08-24"
 
 OUT_CSV   = "pjm_capacity_bra.csv"
 OUT_JSON  = "pjm_capacity_monthly.json"
@@ -145,15 +147,46 @@ def scan(pid, url, depth=0):
 
 
 # ══════════════════════════════════════════════════════════════════
-#  2. PDF 에서 LDA 낙찰가 행 추출
-#     행 형태(실측 확인): "ATSI 7,519.1 7,519.1 $325.00 $0.00 $325.00"
-#     → 마지막 $ 값을 총 낙찰가로 본다($325.00 + $0.00 = $325.00 로 검증됨).
+#  2. PDF 에서 LDA 낙찰가 추출 — 보고서가 두 가지 레이아웃을 쓴다
+#
+#  (A) 최신형(2025/26~) : LDA 한 줄씩
+#        "ATSI 7,519.1 7,519.1 $325.00 $0.00 $325.00"
+#        마지막 $ 가 총 낙찰가다($325.00 + $0.00 = $325.00 로 검증됨).
+#
+#  (B) 구형(2021/22~2024/25) : **표가 전치되어 있다.** LDA 가 열 머리글이고 값이 한 줄에 몰린다.
+#        머리글  "RTO MAAC EMAAC SWMAAC BGE PEPCO DPL-SOUTH ..."
+#        값줄    "RCP for Capacity Performance Resources $28.92 $49.49 ... $96.24"
+#        1차 실행에서 구형 4개 연도가 1~2행만 잡힌 원인이 이것이었다.
+#        → 같은 페이지의 머리글 후보와 값 개수가 **정확히 일치할 때만** zip 한다.
+#          개수가 어긋나면 추측하지 않고 ambiguous 로 남긴다.
+#
+#  ★ '시뮬레이션' 페이지 제외 — 1차 실행에서 정체불명이던 $388.57 / $529.80 / $542.83 은
+#    보고서가 스스로 밝혔다. 20쪽 표의 근거 문장이 추출됐다:
+#      "DOM LDA which cleared at $542.83. In the 2026/2027 simulated BRA,
+#       all prices cleared at $388.57."
+#    즉 20쪽은 **가정 시나리오(simulated/estimated)** 이고 실제 낙찰가는 9~10쪽 Table 3 이다.
+#    따라서 'simulat' 또는 'estimated ... clearing price' 가 있는 페이지는 버린다.
+#
+#  ★ 산문 줄 배제 — 1차 실행에서 "COMED and DEOK LDA were constrained ... $187.87/MW-day"
+#    같은 **본문 문장**이 표 행으로 잡혔다. 실제 표 행에는 소문자가 없다. 소문자가 있으면 버린다.
 # ══════════════════════════════════════════════════════════════════
 DOL_RE  = re.compile(r"\$\s*(-?[\d,]+\.\d{2})")
 HEAD_RE = re.compile(r"^([A-Z][A-Z0-9]*(?:-[A-Z0-9]+)*)\s+")
 STOP    = {"TOTAL", "TABLE", "THE", "RTO-WIDE", "NOTE", "SOURCE", "UCAP", "ICAP",
-           "MW", "AND", "FOR", "ALL", "PJM", "LDA", "BRA", "IA"}
+           "MW", "AND", "FOR", "ALL", "PJM", "LDA", "BRA", "IA", "RCP", "CP"}
 CTX_RE  = re.compile(r"(Table\s+\d+[^\n]{0,120}|Resource Clearing Price[^\n]{0,60})", re.I)
+SIM_RE  = re.compile(r"simulat|estimated\s+\S{0,12}\s*clearing\s+price", re.I)
+LDA_TOK = re.compile(r"^[A-Z][A-Z0-9]{1,14}(?:-[A-Z0-9]+)*$")
+RCP_RE  = re.compile(r"^\s*RCP\b|Resource\s+Clearing\s+Price", re.I)
+
+
+def _push(year, lda, price, dol, page, incr, hint, url, raw, layout):
+    ROWS.append({"delivery_year": year, "lda": lda,
+                 "price_usd_mwday": price,
+                 "all_dollar_fields": "|".join(dol),
+                 "page": page, "incremental": incr,
+                 "table_hint": hint, "layout": layout,
+                 "source_url": url, "raw_line": raw[:180]})
 
 
 def parse_pdf(url, year):
@@ -163,7 +196,7 @@ def parse_pdf(url, year):
         rec("PDF_" + year, url, r.status_code, False, "len=%d" % len(r.content))
         return 0
     rd = PdfReader(io.BytesIO(r.content))
-    got = 0
+    got, skipped_sim = 0, 0
     LINES.append("=" * 78)
     LINES.append("SOURCE %s  (인도연도 %s)" % (url, year))
     for pi, pg in enumerate(rd.pages[:60]):
@@ -171,34 +204,73 @@ def parse_pdf(url, year):
             txt = pg.extract_text() or ""
         except Exception:
             continue
+        if SIM_RE.search(txt):                       # 가정 시나리오 페이지는 버린다
+            skipped_sim += 1
+            LINES.append("p%-3d [SKIP simulated/estimated 페이지]" % (pi + 1))
+            continue
         incr = bool(re.search(r"Incremental Auction", txt, re.I))
         ctx = CTX_RE.search(txt)
         hint = re.sub(r"\s+", " ", ctx.group(1))[:120] if ctx else ""
+
+        rows_here = []
+        heads, rcps = [], []
         for ln in txt.splitlines():
             ln = " ".join(ln.split())
-            if "$" not in ln:
+            if not ln:
                 continue
+            # ── (B) 전치표 재료 수집 ─────────────────────────────
+            toks = ln.split()
+            if len(toks) >= 6 and all(LDA_TOK.match(t) for t in toks):
+                heads.append(toks)                    # 머리글 후보
+            if RCP_RE.search(ln):
+                d = DOL_RE.findall(ln)
+                if len(d) >= 6:
+                    rcps.append((ln, d))
+            # ── (A) LDA 한 줄씩 ────────────────────────────────
+            if "$" not in ln or re.search(r"[a-z]", ln):
+                continue                              # 산문 배제
             hm = HEAD_RE.match(ln)
             if not hm:
                 continue
             lda = hm.group(1)
             if lda in STOP or len(lda) < 2:
                 continue
+            pre = ln.split("$", 1)[0]
+            if len(re.findall(r"[\d,]+\.\d", pre)) < 2:
+                continue                              # MW 2개가 앞에 있어야 표 행이다
             dol = DOL_RE.findall(ln)
             if not dol:
                 continue
-            price = float(dol[-1].replace(",", ""))
-            ROWS.append({"delivery_year": year, "lda": lda,
-                         "price_usd_mwday": price,
-                         "all_dollar_fields": "|".join(dol),
-                         "page": pi + 1, "incremental": incr,
-                         "table_hint": hint, "source_url": url,
-                         "raw_line": ln[:180]})
+            rows_here.append((lda, float(dol[-1].replace(",", "")), dol, ln))
+
+        for lda, price, dol, ln in rows_here:
+            _push(year, lda, price, dol, pi + 1, incr, hint, url, ln, "per-row")
             LINES.append("p%-3d %s%s" % (pi + 1, "[IA] " if incr else "", ln[:180]))
             got += 1
+
+        # (B) 전치표 — 머리글 개수와 값 개수가 정확히 같을 때만
+        if not rows_here and rcps:
+            for ln, d in rcps:
+                match = [h for h in heads if len(h) == len(d)]
+                if not match:
+                    LINES.append("p%-3d [전치표 미해결] 값 %d개 · 머리글후보 %s"
+                                 % (pi + 1, len(d), [len(h) for h in heads]))
+                    _push(year, "_UNRESOLVED_TRANSPOSED", -1.0,
+                          d, pi + 1, incr, hint, url, ln, "transposed-unresolved")
+                    continue
+                hdr = match[0]
+                LINES.append("p%-3d [전치표 머리글] %s" % (pi + 1, " ".join(hdr)))
+                LINES.append("p%-3d [전치표 값]     %s" % (pi + 1, " ".join(d)))
+                for lda, v in zip(hdr, d):
+                    if lda in STOP:
+                        continue
+                    _push(year, lda, float(v.replace(",", "")), [v],
+                          pi + 1, incr, hint, url, ln, "transposed")
+                    got += 1
         if got > 600:
             break
-    rec("PDF_" + year, url, 200, got > 0, "pages=%d 행 %d개" % (len(rd.pages), got))
+    rec("PDF_" + year, url, 200, got > 0,
+        "pages=%d 행 %d개 · simulated 페이지 %d개 제외" % (len(rd.pages), got, skipped_sim))
     return got
 
 
@@ -211,6 +283,11 @@ def load_existing():
     try:
         with open(OUT_CSV, encoding="utf-8-sig") as f:
             rows = list(csv.DictReader(f))
+        stale = [r for r in rows if r.get("parser_ver") != PARSER_VER]
+        if stale:
+            log("[캐시무효] parser_ver 불일치 %d행 → 전량 재수집 (기대 %s)"
+                % (len(stale), PARSER_VER))
+            return [], set()
         for r in rows:
             r["price_usd_mwday"] = float(r["price_usd_mwday"])
             r["page"] = int(r["page"] or 0)
@@ -230,7 +307,9 @@ def build_monthly(rows):
     for r in rows:
         if r["incremental"]:
             continue                                  # 증분경매는 BRA 가 아니다
-        base.setdefault((r["lda"], r["delivery_year"]), set()).add(round(r["price_usd_mwday"], 2))
+        if str(r["lda"]).startswith("_") or float(r["price_usd_mwday"]) <= 0:
+            continue                                  # 미해결 전치표 표식은 시계열에 넣지 않는다
+        base.setdefault((r["lda"], r["delivery_year"]), set()).add(round(float(r["price_usd_mwday"]), 2))
     series, dropped = {}, []
     for (lda, yr), prices in sorted(base.items()):
         if lda not in WANT_LDA:
@@ -251,7 +330,7 @@ def build_monthly(rows):
 
 # ══════════════════════════════════════════════════════════════════
 def main():
-    log("=== fetch_pjm_capacity.py v2  refresh=%s ===" % REFRESH)
+    log("=== fetch_pjm_capacity.py %s  refresh=%s ===" % (PARSER_VER, REFRESH))
     for pid, u in INDEX:
         try:
             scan(pid, u)
@@ -312,11 +391,14 @@ def main():
 
     if allrows:
         cols = ["delivery_year", "lda", "price_usd_mwday", "all_dollar_fields",
-                "page", "incremental", "table_hint", "source_url", "raw_line"]
+                "page", "incremental", "layout", "parser_ver",
+                "table_hint", "source_url", "raw_line"]
         with open(OUT_CSV, "w", newline="", encoding="utf-8-sig") as f:
             w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
             w.writeheader()
             for r in sorted(allrows, key=lambda x: (x["delivery_year"], x["lda"], x["page"])):
+                r.setdefault("layout", "")
+                r["parser_ver"] = PARSER_VER
                 w.writerow(r)
         log("[OK] %s (%d행)" % (OUT_CSV, len(allrows)))
     else:
