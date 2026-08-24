@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 PJM 용량경매(RPM Base Residual Auction) 낙찰가 수집기 — GitHub Actions 전용.
-v3 (2026-08-24): 프로브 -> 수집기 승격(v2) 후, 1차 실행 결과로 파서를 고쳤다(v3).
+v4 (2026-08-24): v3 실측으로 전치표 머리글 탐색을 고쳤다. 실패 시 페이지 원문을 덤프한다.
 
   · PJM RPM 페이지 200 · 데이터파일링크 396건 발견 (URL 추측 없이 본문에서)
   · rpm-auction-info/ 디렉터리가 2007-2008 ~ 2029-2030 까지 존재
@@ -35,7 +35,7 @@ v3 (2026-08-24): 프로브 -> 수집기 승격(v2) 후, 1차 실행 결과로 �
   pjm_capacity_bra.csv        연도·LDA·낙찰가 원장 (모호건 포함, 플래그로 구분)
   pjm_capacity_monthly.json   인도월 확장 시계열 (steo_forward_monthly.json 과 동일 스키마)
   pjm_capacity_probe.json     후보 판정 + 발견 링크
-  pjm_capacity_lines.txt      추출 원문 줄 (검증용)
+  pjm_capacity_lines.txt      추출 원문 줄 (검증용 · 미해결 시 페이지 원문 덤프)
 
 ■ 의존
   requests · pypdf
@@ -53,7 +53,7 @@ MAX_REQ   = 140
 REFRESH   = os.environ.get("PJM_CAP_REFRESH", "").strip() == "1"
 # 파서를 고치면 캐시는 무효다. CSV 에 이 값을 박아두고 다르면 자동 전량 재수집한다.
 # (v1 은 구형 전치표를 못 읽고 simulated 페이지를 실제값으로 잡았다 — 그 CSV 를 이어쓰면 안 된다.)
-PARSER_VER = "v3-2026-08-24"
+PARSER_VER = "v4-2026-08-24"
 
 OUT_CSV   = "pjm_capacity_bra.csv"
 OUT_JSON  = "pjm_capacity_monthly.json"
@@ -154,20 +154,18 @@ def scan(pid, url, depth=0):
 #        마지막 $ 가 총 낙찰가다($325.00 + $0.00 = $325.00 로 검증됨).
 #
 #  (B) 구형(2021/22~2024/25) : **표가 전치되어 있다.** LDA 가 열 머리글이고 값이 한 줄에 몰린다.
-#        머리글  "RTO MAAC EMAAC SWMAAC BGE PEPCO DPL-SOUTH ..."
 #        값줄    "RCP for Capacity Performance Resources $28.92 $49.49 ... $96.24"
-#        1차 실행에서 구형 4개 연도가 1~2행만 잡힌 원인이 이것이었다.
 #        → 같은 페이지의 머리글 후보와 값 개수가 **정확히 일치할 때만** zip 한다.
-#          개수가 어긋나면 추측하지 않고 ambiguous 로 남긴다.
+#          개수가 어긋나면 추측하지 않고 미해결로 남기고 원문을 덤프한다.
 #
-#  ★ '시뮬레이션' 페이지 제외 — 1차 실행에서 정체불명이던 $388.57 / $529.80 / $542.83 은
+#  ★ '시뮬레이션' 페이지 제외 — v2 에서 정체불명이던 $388.57 / $529.80 / $542.83 은
 #    보고서가 스스로 밝혔다. 20쪽 표의 근거 문장이 추출됐다:
 #      "DOM LDA which cleared at $542.83. In the 2026/2027 simulated BRA,
 #       all prices cleared at $388.57."
 #    즉 20쪽은 **가정 시나리오(simulated/estimated)** 이고 실제 낙찰가는 9~10쪽 Table 3 이다.
-#    따라서 'simulat' 또는 'estimated ... clearing price' 가 있는 페이지는 버린다.
+#    v3 실측으로 확인됨 — 이 규칙을 넣자 모호건 12건이 0건이 됐다.
 #
-#  ★ 산문 줄 배제 — 1차 실행에서 "COMED and DEOK LDA were constrained ... $187.87/MW-day"
+#  ★ 산문 줄 배제 — v2 에서 "COMED and DEOK LDA were constrained ... $187.87/MW-day"
 #    같은 **본문 문장**이 표 행으로 잡혔다. 실제 표 행에는 소문자가 없다. 소문자가 있으면 버린다.
 # ══════════════════════════════════════════════════════════════════
 DOL_RE  = re.compile(r"\$\s*(-?[\d,]+\.\d{2})")
@@ -178,6 +176,45 @@ CTX_RE  = re.compile(r"(Table\s+\d+[^\n]{0,120}|Resource Clearing Price[^\n]{0,6
 SIM_RE  = re.compile(r"simulat|estimated\s+\S{0,12}\s*clearing\s+price", re.I)
 LDA_TOK = re.compile(r"^[A-Z][A-Z0-9]{1,14}(?:-[A-Z0-9]+)*$")
 RCP_RE  = re.compile(r"^\s*RCP\b|Resource\s+Clearing\s+Price", re.I)
+
+
+# ── 전치표 머리글 탐색 (v4) ────────────────────────────────────────
+#   v3 실측: 구형 4개 연도 모두 "값 15개 · 머리글후보 []" 였다. 값줄은 잡히는데
+#   LDA 이름 줄을 못 찾았다 → pypdf 가 머리글 셀을 **줄마다 1~3개씩 쪼개서** 내보내거나
+#   "DPL-" / "SOUTH" 처럼 하이픈에서 끊는다고 보고 두 경우를 모두 처리한다.
+#   ★ 길이 일치만으로 채택하지 않는다. PJM LDA 머리글이면 RTO 와 ATSI 가 반드시 있다 —
+#     둘 다 없으면 후보에서 버린다(엉뚱한 줄이 우연히 개수만 맞는 사고 방지).
+def _repair(toks):
+    out = []
+    for t in toks:
+        if out and out[-1].endswith("-"):
+            out[-1] = out[-1] + t
+        else:
+            out.append(t)
+    return [t for t in out if LDA_TOK.match(t)]
+
+
+def header_candidates(lines):
+    cands = []
+    for ln in lines:                                   # (1) 한 줄에 전부
+        toks = _repair(ln.split())
+        if len(toks) >= 6:
+            cands.append(toks)
+    run = []                                           # (2) 줄마다 1~3개씩 쪼개진 경우
+    for ln in list(lines) + [""]:
+        toks = ln.split()
+        if toks and len(toks) <= 3 and all(LDA_TOK.match(t) or t.endswith("-") for t in toks):
+            run.extend(toks)
+        else:
+            r = _repair(run)
+            if len(r) >= 6:
+                cands.append(r)
+            run = []
+    ok = []
+    for c in cands:
+        if "RTO" in c and any(t.startswith("ATSI") for t in c) and c not in ok:
+            ok.append(c)
+    return ok, cands
 
 
 def _push(year, lda, price, dol, page, incr, hint, url, raw, layout):
@@ -213,15 +250,13 @@ def parse_pdf(url, year):
         hint = re.sub(r"\s+", " ", ctx.group(1))[:120] if ctx else ""
 
         rows_here = []
-        heads, rcps = [], []
+        plines, rcps = [], []
         for ln in txt.splitlines():
             ln = " ".join(ln.split())
             if not ln:
                 continue
-            # ── (B) 전치표 재료 수집 ─────────────────────────────
-            toks = ln.split()
-            if len(toks) >= 6 and all(LDA_TOK.match(t) for t in toks):
-                heads.append(toks)                    # 머리글 후보
+            plines.append(ln)
+            # ── (B) 전치표 값줄 수집 ─────────────────────────────
             if RCP_RE.search(ln):
                 d = DOL_RE.findall(ln)
                 if len(d) >= 6:
@@ -250,11 +285,17 @@ def parse_pdf(url, year):
 
         # (B) 전치표 — 머리글 개수와 값 개수가 정확히 같을 때만
         if not rows_here and rcps:
+            heads, raw_cands = header_candidates(plines)
             for ln, d in rcps:
                 match = [h for h in heads if len(h) == len(d)]
                 if not match:
-                    LINES.append("p%-3d [전치표 미해결] 값 %d개 · 머리글후보 %s"
-                                 % (pi + 1, len(d), [len(h) for h in heads]))
+                    LINES.append("p%-3d [전치표 미해결] 값 %d개 · 검증통과후보 %s · 전체후보 %s"
+                                 % (pi + 1, len(d), [len(h) for h in heads],
+                                    [len(h) for h in raw_cands]))
+                    # ★ 여기서 멈추면 또 한 바퀴를 낭비한다. 페이지 원문을 그대로 남긴다.
+                    LINES.append("p%-3d [원문덤프 시작] ----------------------------" % (pi + 1))
+                    LINES.extend(["      " + x for x in plines[:120]])
+                    LINES.append("p%-3d [원문덤프 끝] ------------------------------" % (pi + 1))
                     _push(year, "_UNRESOLVED_TRANSPOSED", -1.0,
                           d, pi + 1, incr, hint, url, ln, "transposed-unresolved")
                     continue
