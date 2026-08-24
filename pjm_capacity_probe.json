@@ -53,57 +53,57 @@
       "id": "PDF_2021-2022",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2021-2022/2021-2022-base-residual-auction-report.pdf",
       "http": 200,
-      "ok": true,
-      "note": "pages=27 행 2개"
+      "ok": false,
+      "note": "pages=27 행 0개 · simulated 페이지 0개 제외"
     },
     {
       "id": "PDF_2022-2023",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2022-2023/2022-2023-base-residual-auction-report.pdf",
       "http": 200,
-      "ok": true,
-      "note": "pages=27 행 1개"
+      "ok": false,
+      "note": "pages=27 행 0개 · simulated 페이지 0개 제외"
     },
     {
       "id": "PDF_2023-2024",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2023-2024/2023-2024-base-residual-auction-report.pdf",
       "http": 200,
-      "ok": true,
-      "note": "pages=25 행 2개"
+      "ok": false,
+      "note": "pages=25 행 0개 · simulated 페이지 0개 제외"
     },
     {
       "id": "PDF_2024-2025",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2024-2025/2024-2025-base-residual-auction-report.pdf",
       "http": 200,
-      "ok": true,
-      "note": "pages=20 행 2개"
+      "ok": false,
+      "note": "pages=20 행 0개 · simulated 페이지 0개 제외"
     },
     {
       "id": "PDF_2025-2026",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2025-2026/2025-2026-base-residual-auction-report.pdf",
       "http": 200,
       "ok": true,
-      "note": "pages=17 행 17개"
+      "note": "pages=17 행 16개 · simulated 페이지 0개 제외"
     },
     {
       "id": "PDF_2026-2027",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2026-2027/2026-2027-bra-report.pdf",
       "http": 200,
       "ok": true,
-      "note": "pages=20 행 34개"
+      "note": "pages=20 행 17개 · simulated 페이지 3개 제외"
     },
     {
       "id": "PDF_2027-2028",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2027-2028/2027-2028-bra-report.pdf",
       "http": 200,
       "ok": true,
-      "note": "pages=20 행 35개"
+      "note": "pages=20 행 17개 · simulated 페이지 3개 제외"
     },
     {
       "id": "PDF_2028-2029",
       "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf",
       "http": 200,
       "ok": true,
-      "note": "pages=20 행 17개"
+      "note": "pages=20 행 17개 · simulated 페이지 2개 제외"
     }
   ],
   "braYears": [
@@ -518,102 +518,5 @@
     "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
     "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates"
   ],
-  "ambiguous": [
-    {
-      "lda": "ATSI",
-      "delivery_year": "2026-2027",
-      "prices": [
-        329.17,
-        388.57
-      ]
-    },
-    {
-      "lda": "ATSI",
-      "delivery_year": "2027-2028",
-      "prices": [
-        333.44,
-        529.8
-      ]
-    },
-    {
-      "lda": "ATSI-CLEVELAND",
-      "delivery_year": "2026-2027",
-      "prices": [
-        329.17,
-        388.57
-      ]
-    },
-    {
-      "lda": "ATSI-CLEVELAND",
-      "delivery_year": "2027-2028",
-      "prices": [
-        333.44,
-        529.8
-      ]
-    },
-    {
-      "lda": "COMED",
-      "delivery_year": "2026-2027",
-      "prices": [
-        329.17,
-        388.57
-      ]
-    },
-    {
-      "lda": "COMED",
-      "delivery_year": "2027-2028",
-      "prices": [
-        333.44,
-        529.8
-      ]
-    },
-    {
-      "lda": "DAY",
-      "delivery_year": "2026-2027",
-      "prices": [
-        329.17,
-        388.57
-      ]
-    },
-    {
-      "lda": "DAY",
-      "delivery_year": "2027-2028",
-      "prices": [
-        333.44,
-        529.8
-      ]
-    },
-    {
-      "lda": "DEOK",
-      "delivery_year": "2026-2027",
-      "prices": [
-        329.17,
-        388.57
-      ]
-    },
-    {
-      "lda": "DEOK",
-      "delivery_year": "2027-2028",
-      "prices": [
-        333.44,
-        529.8
-      ]
-    },
-    {
-      "lda": "RTO",
-      "delivery_year": "2026-2027",
-      "prices": [
-        329.17,
-        388.57
-      ]
-    },
-    {
-      "lda": "RTO",
-      "delivery_year": "2027-2028",
-      "prices": [
-        333.44,
-        529.8
-      ]
-    }
-  ]
+  "ambiguous": []
 }
