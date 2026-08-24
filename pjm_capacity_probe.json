@@ -40,7 +40,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm/rpm-auction-user-info",
       "http": 200,
       "ok": false,
-      "note": "링크 0건 · 본문 26KB"
+      "note": "링크 0건 · 본문 25KB"
     },
     {
       "id": "PJM_sitemap",
@@ -48,62 +48,6 @@
       "http": 200,
       "ok": true,
       "note": "링크 5건 · 본문 133KB"
-    },
-    {
-      "id": "PDF_2021-2022",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2021-2022/2021-2022-base-residual-auction-report.pdf",
-      "http": 200,
-      "ok": true,
-      "note": "pages=27 행 15개 · simulated 페이지 0개 제외"
-    },
-    {
-      "id": "PDF_2022-2023",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2022-2023/2022-2023-base-residual-auction-report.pdf",
-      "http": 200,
-      "ok": true,
-      "note": "pages=27 행 15개 · simulated 페이지 0개 제외"
-    },
-    {
-      "id": "PDF_2023-2024",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2023-2024/2023-2024-base-residual-auction-report.pdf",
-      "http": 200,
-      "ok": true,
-      "note": "pages=25 행 15개 · simulated 페이지 0개 제외"
-    },
-    {
-      "id": "PDF_2024-2025",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2024-2025/2024-2025-base-residual-auction-report.pdf",
-      "http": 200,
-      "ok": true,
-      "note": "pages=20 행 15개 · simulated 페이지 0개 제외"
-    },
-    {
-      "id": "PDF_2025-2026",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2025-2026/2025-2026-base-residual-auction-report.pdf",
-      "http": 200,
-      "ok": true,
-      "note": "pages=17 행 16개 · simulated 페이지 0개 제외"
-    },
-    {
-      "id": "PDF_2026-2027",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2026-2027/2026-2027-bra-report.pdf",
-      "http": 200,
-      "ok": true,
-      "note": "pages=20 행 17개 · simulated 페이지 3개 제외"
-    },
-    {
-      "id": "PDF_2027-2028",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2027-2028/2027-2028-bra-report.pdf",
-      "http": 200,
-      "ok": true,
-      "note": "pages=20 행 17개 · simulated 페이지 3개 제외"
-    },
-    {
-      "id": "PDF_2028-2029",
-      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf",
-      "http": 200,
-      "ok": true,
-      "note": "pages=20 행 17개 · simulated 페이지 2개 제외"
     }
   ],
   "braYears": [
