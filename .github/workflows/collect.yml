@@ -13,9 +13,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install requests numpy
-      - name: fit model (growth path + backtest scorecard)
-        run: python fit_model.py || echo "skip fit_model"
+      - run: pip install requests numpy openpyxl
       # ── 실패 격리 정책 (2026-08-11) ──────────────────────────────────
       #   Actions 는 스텝이 0 이 아닌 코드로 끝나면 **이후 스텝을 전부 건너뛴다.**
       #   소스 하나가 죽어서 build_panel 까지 멈추면 status.json 에 결손 기록도 안 남는다.
@@ -38,32 +36,82 @@ jobs:
         run: python fetch_fx.py || echo "skip fetch_fx"
       - name: FX history (ECB timeseries, no key)
         run: python fetch_fx_history.py || echo "skip fetch_fx_history"
-      - name: PJM discover (log only, keep going on failure)
+      # ── PJM 재개 (2026-08-18) ────────────────────────────────────────
+      #   [F-019] '불가 종결' 의 근거는 (R1) EIA v2 라우트 404 + (R2) **구독키 발급** 불가였다.
+      #   R2 는 "키를 못 받는다" 이지 "키 없이는 안 된다" 가 아니다. 그리고 구 fetch_pjm_v2.py 의
+      #   discover() 는 `if not PJM_KEY: ... else: <프로브>` 라서 **익명 경로를 한 번도 호출한
+      #   적이 없다.** 사내망 Sign In 차단은 이 러너에 적용되지 않으므로 여기서 실제로 때려본다.
+      #
+      #   ★ 구 fetch_pjm.py / fetch_pjm_v2.py 스텝은 **제거했다.** 남겨두면 안 되는 이유:
+      #     익명 요율제한이 분당 6회다. 세 스크립트가 같은 엔드포인트를 연달아 치면
+      #     서로를 429 로 밀어내 "경로가 죽었다" 는 잘못된 판정을 만든다.
+      #     두 파일은 레포에 남겨두되 워크플로에서만 뺀다(fetch_pjm_lmp.py 가 상위집합).
+      - name: PJM route discovery (익명·구독키·날짜형식·gridstatus)
         continue-on-error: true
         env:
-          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
           PJM_API_KEY: ${{ secrets.PJM_API_KEY }}
-        run: python fetch_pjm_v2.py --discover
-      - name: PJM DA LMP via API v2
+          GRIDSTATUS_API_KEY: ${{ secrets.GRIDSTATUS_API_KEY }}
+        run: python fetch_pjm_lmp.py --discover
+      - name: PJM DA hourly LMP (4성분·연도분할)
         continue-on-error: true
         env:
-          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
           PJM_API_KEY: ${{ secrets.PJM_API_KEY }}
-        run: python fetch_pjm_v2.py || echo "skip fetch_pjm_v2"
-      - name: PJM DA LMP via API (legacy)
+          PJM_START: ${{ vars.PJM_START || '2019-01-01' }}
+        run: python fetch_pjm_lmp.py
+      # ★ 이 스텝은 `|| echo skip` 으로 초록칠하지 않는다(continue-on-error 만 쓴다).
+      #   PJM 은 예측치를 덮어써서 **과거 빈티지를 소급 복원할 수 없다** — 안 돌린 날은
+      #   영구 결손이다. 실패를 초록으로 감추면 결손을 몇 달 뒤에 발견한다.
+      - name: PJM D-1 driver vintages (append-only, 소급복원 불가)
+        continue-on-error: true
         env:
           PJM_API_KEY: ${{ secrets.PJM_API_KEY }}
-        run: python fetch_pjm.py || echo "skip fetch_pjm"
-      - name: PJM DA LMP via manual CSV
+        run: python fetch_pjm_drivers.py
+      # ★ 키가 없는 동안 **주 경로**다(폴백이 아니다). pjm_csv/ 의 수동 CSV(로그인 불필요)를
+      #   fetch_pjm_lmp 와 동일 스키마로 변환하고, API 산출물이 있으면 UTC 키로 합성한다.
+      #   따라서 위 두 스텝이 401 로 죽어도 pjm_lmp_hourly/monthly 는 생성된다.
+      - name: PJM DA LMP from manual CSV (키리스 주경로 · API 산출물과 합성)
         run: python aggregate_pjm_csv.py || echo "skip aggregate_pjm_csv"
+      # MISO 백필 진단 손잡이 (2026-08-11)
+      #   증상: 누적이 2026-01~ 8개월뿐이고 INDIANA.HUB 가 없다. 로그는
+      #         `[RANGE] 2026-08-11 ~ 2026-08-10 (last=2026-08-10, need_backfill=False)`
+      #   원인 후보 2개 — 이 스텝의 로그로만 판정된다.
+      #     (a) 레거시 마켓리포트 보존 소멸: MISO 가 2025-12-12 부터 Pricing 리포트 갱신을
+      #         중단하고 Data Exchange API 로 이관 → 과거 CSV 가 404
+      #     (b) 증분 상태 고착: miso_lmp_monthly.json 의 last_date 가 있으면 코드가
+      #         과거로 돌아가지 않는다(start = last+1). 즉 첫 성공 시점 이후만 쌓인다
+      #   판정 절차: ① 레포에서 miso_lmp_monthly.json 을 .bak 으로 rename(백업 겸 초기화)
+      #             ② Settings ▸ Variables 에 MISO_START 를 2025-11-01 로 두고 dispatch
+      #             ③ 로그의 `[HTTP] 200/404 {ymd}` 로 보존 경계를 찍는다
+      #                · 2025-11 이 200 → 보존 살아있음 → MISO_START=2024-01-01 로 전량 백필
+      #                · 404 → (a) 확정 → MISO 도 도매 백필 불가로 판정(PJM 과 동일 취급)
+      #             ④ 첫 성공일 로그의 `nodesFound=[...]` 로 INDIANA.HUB 존재 여부 확인
       - name: MISO DA LMP (monthly, keyless)
+        env:
+          MISO_START: ${{ vars.MISO_START || '2024-01-01' }}
         run: python fetch_miso.py || echo "skip fetch_miso"
       - name: EIA STEO forward (Henry Hub)
         env:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
         run: python fetch_steo.py || echo "skip fetch_steo"
+      # ── 연료·탄소 무료 수집 (2026-08-24) ────────────────────────────
+      #   WA SRMC 의 EUA·TTF·API2 수동입력을 없애기 위한 스텝.
+      #   ★ 이 스텝의 목적은 절반이 **판정**이다. 매 실행마다 fuel_probe.json 에
+      #     후보별 HTTP 상태를 남기므로, 어떤 무료소스가 살아있는지가 로그로 확정된다.
+      #     URL 을 추측해 박지 않았으니 200 이 뜬 것만 파서를 붙인다.
+      #   ★ 계열 0개면 스크립트가 출력파일을 덮어쓰지 않는다 — 과거 수집분이 지워지지 않는다.
+      - name: Fuel/Carbon monthly (World Bank·IMF·Yahoo·Stooq · 무키)
+        run: python fetch_fuel.py || echo "skip fetch_fuel"
+      # 조기경보 2번째 지표. fetch_steo 뒤에 둔다 — steo_forward_monthly.json 을 읽어
+      # 헨리허브 forward 와 함께 early_warning.json 을 만든다(플레이북 '2개 이상' 규칙).
+      # 예측 정확도와 무관한 감시 지표라 실패해도 패널·적합을 막지 않는다.
+      - name: EIA weekly gas storage (early warning)
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+        run: python fetch_gas_storage.py || echo "skip fetch_gas_storage"
       - name: build panel (all sources -> panel_monthly.csv)
         run: python build_panel.py || echo "skip build_panel"
+      - name: fit model (growth path + backtest scorecard)
+        run: python fit_model.py || echo "skip fit_model"
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -83,11 +131,22 @@ jobs:
             fx_krw_history.json
             pjm_lmp_monthly.json
             pjm_lmp_monthly.csv
+            pjm_lmp_hourly_*.csv
+            pjm_drivers_vintage.csv
+            pjm_drivers_probe.json
             pjm_probe.json
+            pjm_csv_probe.json
             miso_lmp_monthly.json
             miso_lmp_monthly.csv
             steo_forward_monthly.json
             steo_forward_monthly.csv
+            gas_storage_weekly.csv
+            gas_storage_signal.json
+            gas_storage_probe.json
+            early_warning.json
+            fuel_monthly.json
+            fuel_monthly.csv
+            fuel_probe.json
             panel_monthly.csv
             steo_vintages.csv
             status.json
