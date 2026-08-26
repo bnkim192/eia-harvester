@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 363건 · 본문 401KB"
+      "note": "링크 364건 · 본문 404KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -40,7 +40,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm/rpm-auction-user-info",
       "http": 200,
       "ok": false,
-      "note": "링크 0건 · 본문 24KB"
+      "note": "링크 0건 · 본문 26KB"
     },
     {
       "id": "PJM_sitemap",
@@ -62,6 +62,7 @@
   ],
   "files": [
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/rpm-auction-schedule.xlsx",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-bra-transitional-system-capability-study-results.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-default-new-entry-mopr-offer-prices.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-default-gross-acr-values-for-mopr-and-msoc-purposes.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-rpm-existing-resource-list.xlsx",
@@ -333,7 +334,6 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-frr-resource-posting.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-bra-supply-curves.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-base-residual-auction-report.pdf",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-base-residual-auction-results-xls.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-bra-planning-parameters.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/net-cone-for-market-seller-offer-cap-purposes.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-rpm-daily-zonal-scaling-factors.xlsx",
@@ -355,8 +355,6 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-cp-transition-auction-results.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/erpm-display-of-cp-transition-auction-results-by-resource.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/submittal-of-sell-offers-in-the-cp-transition-auctions.pdf",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/20150820-transitional-auction-instructions.pdf",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2018-cp-transition-incremental-auctions-rules-schedule-planning-parameters.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/mopr-exemption-request-quantities-for-2017-2018-bra.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/frr-resources-2017-2018.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-bra-supply-curves.pdf",
@@ -370,8 +368,6 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-excess-commitment-allocation.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-transition-incremental-auction-results.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-cp-transition-auction-results.xls",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-rpm-second-incremental-auction-parameters.xls",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-second-incremental-auction-results.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-final-phpa-calculator.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-rpm-daily-zonal-scaling-factors.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-rpm-pricing-points.xls",
@@ -419,6 +415,11 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/non-retail-btmg-performance.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/new-nrbtmg-officer-certification-form.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/pjm-guidance-on-co-located-load.pdf",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/generation-resources/ceja-reliability-extension-agreements/earthrise-energy-pbllc.pdf",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/generation-resources/ceja-reliability-extension-agreements/constellation-energy-generation-llc.pdf",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/generation-resources/ceja-reliability-extension-agreements/nrg-energy-inc-illinois.pdf",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/generation-resources/ceja-reliability-extension-agreements/nrg-energy-inc-midwest-generation.pdf",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/generation-resources/ceja-reliability-extension-agreements/vistra-corporation.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/performance-assessment-settlement-summary.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/2022-2023-pai-charge-rates-by-lda.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/pai-balancing-ratios-20191004.xlsx",
@@ -459,8 +460,7 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-rate-work-papers.pdf",
     "http://www.pjm.com/markets-and-operations/rpm",
     "http://www.pjm.com/markets-and-operations/etools/capacity-exchange",
-    "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
-    "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates"
+    "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction"
   ],
   "ambiguous": []
 }
