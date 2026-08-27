@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-26",
+ "built_at": "2026-08-27",
  "base_ym": "2026-08",
  "sources": {
   "steo_gas": {
@@ -10,8 +10,8 @@
    "note": ""
   },
   "eia_retail": {
-   "rows": 822,
-   "latest_ym": "2026-05",
+   "rows": 828,
+   "latest_ym": "2026-06",
    "first_ym": "2015-01",
    "ok": true,
    "note": ""
@@ -77,11 +77,11 @@
   }
  },
  "panel": {
-  "added": 0,
-  "revised": 35,
-  "unchanged": 4052,
-  "rows": 4646,
-  "keys": 4099
+  "added": 6,
+  "revised": 33,
+  "unchanged": 4054,
+  "rows": 4685,
+  "keys": 4105
  },
  "vintages": {
   "rows": 17,
@@ -219,10 +219,10 @@
    ]
   },
   "US-RETAIL/retail_ind": {
-   "months": 137,
+   "months": 138,
    "range": [
     "2015-01",
-    "2026-05"
+    "2026-06"
    ],
    "entities": [
     "AZ",

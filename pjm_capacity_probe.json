@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 364건 · 본문 404KB"
+      "note": "링크 365건 · 본문 405KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -19,21 +19,21 @@
       "url": "https://www.pjm.com/markets-and-operations/etools/capacity-exchange",
       "http": 200,
       "ok": true,
-      "note": "링크 11건 · 본문 83KB"
+      "note": "링크 11건 · 본문 84KB"
     },
     {
       "id": "PJM_rpm_sub3",
       "url": "https://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
       "http": 200,
       "ok": false,
-      "note": "링크 0건 · 본문 69KB"
+      "note": "링크 0건 · 본문 70KB"
     },
     {
       "id": "PJM_rpm_sub4",
       "url": "https://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
       "http": 200,
       "ok": true,
-      "note": "링크 23건 · 본문 91KB"
+      "note": "링크 23건 · 본문 92KB"
     },
     {
       "id": "PJM_rpm_user",
@@ -62,6 +62,7 @@
   ],
   "files": [
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/rpm-auction-schedule.xlsx",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-rpm-existing-resource-list.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-bra-transitional-system-capability-study-results.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-default-new-entry-mopr-offer-prices.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-default-gross-acr-values-for-mopr-and-msoc-purposes.xlsx",
@@ -459,8 +460,7 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-template.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-rate-work-papers.pdf",
     "http://www.pjm.com/markets-and-operations/rpm",
-    "http://www.pjm.com/markets-and-operations/etools/capacity-exchange",
-    "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction"
+    "http://www.pjm.com/markets-and-operations/etools/capacity-exchange"
   ],
   "ambiguous": []
 }

@@ -1,298 +1,328 @@
 {
- "built_at": "2026-08-26",
+ "built_at": "2026-08-27",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
-   "months": 137,
+   "months": 138,
    "range": [
     "2015-01",
-    "2026-05"
+    "2026-06"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": false,
    "pass_through": 1.0,
    "rto": null,
    "sets": {
     "A": {
      "1": {
-      "n_origins": 46,
-      "mape": 7.49,
+      "n_origins": 47,
+      "mape": 7.402,
       "gate": "fail"
      },
      "3": {
-      "n_origins": 42,
-      "mape": 8.492,
+      "n_origins": 43,
+      "mape": 8.451,
       "gate": "fail"
      },
      "6": {
-      "n_origins": 36,
-      "mape": 7.362,
+      "n_origins": 37,
+      "mape": 7.449,
       "gate": "fail"
      },
      "12": {
-      "n_origins": 24,
-      "mape": 8.989,
+      "n_origins": 25,
+      "mape": 9.301,
       "gate": "fail"
      },
      "17": {
-      "n_origins": 14,
-      "mape": 14.822,
+      "n_origins": 15,
+      "mape": 15.38,
+      "gate": "insufficient_n"
+     },
+     "24": {
+      "n_origins": 1,
+      "mape": 26.365,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/GA/retail_ind": {
-   "months": 137,
+   "months": 138,
    "range": [
     "2015-01",
-    "2026-05"
+    "2026-06"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
    "sets": {
     "A": {
      "1": {
-      "n_origins": 46,
-      "mape": 11.061,
+      "n_origins": 47,
+      "mape": 10.909,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 42,
-      "mape": 9.538,
+      "n_origins": 43,
+      "mape": 9.368,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 36,
-      "mape": 11.285,
+      "n_origins": 37,
+      "mape": 11.125,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 24,
-      "mape": 11.678,
+      "n_origins": 25,
+      "mape": 11.382,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 14,
-      "mape": 13.055,
+      "n_origins": 15,
+      "mape": 12.268,
+      "gate": "insufficient_n"
+     },
+     "24": {
+      "n_origins": 1,
+      "mape": 1.385,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/MI/retail_ind": {
-   "months": 137,
+   "months": 138,
    "range": [
     "2015-01",
-    "2026-05"
+    "2026-06"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": "MISO",
    "sets": {
     "A": {
      "1": {
-      "n_origins": 46,
-      "mape": 2.921,
+      "n_origins": 47,
+      "mape": 2.862,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 42,
-      "mape": 3.043,
+      "n_origins": 43,
+      "mape": 3.037,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 36,
-      "mape": 2.956,
+      "n_origins": 37,
+      "mape": 2.97,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 24,
-      "mape": 3.412,
+      "n_origins": 25,
+      "mape": 3.384,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 14,
-      "mape": 3.792,
+      "n_origins": 15,
+      "mape": 3.759,
+      "gate": "insufficient_n"
+     },
+     "24": {
+      "n_origins": 1,
+      "mape": 0.65,
       "gate": "insufficient_n"
      }
     },
     "B": {
      "1": {
-      "n_origins": 24,
-      "mape": 3.159,
+      "n_origins": 25,
+      "mape": 3.109,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 20,
-      "mape": 2.991,
+      "n_origins": 21,
+      "mape": 2.956,
       "gate": "insufficient_n"
      },
      "6": {
-      "n_origins": 14,
-      "mape": 3.166,
+      "n_origins": 15,
+      "mape": 3.062,
       "gate": "insufficient_n"
      },
      "12": {
-      "n_origins": 2,
-      "mape": 2.671,
+      "n_origins": 3,
+      "mape": 2.227,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/OH/retail_ind": {
-   "months": 137,
+   "months": 138,
    "range": [
     "2015-01",
-    "2026-05"
+    "2026-06"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": "PJM",
    "sets": {
     "A": {
      "1": {
-      "n_origins": 46,
-      "mape": 6.005,
+      "n_origins": 47,
+      "mape": 6.139,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 42,
-      "mape": 6.91,
+      "n_origins": 43,
+      "mape": 6.864,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 36,
-      "mape": 8.229,
+      "n_origins": 37,
+      "mape": 8.202,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 24,
-      "mape": 12.521,
+      "n_origins": 25,
+      "mape": 12.888,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 14,
-      "mape": 18.94,
+      "n_origins": 15,
+      "mape": 18.926,
+      "gate": "insufficient_n"
+     },
+     "24": {
+      "n_origins": 1,
+      "mape": 21.435,
       "gate": "insufficient_n"
      }
     },
     "B": {
      "1": {
-      "n_origins": 24,
-      "mape": 6.431,
+      "n_origins": 25,
+      "mape": 6.779,
       "gate": "fail"
      },
      "3": {
-      "n_origins": 20,
-      "mape": 7.766,
+      "n_origins": 21,
+      "mape": 7.544,
       "gate": "insufficient_n"
      },
      "6": {
-      "n_origins": 14,
-      "mape": 11.763,
+      "n_origins": 15,
+      "mape": 11.204,
       "gate": "insufficient_n"
      },
      "12": {
-      "n_origins": 2,
-      "mape": 16.979,
+      "n_origins": 3,
+      "mape": 17.42,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/TN/retail_ind": {
-   "months": 137,
+   "months": 138,
    "range": [
     "2015-01",
-    "2026-05"
+    "2026-06"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
    "sets": {
     "A": {
      "1": {
-      "n_origins": 46,
-      "mape": 6.034,
+      "n_origins": 47,
+      "mape": 5.932,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 42,
-      "mape": 4.994,
+      "n_origins": 43,
+      "mape": 5.081,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 36,
-      "mape": 4.911,
+      "n_origins": 37,
+      "mape": 4.779,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 24,
-      "mape": 4.222,
+      "n_origins": 25,
+      "mape": 4.102,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 14,
-      "mape": 6.349,
+      "n_origins": 15,
+      "mape": 5.97,
+      "gate": "insufficient_n"
+     },
+     "24": {
+      "n_origins": 1,
+      "mape": 5.056,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/US/retail_ind": {
-   "months": 137,
+   "months": 138,
    "range": [
     "2015-01",
-    "2026-05"
+    "2026-06"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
    "sets": {
     "A": {
      "1": {
-      "n_origins": 46,
-      "mape": 3.004,
+      "n_origins": 47,
+      "mape": 2.984,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 42,
-      "mape": 3.081,
+      "n_origins": 43,
+      "mape": 3.045,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 36,
-      "mape": 2.788,
+      "n_origins": 37,
+      "mape": 2.719,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 24,
-      "mape": 2.517,
+      "n_origins": 25,
+      "mape": 2.575,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 14,
-      "mape": 2.39,
+      "n_origins": 15,
+      "mape": 2.301,
+      "gate": "insufficient_n"
+     },
+     "24": {
+      "n_origins": 1,
+      "mape": 1.028,
       "gate": "insufficient_n"
      }
     }
@@ -375,7 +405,7 @@
   ]
  },
  "summary": {
-  "scorecard_rows": 195,
+  "scorecard_rows": 213,
   "growth_rows": 32,
   "pass": 24,
   "fail": 5,
