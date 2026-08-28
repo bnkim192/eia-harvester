@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 365건 · 본문 405KB"
+      "note": "링크 365건 · 본문 404KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -19,28 +19,28 @@
       "url": "https://www.pjm.com/markets-and-operations/etools/capacity-exchange",
       "http": 200,
       "ok": true,
-      "note": "링크 11건 · 본문 84KB"
+      "note": "링크 11건 · 본문 83KB"
     },
     {
       "id": "PJM_rpm_sub3",
       "url": "https://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
       "http": 200,
       "ok": false,
-      "note": "링크 0건 · 본문 70KB"
+      "note": "링크 0건 · 본문 68KB"
     },
     {
       "id": "PJM_rpm_sub4",
       "url": "https://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
       "http": 200,
       "ok": true,
-      "note": "링크 23건 · 본문 92KB"
+      "note": "링크 23건 · 본문 91KB"
     },
     {
       "id": "PJM_rpm_user",
       "url": "https://www.pjm.com/markets-and-operations/rpm/rpm-auction-user-info",
       "http": 200,
       "ok": false,
-      "note": "링크 0건 · 본문 26KB"
+      "note": "링크 0건 · 본문 25KB"
     },
     {
       "id": "PJM_sitemap",
