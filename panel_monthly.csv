@@ -59,6 +59,7 @@
 2026-08,CA-IESO,OT,ot_cong,-0.9468,CAD/MWh,actual,2026-08-27,ieso-harvester/ot_wholesale_monthly.json,ok
 2026-08,CA-IESO,OT,ot_cong,-0.8978,CAD/MWh,actual,2026-08-28,ieso-harvester/ot_wholesale_monthly.json,ok
 2026-08,CA-IESO,OT,ot_cong,-0.8565,CAD/MWh,actual,2026-08-29,ieso-harvester/ot_wholesale_monthly.json,ok
+2026-08,CA-IESO,OT,ot_cong,-0.8188,CAD/MWh,actual,2026-08-31,ieso-harvester/ot_wholesale_monthly.json,ok
 2018-01,CA-IESO,OT,ot_energy_hoep,30.325,CAD/MWh,actual,2026-08-11,ieso-harvester/ot_wholesale_monthly.json,ok
 2018-02,CA-IESO,OT,ot_energy_hoep,18.006,CAD/MWh,actual,2026-08-11,ieso-harvester/ot_wholesale_monthly.json,ok
 2018-03,CA-IESO,OT,ot_energy_hoep,16.496,CAD/MWh,actual,2026-08-11,ieso-harvester/ot_wholesale_monthly.json,ok
@@ -166,6 +167,7 @@
 2026-08,CA-IESO,OT,ot_energy_zonal,66.474,CAD/MWh,actual,2026-08-26,ieso-harvester/ot_wholesale_monthly.json,ok
 2026-08,CA-IESO,OT,ot_energy_zonal,65.537,CAD/MWh,actual,2026-08-27,ieso-harvester/ot_wholesale_monthly.json,ok
 2026-08,CA-IESO,OT,ot_energy_zonal,64.651,CAD/MWh,actual,2026-08-28,ieso-harvester/ot_wholesale_monthly.json,ok
+2026-08,CA-IESO,OT,ot_energy_zonal,63.997,CAD/MWh,actual,2026-08-30,ieso-harvester/ot_wholesale_monthly.json,ok
 2026-06,CA-IESO,OT,ot_loss,-0.0631,CAD/MWh,actual,2026-08-11,ieso-harvester/ot_wholesale_monthly.json,ok
 2026-07,CA-IESO,OT,ot_loss,-0.0989,CAD/MWh,actual,2026-08-11,ieso-harvester/ot_wholesale_monthly.json,ok
 2026-08,CA-IESO,OT,ot_loss,-0.2559,CAD/MWh,actual,2026-08-11,ieso-harvester/ot_wholesale_monthly.json,ok
@@ -185,6 +187,7 @@
 2026-08,CA-IESO,OT,ot_loss,0.2633,CAD/MWh,actual,2026-08-27,ieso-harvester/ot_wholesale_monthly.json,ok
 2026-08,CA-IESO,OT,ot_loss,0.2351,CAD/MWh,actual,2026-08-28,ieso-harvester/ot_wholesale_monthly.json,ok
 2026-08,CA-IESO,OT,ot_loss,0.2297,CAD/MWh,actual,2026-08-29,ieso-harvester/ot_wholesale_monthly.json,ok
+2026-08,CA-IESO,OT,ot_loss,0.2226,CAD/MWh,actual,2026-08-31,ieso-harvester/ot_wholesale_monthly.json,ok
 2014-12,GLOBAL,CAD,fx_krw_avg,942.047,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,CAD,fx_krw_avg,902.024,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,CAD,fx_krw_avg,880.748,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -341,6 +344,7 @@
 2026-08,GLOBAL,CAD,fx_krw_avg,1012.53,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,CAD,fx_krw_avg,1010.86,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,CAD,fx_krw_avg,1009.93,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,CAD,fx_krw_avg,1008.75,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,CAD,fx_krw_eom,942.047,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,CAD,fx_krw_eom,870.307,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,CAD,fx_krw_eom,883.287,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -497,6 +501,7 @@
 2026-08,GLOBAL,CAD,fx_krw_eom,997.921,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,CAD,fx_krw_eom,995.264,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,CAD,fx_krw_eom,992.182,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,CAD,fx_krw_eom,985.201,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,CNY,fx_krw_avg,175.801,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,CNY,fx_krw_avg,175.182,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,CNY,fx_krw_avg,176.228,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -653,6 +658,7 @@
 2026-08,GLOBAL,CNY,fx_krw_avg,209.082,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,CNY,fx_krw_avg,208.719,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,CNY,fx_krw_avg,208.509,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,CNY,fx_krw_avg,208.275,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,CNY,fx_krw_eom,175.801,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,CNY,fx_krw_eom,176.466,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,CNY,fx_krw_eom,175.379,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -809,6 +815,7 @@
 2026-08,GLOBAL,CNY,fx_krw_eom,205.821,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,CNY,fx_krw_eom,205.404,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,CNY,fx_krw_eom,204.52,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,CNY,fx_krw_eom,203.584,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,EUR,fx_krw_avg,1324.8,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,EUR,fx_krw_avg,1266.19,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,EUR,fx_krw_avg,1250.5,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -965,6 +972,7 @@
 2026-08,GLOBAL,EUR,fx_krw_avg,1632.11,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,EUR,fx_krw_avg,1629.88,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,EUR,fx_krw_avg,1628.41,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,EUR,fx_krw_avg,1626.41,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,EUR,fx_krw_eom,1324.8,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,EUR,fx_krw_eom,1246.54,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,EUR,fx_krw_eom,1236.16,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -1121,6 +1129,7 @@
 2026-08,GLOBAL,EUR,fx_krw_eom,1612.94,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,EUR,fx_krw_eom,1607.45,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,EUR,fx_krw_eom,1600.39,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,EUR,fx_krw_eom,1586.37,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,IDR,fx_krw_avg,0.0879,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,IDR,fx_krw_avg,0.0866,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,IDR,fx_krw_avg,0.0862,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -1271,6 +1280,7 @@
 2026-08,GLOBAL,IDR,fx_krw_avg,0.0791,KRW/unit,actual,2026-08-25,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,IDR,fx_krw_avg,0.079,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,IDR,fx_krw_avg,0.0789,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,IDR,fx_krw_avg,0.0788,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,IDR,fx_krw_eom,0.0879,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,IDR,fx_krw_eom,0.0869,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,IDR,fx_krw_eom,0.0849,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -1427,6 +1437,7 @@
 2026-08,GLOBAL,IDR,fx_krw_eom,0.0782,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,IDR,fx_krw_eom,0.0778,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,IDR,fx_krw_eom,0.0776,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,IDR,fx_krw_eom,0.0772,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,PLN,fx_krw_avg,310.025,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,PLN,fx_krw_avg,295.935,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,PLN,fx_krw_avg,299.451,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -1583,6 +1594,7 @@
 2026-08,GLOBAL,PLN,fx_krw_avg,378.972,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,PLN,fx_krw_avg,378.414,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,PLN,fx_krw_avg,377.946,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,PLN,fx_krw_avg,377.402,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,PLN,fx_krw_eom,310.025,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,PLN,fx_krw_eom,296.266,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,PLN,fx_krw_eom,297.698,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -1739,6 +1751,7 @@
 2026-08,GLOBAL,PLN,fx_krw_eom,374.623,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,PLN,fx_krw_eom,371.51,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,PLN,fx_krw_eom,369.051,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,PLN,fx_krw_eom,366.536,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2018-01,GLOBAL,US,hh_gas,4.02121,dollars per thousand cubic feet,actual,2026-08-11,steo_forward_monthly.json,ok
 2018-02,GLOBAL,US,hh_gas,2.77146,dollars per thousand cubic feet,actual,2026-08-11,steo_forward_monthly.json,ok
 2018-03,GLOBAL,US,hh_gas,2.79533,dollars per thousand cubic feet,actual,2026-08-11,steo_forward_monthly.json,ok
@@ -2034,6 +2047,7 @@
 2026-08,GLOBAL,USD,fx_krw_avg,1409.19,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,USD,fx_krw_avg,1406.32,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,USD,fx_krw_avg,1404.73,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,USD,fx_krw_avg,1402.99,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2014-12,GLOBAL,USD,fx_krw_eom,1091.18,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,partial
 2015-01,GLOBAL,USD,fx_krw_eom,1102.64,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
 2015-02,GLOBAL,USD,fx_krw_eom,1099.79,KRW/unit,actual,2026-08-11,fx_krw_monthly.csv,ok
@@ -2190,6 +2204,7 @@
 2026-08,GLOBAL,USD,fx_krw_eom,1383.07,KRW/unit,actual,2026-08-26,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,USD,fx_krw_eom,1380.38,KRW/unit,actual,2026-08-27,fx_krw_monthly.csv,ok
 2026-08,GLOBAL,USD,fx_krw_eom,1374.55,KRW/unit,actual,2026-08-28,fx_krw_monthly.csv,ok
+2026-08,GLOBAL,USD,fx_krw_eom,1368.03,KRW/unit,actual,2026-08-31,fx_krw_monthly.csv,ok
 2019-12,PL-ENTSOE,PL,pl_price,34.95,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
 2020-01,PL-ENTSOE,PL,pl_price,44.05,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
 2020-02,PL-ENTSOE,PL,pl_price,41.05,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
@@ -2203,7 +2218,9 @@
 2020-10,PL-ENTSOE,PL,pl_price,52.18,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
 2020-11,PL-ENTSOE,PL,pl_price,53.62,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
 2020-12,PL-ENTSOE,PL,pl_price,56.67,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
+2020-12,PL-ENTSOE,PL,pl_price,56.7,EUR/MWh,actual,2026-08-31,entsoe-harvester/pl_wholesale_monthly.json,ok
 2021-01,PL-ENTSOE,PL,pl_price,54.43,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
+2021-01,PL-ENTSOE,PL,pl_price,40.02,EUR/MWh,actual,2026-08-31,entsoe-harvester/pl_wholesale_monthly.json,ok
 2021-02,PL-ENTSOE,PL,pl_price,58.88,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
 2021-03,PL-ENTSOE,PL,pl_price,59.69,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
 2021-04,PL-ENTSOE,PL,pl_price,59.48,EUR/MWh,actual,2026-08-11,entsoe-harvester/pl_wholesale_monthly.json,ok
@@ -2325,6 +2342,7 @@
 2026-08,US-MISO,MICHIGAN.HUB,lmp_da,44.379,$/MWh,actual,2026-08-28,miso_lmp_monthly.json,ok
 2026-08,US-MISO,MICHIGAN.HUB,lmp_da,44.225,$/MWh,actual,2026-08-29,miso_lmp_monthly.json,ok
 2026-08,US-MISO,MICHIGAN.HUB,lmp_da,43.908,$/MWh,actual,2026-08-30,miso_lmp_monthly.json,ok
+2026-08,US-MISO,MICHIGAN.HUB,lmp_da,43.764,$/MWh,actual,2026-08-31,miso_lmp_monthly.json,ok
 2015-01,US-RETAIL,AZ,retail_ind,5.84,cents/kWh,actual,2026-08-11,eia_industrial_prices_monthly.json,ok
 2015-02,US-RETAIL,AZ,retail_ind,5.98,cents/kWh,actual,2026-08-11,eia_industrial_prices_monthly.json,ok
 2015-03,US-RETAIL,AZ,retail_ind,5.95,cents/kWh,actual,2026-08-11,eia_industrial_prices_monthly.json,ok
@@ -3266,6 +3284,7 @@
 2026-08,US-RTO,MISO,d_df_err,-0.022598,ratio,actual,2026-08-28,eia_rto_monthly.csv,ok
 2026-08,US-RTO,MISO,d_df_err,-0.021994,ratio,actual,2026-08-29,eia_rto_monthly.csv,ok
 2026-08,US-RTO,MISO,d_df_err,-0.021643,ratio,actual,2026-08-30,eia_rto_monthly.csv,ok
+2026-08,US-RTO,MISO,d_df_err,-0.022145,ratio,actual,2026-08-31,eia_rto_monthly.csv,ok
 2019-01,US-RTO,MISO,d_load_factor,0.845522,ratio,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-02,US-RTO,MISO,d_load_factor,0.895018,ratio,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-03,US-RTO,MISO,d_load_factor,0.817399,ratio,actual,2026-08-11,eia_rto_monthly.csv,ok
@@ -3379,6 +3398,7 @@
 2026-08,US-RTO,MISO,d_load_factor,0.926286,ratio,actual,2026-08-28,eia_rto_monthly.csv,ok
 2026-08,US-RTO,MISO,d_load_factor,0.925245,ratio,actual,2026-08-29,eia_rto_monthly.csv,ok
 2026-08,US-RTO,MISO,d_load_factor,0.922821,ratio,actual,2026-08-30,eia_rto_monthly.csv,ok
+2026-08,US-RTO,MISO,d_load_factor,0.921371,ratio,actual,2026-08-31,eia_rto_monthly.csv,ok
 2019-01,US-RTO,MISO,d_load_mwh,5.78098e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-02,US-RTO,MISO,d_load_mwh,5.05244e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-03,US-RTO,MISO,d_load_mwh,5.23988e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
@@ -3492,6 +3512,7 @@
 2026-08,US-RTO,MISO,d_load_mwh,5.76198e+07,MWh,actual,2026-08-28,eia_rto_monthly.csv,ok
 2026-08,US-RTO,MISO,d_load_mwh,5.96867e+07,MWh,actual,2026-08-29,eia_rto_monthly.csv,ok
 2026-08,US-RTO,MISO,d_load_mwh,6.16564e+07,MWh,actual,2026-08-30,eia_rto_monthly.csv,ok
+2026-08,US-RTO,MISO,d_load_mwh,6.36823e+07,MWh,actual,2026-08-31,eia_rto_monthly.csv,ok
 2019-01,US-RTO,MISO,d_ng_mwh,5.49106e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-02,US-RTO,MISO,d_ng_mwh,4.7735e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-03,US-RTO,MISO,d_ng_mwh,4.97702e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
@@ -3604,6 +3625,7 @@
 2026-08,US-RTO,MISO,d_ng_mwh,5.62735e+07,MWh,actual,2026-08-28,eia_rto_monthly.csv,ok
 2026-08,US-RTO,MISO,d_ng_mwh,5.82622e+07,MWh,actual,2026-08-29,eia_rto_monthly.csv,ok
 2026-08,US-RTO,MISO,d_ng_mwh,6.01997e+07,MWh,actual,2026-08-30,eia_rto_monthly.csv,ok
+2026-08,US-RTO,MISO,d_ng_mwh,6.21732e+07,MWh,actual,2026-08-31,eia_rto_monthly.csv,ok
 2019-01,US-RTO,MISO,d_peak_day_mwh,2.20554e+06,MWh/day,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-02,US-RTO,MISO,d_peak_day_mwh,2.0161e+06,MWh/day,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-03,US-RTO,MISO,d_peak_day_mwh,2.06788e+06,MWh/day,actual,2026-08-11,eia_rto_monthly.csv,ok
@@ -3756,6 +3778,7 @@
 2026-08,US-RTO,MISO,df_err,-0.0204461,ratio,actual,2026-08-28,eia_hourly_rto.csv,ok
 2026-08,US-RTO,MISO,df_err,-0.0202642,ratio,actual,2026-08-29,eia_hourly_rto.csv,ok
 2026-08,US-RTO,MISO,df_err,-0.0200238,ratio,actual,2026-08-30,eia_hourly_rto.csv,ok
+2026-08,US-RTO,MISO,df_err,-0.0207359,ratio,actual,2026-08-31,eia_hourly_rto.csv,ok
 2024-01,US-RTO,MISO,load_factor,0.764061,ratio,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-02,US-RTO,MISO,load_factor,0.822619,ratio,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-03,US-RTO,MISO,load_factor,0.821842,ratio,actual,2026-08-11,eia_hourly_rto.csv,ok
@@ -3817,6 +3840,7 @@
 2026-08,US-RTO,MISO,load_factor,0.782247,ratio,actual,2026-08-28,eia_hourly_rto.csv,ok
 2026-08,US-RTO,MISO,load_factor,0.780806,ratio,actual,2026-08-29,eia_hourly_rto.csv,ok
 2026-08,US-RTO,MISO,load_factor,0.778884,ratio,actual,2026-08-30,eia_hourly_rto.csv,ok
+2026-08,US-RTO,MISO,load_factor,0.778532,ratio,actual,2026-08-31,eia_hourly_rto.csv,ok
 2024-01,US-RTO,MISO,load_mwh,5.83361e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-02,US-RTO,MISO,load_mwh,4.82293e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-03,US-RTO,MISO,load_mwh,4.89252e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
@@ -3878,6 +3902,7 @@
 2026-08,US-RTO,MISO,load_mwh,5.93173e+07,MWh,actual,2026-08-28,eia_hourly_rto.csv,ok
 2026-08,US-RTO,MISO,load_mwh,6.08035e+07,MWh,actual,2026-08-29,eia_hourly_rto.csv,ok
 2026-08,US-RTO,MISO,load_mwh,6.27757e+07,MWh,actual,2026-08-30,eia_hourly_rto.csv,ok
+2026-08,US-RTO,MISO,load_mwh,6.50452e+07,MWh,actual,2026-08-31,eia_hourly_rto.csv,ok
 2024-01,US-RTO,MISO,ng_net,5.81539e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-02,US-RTO,MISO,ng_net,4.71383e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-03,US-RTO,MISO,ng_net,4.85617e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
@@ -3930,6 +3955,7 @@
 2026-08,US-RTO,MISO,ng_net,5.67397e+07,MWh,actual,2026-08-28,eia_hourly_rto.csv,ok
 2026-08,US-RTO,MISO,ng_net,5.87284e+07,MWh,actual,2026-08-29,eia_hourly_rto.csv,ok
 2026-08,US-RTO,MISO,ng_net,6.06659e+07,MWh,actual,2026-08-30,eia_hourly_rto.csv,ok
+2026-08,US-RTO,MISO,ng_net,6.26394e+07,MWh,actual,2026-08-31,eia_hourly_rto.csv,ok
 2024-01,US-RTO,MISO,peak_mw,102621,MW,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-02,US-RTO,MISO,peak_mw,84237,MW,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-03,US-RTO,MISO,peak_mw,80015,MW,actual,2026-08-11,eia_hourly_rto.csv,ok
@@ -4074,6 +4100,7 @@
 2026-08,US-RTO,PJM,d_df_err,0.023781,ratio,actual,2026-08-28,eia_rto_monthly.csv,ok
 2026-08,US-RTO,PJM,d_df_err,0.023776,ratio,actual,2026-08-29,eia_rto_monthly.csv,ok
 2026-08,US-RTO,PJM,d_df_err,0.022942,ratio,actual,2026-08-30,eia_rto_monthly.csv,ok
+2026-08,US-RTO,PJM,d_df_err,0.021392,ratio,actual,2026-08-31,eia_rto_monthly.csv,ok
 2019-01,US-RTO,PJM,d_load_factor,0.791288,ratio,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-02,US-RTO,PJM,d_load_factor,0.803278,ratio,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-03,US-RTO,PJM,d_load_factor,0.806365,ratio,actual,2026-08-11,eia_rto_monthly.csv,ok
@@ -4185,6 +4212,7 @@
 2026-08,US-RTO,PJM,d_load_factor,0.90302,ratio,actual,2026-08-28,eia_rto_monthly.csv,ok
 2026-08,US-RTO,PJM,d_load_factor,0.9026,ratio,actual,2026-08-29,eia_rto_monthly.csv,ok
 2026-08,US-RTO,PJM,d_load_factor,0.899194,ratio,actual,2026-08-30,eia_rto_monthly.csv,ok
+2026-08,US-RTO,PJM,d_load_factor,0.897068,ratio,actual,2026-08-31,eia_rto_monthly.csv,ok
 2019-01,US-RTO,PJM,d_load_mwh,7.50102e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-02,US-RTO,PJM,d_load_mwh,6.43792e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-03,US-RTO,PJM,d_load_mwh,6.63028e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
@@ -4296,6 +4324,7 @@
 2026-08,US-RTO,PJM,d_load_mwh,7.15396e+07,MWh,actual,2026-08-28,eia_rto_monthly.csv,ok
 2026-08,US-RTO,PJM,d_load_mwh,7.41547e+07,MWh,actual,2026-08-29,eia_rto_monthly.csv,ok
 2026-08,US-RTO,PJM,d_load_mwh,7.65133e+07,MWh,actual,2026-08-30,eia_rto_monthly.csv,ok
+2026-08,US-RTO,PJM,d_load_mwh,7.89646e+07,MWh,actual,2026-08-31,eia_rto_monthly.csv,ok
 2019-01,US-RTO,PJM,d_ng_mwh,7.14505e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-02,US-RTO,PJM,d_ng_mwh,6.54097e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-03,US-RTO,PJM,d_ng_mwh,6.7681e+07,MWh,actual,2026-08-11,eia_rto_monthly.csv,ok
@@ -4407,6 +4436,7 @@
 2026-08,US-RTO,PJM,d_ng_mwh,7.47714e+07,MWh,actual,2026-08-28,eia_rto_monthly.csv,ok
 2026-08,US-RTO,PJM,d_ng_mwh,7.7514e+07,MWh,actual,2026-08-29,eia_rto_monthly.csv,ok
 2026-08,US-RTO,PJM,d_ng_mwh,7.9982e+07,MWh,actual,2026-08-30,eia_rto_monthly.csv,ok
+2026-08,US-RTO,PJM,d_ng_mwh,8.25718e+07,MWh,actual,2026-08-31,eia_rto_monthly.csv,ok
 2019-01,US-RTO,PJM,d_peak_day_mwh,3.05791e+06,MWh/day,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-02,US-RTO,PJM,d_peak_day_mwh,2.86234e+06,MWh/day,actual,2026-08-11,eia_rto_monthly.csv,ok
 2019-03,US-RTO,PJM,d_peak_day_mwh,2.6524e+06,MWh/day,actual,2026-08-11,eia_rto_monthly.csv,ok
@@ -4554,6 +4584,7 @@
 2026-08,US-RTO,PJM,df_err,0.0269606,ratio,actual,2026-08-28,eia_hourly_rto.csv,ok
 2026-08,US-RTO,PJM,df_err,0.0272822,ratio,actual,2026-08-29,eia_hourly_rto.csv,ok
 2026-08,US-RTO,PJM,df_err,0.0265039,ratio,actual,2026-08-30,eia_hourly_rto.csv,ok
+2026-08,US-RTO,PJM,df_err,0.0248169,ratio,actual,2026-08-31,eia_hourly_rto.csv,ok
 2024-01,US-RTO,PJM,load_factor,0.757363,ratio,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-02,US-RTO,PJM,load_factor,0.825209,ratio,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-03,US-RTO,PJM,load_factor,0.796279,ratio,actual,2026-08-11,eia_hourly_rto.csv,ok
@@ -4613,6 +4644,7 @@
 2026-08,US-RTO,PJM,load_factor,0.758572,ratio,actual,2026-08-28,eia_hourly_rto.csv,ok
 2026-08,US-RTO,PJM,load_factor,0.757279,ratio,actual,2026-08-29,eia_hourly_rto.csv,ok
 2026-08,US-RTO,PJM,load_factor,0.754421,ratio,actual,2026-08-30,eia_hourly_rto.csv,ok
+2026-08,US-RTO,PJM,load_factor,0.753751,ratio,actual,2026-08-31,eia_hourly_rto.csv,ok
 2024-01,US-RTO,PJM,load_mwh,7.54773e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-02,US-RTO,PJM,load_mwh,6.4526e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-03,US-RTO,PJM,load_mwh,6.10656e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
@@ -4672,6 +4704,7 @@
 2026-08,US-RTO,PJM,load_mwh,7.36653e+07,MWh,actual,2026-08-28,eia_hourly_rto.csv,ok
 2026-08,US-RTO,PJM,load_mwh,7.55213e+07,MWh,actual,2026-08-29,eia_hourly_rto.csv,ok
 2026-08,US-RTO,PJM,load_mwh,7.78685e+07,MWh,actual,2026-08-30,eia_hourly_rto.csv,ok
+2026-08,US-RTO,PJM,load_mwh,8.06483e+07,MWh,actual,2026-08-31,eia_hourly_rto.csv,ok
 2024-01,US-RTO,PJM,ng_net,7.93129e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-02,US-RTO,PJM,ng_net,6.7628e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-03,US-RTO,PJM,ng_net,6.42673e+07,MWh,actual,2026-08-11,eia_hourly_rto.csv,ok
@@ -4723,6 +4756,7 @@
 2026-08,US-RTO,PJM,ng_net,7.52605e+07,MWh,actual,2026-08-28,eia_hourly_rto.csv,ok
 2026-08,US-RTO,PJM,ng_net,7.80082e+07,MWh,actual,2026-08-29,eia_hourly_rto.csv,ok
 2026-08,US-RTO,PJM,ng_net,8.04802e+07,MWh,actual,2026-08-30,eia_hourly_rto.csv,ok
+2026-08,US-RTO,PJM,ng_net,8.30611e+07,MWh,actual,2026-08-31,eia_hourly_rto.csv,ok
 2024-01,US-RTO,PJM,peak_mw,133949,MW,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-02,US-RTO,PJM,peak_mw,112347,MW,actual,2026-08-11,eia_hourly_rto.csv,ok
 2024-03,US-RTO,PJM,peak_mw,106217,MW,actual,2026-08-11,eia_hourly_rto.csv,ok

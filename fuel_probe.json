@@ -150,7 +150,7 @@
       "url": "https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx",
       "http": 200,
       "ok": true,
-      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 145건 → 월 8건"
+      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 146건 → 월 8건"
     },
     {
       "id": "EUA_EEXemis",
@@ -268,9 +268,9 @@
       "id": "ICE_report",
       "tier": 3,
       "url": "https://www.theice.com/marketdata/reports/api/getReport?reportId=178",
-      "http": 200,
-      "ok": true,
-      "note": "ct=text/html; charset=utf-8 | <!DOCTYPE html><html lang=\"en\" data-is-cms-page=\"true\" class=\"scroll-smooth\"><head><meta charset=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimum-scale=1\"/><meta http-equiv=\"X-UA-Compa"
+      "http": 403,
+      "ok": false,
+      "note": "ct=text/html; charset=UTF-8 | <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-js ie8 oldie\" lang=\""
     },
     {
       "id": "ICAP_api",

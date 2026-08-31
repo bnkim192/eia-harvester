@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-30",
+ "built_at": "2026-08-31",
  "base_ym": "2026-08",
  "sources": {
   "steo_gas": {
@@ -69,8 +69,8 @@
    "gate_fail": []
   },
   "entsoe_pl": {
-   "rows": 81,
-   "latest_ym": "2026-08",
+   "rows": 14,
+   "latest_ym": "2021-01",
    "first_ym": "2019-12",
    "ok": true,
    "note": ""
@@ -78,9 +78,9 @@
  },
  "panel": {
   "added": 0,
-  "revised": 18,
-  "unchanged": 4075,
-  "rows": 4756,
+  "revised": 34,
+  "unchanged": 3992,
+  "rows": 4790,
   "keys": 4105
  },
  "vintages": {
