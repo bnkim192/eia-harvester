@@ -1,5 +1,5 @@
 {
- "built_at": "2026-08-31",
+ "built_at": "2026-09-01",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
@@ -10,7 +10,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": false,
    "pass_through": 1.0,
    "rto": null,
@@ -57,7 +57,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
@@ -104,7 +104,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": "MISO",
@@ -173,7 +173,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": "PJM",
@@ -242,7 +242,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
@@ -289,7 +289,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
@@ -336,25 +336,25 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 0,
+   "lag_months": 1,
    "live": true,
    "pass_through": 0.6,
    "rto": null,
    "sets": {
     "A": {
      "1": {
-      "n_origins": 28,
-      "mape": 11.609,
+      "n_origins": 29,
+      "mape": 11.389,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 22,
-      "mape": 14.604,
+      "n_origins": 23,
+      "mape": 14.843,
       "gate": "insufficient_n"
      },
      "6": {
-      "n_origins": 13,
-      "mape": 13.286,
+      "n_origins": 14,
+      "mape": 13.865,
       "gate": "insufficient_n"
      }
     }
@@ -368,7 +368,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 16,
+   "lag_months": 17,
    "live": false,
    "pass_through": 0.6,
    "rto": null,
@@ -399,9 +399,10 @@
   }
  },
  "steo_vintages": {
-  "count": 1,
+  "count": 2,
   "list": [
-   "2026-08"
+   "2026-08",
+   "2026-09"
   ]
  },
  "summary": {

@@ -1,6 +1,6 @@
 {
- "built_at": "2026-08-31",
- "base_ym": "2026-08",
+ "built_at": "2026-09-01",
+ "base_ym": "2026-09",
  "sources": {
   "steo_gas": {
    "rows": 120,
@@ -17,8 +17,8 @@
    "note": ""
   },
   "eia_hourly_rto": {
-   "rows": 320,
-   "latest_ym": "2026-08",
+   "rows": 330,
+   "latest_ym": "2026-09",
    "first_ym": "2024-01",
    "ok": true,
    "note": "",
@@ -77,15 +77,15 @@
   }
  },
  "panel": {
-  "added": 0,
-  "revised": 34,
-  "unchanged": 3992,
-  "rows": 4790,
-  "keys": 4105
+  "added": 10,
+  "revised": 22,
+  "unchanged": 4004,
+  "rows": 4822,
+  "keys": 4115
  },
  "vintages": {
-  "rows": 17,
-  "added": 0
+  "rows": 33,
+  "added": 16
  },
  "coverage": {
   "CA-IESO/ga_class_b_amount": {
@@ -289,10 +289,10 @@
    ]
   },
   "US-RTO/df_err": {
-   "months": 32,
+   "months": 33,
    "range": [
     "2024-01",
-    "2026-08"
+    "2026-09"
    ],
    "entities": [
     "MISO",
@@ -300,10 +300,10 @@
    ]
   },
   "US-RTO/load_factor": {
-   "months": 32,
+   "months": 33,
    "range": [
     "2024-01",
-    "2026-08"
+    "2026-09"
    ],
    "entities": [
     "MISO",
@@ -311,10 +311,10 @@
    ]
   },
   "US-RTO/load_mwh": {
-   "months": 32,
+   "months": 33,
    "range": [
     "2024-01",
-    "2026-08"
+    "2026-09"
    ],
    "entities": [
     "MISO",
@@ -322,10 +322,10 @@
    ]
   },
   "US-RTO/ng_net": {
-   "months": 32,
+   "months": 33,
    "range": [
     "2024-01",
-    "2026-08"
+    "2026-09"
    ],
    "entities": [
     "MISO",
@@ -333,10 +333,10 @@
    ]
   },
   "US-RTO/peak_mw": {
-   "months": 32,
+   "months": 33,
    "range": [
     "2024-01",
-    "2026-08"
+    "2026-09"
    ],
    "entities": [
     "MISO",
