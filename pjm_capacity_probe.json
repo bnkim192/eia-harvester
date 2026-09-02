@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 363건 · 본문 405KB"
+      "note": "링크 362건 · 본문 402KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -40,7 +40,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm/rpm-auction-user-info",
       "http": 200,
       "ok": false,
-      "note": "링크 0건 · 본문 25KB"
+      "note": "링크 0건 · 본문 24KB"
     },
     {
       "id": "PJM_sitemap",
@@ -366,7 +366,6 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-final-zonal-ucap-obligations-capacity-prices-ctr-credit-rates.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-excess-commitment-allocation.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-transition-incremental-auction-results.pdf",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-cp-transition-auction-results.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-final-phpa-calculator.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-rpm-daily-zonal-scaling-factors.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-rpm-pricing-points.xls",
@@ -460,7 +459,8 @@
     "http://www.pjm.com/markets-and-operations/rpm",
     "http://www.pjm.com/markets-and-operations/etools/capacity-exchange",
     "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
-    "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates"
+    "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
+    "http://www.pjm.com/planning/rtep-development/powerflow-cases/rpm-base-cases"
   ],
   "ambiguous": []
 }
