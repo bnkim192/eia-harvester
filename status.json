@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-02",
+ "built_at": "2026-09-03",
  "base_ym": "2026-09",
  "sources": {
   "steo_gas": {
@@ -34,7 +34,7 @@
    "ok": true,
    "note": "",
    "partial_months": [
-    "2026-09(1일)"
+    "2026-09(2일)"
    ]
   },
   "miso_lmp": {
@@ -51,7 +51,7 @@
    "ok": true,
    "note": "",
    "partial_months": [
-    "2026-09(1일)"
+    "2026-09(2일)"
    ]
   },
   "ieso_price": {
@@ -81,10 +81,10 @@
   }
  },
  "panel": {
-  "added": 29,
-  "revised": 10,
-  "unchanged": 4026,
-  "rows": 4861,
+  "added": 0,
+  "revised": 34,
+  "unchanged": 4031,
+  "rows": 4895,
   "keys": 4144
  },
  "vintages": {
@@ -350,8 +350,8 @@
  },
  "notes": [
   "STEO 실적/전망 경계는 '발표월 이전=실적' 휴리스틱이다. 최근 1~2개월은 잠정치 가능.",
-  "일별 RTO 부분월(일수<25) status=partial: ['2026-09(1일)']",
-  "FX 부분월(영업일<15) status=partial: ['2026-09(1일)']",
+  "일별 RTO 부분월(일수<25) status=partial: ['2026-09(2일)']",
+  "FX 부분월(영업일<15) status=partial: ['2026-09(2일)']",
   "OT 에너지 계열에 13개월 영구 결손(HOEP 종료~존가격 보존 시작). 두 계열은 가격 정의가 달라 결합하지 않는다."
  ],
  "excluded": {

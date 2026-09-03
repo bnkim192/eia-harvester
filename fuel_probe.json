@@ -14,7 +14,7 @@
       "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
       "http": 200,
       "ok": true,
-      "note": "sheet=Monthly Prices headerRow=0~5(concat) dateCol=0 계열=['TTF_EU', 'HH_US', 'LNG_JP', 'COAL_ZA', 'COAL_AU'] pts=3383"
+      "note": "sheet=Monthly Prices headerRow=0~5(concat) dateCol=0 계열=['TTF_EU', 'HH_US', 'LNG_JP', 'COAL_ZA', 'COAL_AU'] pts=3388"
     },
     {
       "id": "IMF_xlsx",
@@ -150,7 +150,7 @@
       "url": "https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx",
       "http": 200,
       "ok": true,
-      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 148건 → 월 8건"
+      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 149건 → 월 8건"
     },
     {
       "id": "EUA_EEXemis",

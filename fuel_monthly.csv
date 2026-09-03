@@ -798,6 +798,7 @@ WB_TTF_EU,2026-04,15.41,USD(원문단위),"Natural gas, Europe (TTF 연동)",Wor
 WB_TTF_EU,2026-05,16.17,USD(원문단위),"Natural gas, Europe (TTF 연동)",World Bank Pink Sheet monthly
 WB_TTF_EU,2026-06,15.17,USD(원문단위),"Natural gas, Europe (TTF 연동)",World Bank Pink Sheet monthly
 WB_TTF_EU,2026-07,18.06,USD(원문단위),"Natural gas, Europe (TTF 연동)",World Bank Pink Sheet monthly
+WB_TTF_EU,2026-08,21.11,USD(원문단위),"Natural gas, Europe (TTF 연동)",World Bank Pink Sheet monthly
 WB_HH_US,1960-01,0.14,USD(원문단위),"Natural gas, US (Henry Hub)",World Bank Pink Sheet monthly
 WB_HH_US,1960-02,0.14,USD(원문단위),"Natural gas, US (Henry Hub)",World Bank Pink Sheet monthly
 WB_HH_US,1960-03,0.14,USD(원문단위),"Natural gas, US (Henry Hub)",World Bank Pink Sheet monthly
@@ -1597,6 +1598,7 @@ WB_HH_US,2026-04,2.77,USD(원문단위),"Natural gas, US (Henry Hub)",World Bank
 WB_HH_US,2026-05,2.93,USD(원문단위),"Natural gas, US (Henry Hub)",World Bank Pink Sheet monthly
 WB_HH_US,2026-06,3.15,USD(원문단위),"Natural gas, US (Henry Hub)",World Bank Pink Sheet monthly
 WB_HH_US,2026-07,2.89,USD(원문단위),"Natural gas, US (Henry Hub)",World Bank Pink Sheet monthly
+WB_HH_US,2026-08,2.77,USD(원문단위),"Natural gas, US (Henry Hub)",World Bank Pink Sheet monthly
 WB_LNG_JP,1977-01,2.77,USD(원문단위),"LNG, Japan",World Bank Pink Sheet monthly
 WB_LNG_JP,1977-02,2.77,USD(원문단위),"LNG, Japan",World Bank Pink Sheet monthly
 WB_LNG_JP,1977-03,2.77,USD(원문단위),"LNG, Japan",World Bank Pink Sheet monthly
@@ -2191,7 +2193,8 @@ WB_LNG_JP,2026-03,11.42,USD(원문단위),"LNG, Japan",World Bank Pink Sheet mon
 WB_LNG_JP,2026-04,15.65,USD(원문단위),"LNG, Japan",World Bank Pink Sheet monthly
 WB_LNG_JP,2026-05,12.88,USD(원문단위),"LNG, Japan",World Bank Pink Sheet monthly
 WB_LNG_JP,2026-06,11.79,USD(원문단위),"LNG, Japan",World Bank Pink Sheet monthly
-WB_LNG_JP,2026-07,11.8,USD(원문단위),"LNG, Japan",World Bank Pink Sheet monthly
+WB_LNG_JP,2026-07,13.85,USD(원문단위),"LNG, Japan",World Bank Pink Sheet monthly
+WB_LNG_JP,2026-08,13.94,USD(원문단위),"LNG, Japan",World Bank Pink Sheet monthly
 WB_COAL_ZA,1984-01,29.3,USD(원문단위),"Coal, South Africa (API4계열)",World Bank Pink Sheet monthly
 WB_COAL_ZA,1984-02,29.3,USD(원문단위),"Coal, South Africa (API4계열)",World Bank Pink Sheet monthly
 WB_COAL_ZA,1984-03,29.3,USD(원문단위),"Coal, South Africa (API4계열)",World Bank Pink Sheet monthly
@@ -2703,6 +2706,7 @@ WB_COAL_ZA,2026-04,94.8,USD(원문단위),"Coal, South Africa (API4계열)",Worl
 WB_COAL_ZA,2026-05,95.6,USD(원문단위),"Coal, South Africa (API4계열)",World Bank Pink Sheet monthly
 WB_COAL_ZA,2026-06,96.3,USD(원문단위),"Coal, South Africa (API4계열)",World Bank Pink Sheet monthly
 WB_COAL_ZA,2026-07,96.3,USD(원문단위),"Coal, South Africa (API4계열)",World Bank Pink Sheet monthly
+WB_COAL_ZA,2026-08,96.8,USD(원문단위),"Coal, South Africa (API4계열)",World Bank Pink Sheet monthly
 WB_COAL_AU,1970-01,7.8,USD(원문단위),"Coal, Australia (Newcastle)",World Bank Pink Sheet monthly
 WB_COAL_AU,1970-02,7.8,USD(원문단위),"Coal, Australia (Newcastle)",World Bank Pink Sheet monthly
 WB_COAL_AU,1970-03,7.8,USD(원문단위),"Coal, Australia (Newcastle)",World Bank Pink Sheet monthly
@@ -3382,6 +3386,7 @@ WB_COAL_AU,2026-04,130.9,USD(원문단위),"Coal, Australia (Newcastle)",World B
 WB_COAL_AU,2026-05,136.9,USD(원문단위),"Coal, Australia (Newcastle)",World Bank Pink Sheet monthly
 WB_COAL_AU,2026-06,138.5,USD(원문단위),"Coal, Australia (Newcastle)",World Bank Pink Sheet monthly
 WB_COAL_AU,2026-07,131.9,USD(원문단위),"Coal, Australia (Newcastle)",World Bank Pink Sheet monthly
+WB_COAL_AU,2026-08,135.2,USD(원문단위),"Coal, Australia (Newcastle)",World Bank Pink Sheet monthly
 EUA_EUA_EEXauc,2026-01,86.50625,원문단위 · 확인 필요,EUA 배출권 (xlsx: emission-spot-primary-market-auc),https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download
 EUA_EUA_EEXauc,2026-02,73.77333333333334,원문단위 · 확인 필요,EUA 배출권 (xlsx: emission-spot-primary-market-auc),https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download
 EUA_EUA_EEXauc,2026-03,68.16999999999999,원문단위 · 확인 필요,EUA 배출권 (xlsx: emission-spot-primary-market-auc),https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download
