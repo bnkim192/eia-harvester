@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-03",
+ "built_at": "2026-09-04",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
@@ -329,14 +329,14 @@
    }
   },
   "PL-ENTSOE/PL/pl_price": {
-   "months": 81,
+   "months": 82,
    "range": [
     "2019-12",
-    "2026-08"
+    "2026-09"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 1,
+   "lag_months": 0,
    "live": true,
    "pass_through": 0.6,
    "rto": null,
@@ -344,17 +344,17 @@
     "A": {
      "1": {
       "n_origins": 29,
-      "mape": 11.389,
+      "mape": 11.592,
       "gate": "pass"
      },
      "3": {
       "n_origins": 23,
-      "mape": 14.843,
+      "mape": 14.269,
       "gate": "insufficient_n"
      },
      "6": {
       "n_origins": 14,
-      "mape": 13.865,
+      "mape": 13.366,
       "gate": "insufficient_n"
      }
     }

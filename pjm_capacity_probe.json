@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 362건 · 본문 402KB"
+      "note": "링크 363건 · 본문 402KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -47,7 +47,14 @@
       "url": "https://www.pjm.com/sitemap.xml",
       "http": 200,
       "ok": true,
-      "note": "링크 5건 · 본문 133KB"
+      "note": "링크 5건 · 본문 134KB"
+    },
+    {
+      "id": "PDF_2029-2030",
+      "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-planning-period-parameters-for-base-residual-auction-report.pdf",
+      "http": 200,
+      "ok": false,
+      "note": "pages=9 행 0개 · simulated 페이지 0개 제외"
     }
   ],
   "braYears": [
@@ -58,11 +65,13 @@
     "2025-2026",
     "2026-2027",
     "2027-2028",
-    "2028-2029"
+    "2028-2029",
+    "2029-2030"
   ],
   "files": [
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/rpm-auction-schedule.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-planning-period-parameters-for-base-residual-auction.xlsx",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-planning-period-parameters-for-base-residual-auction-report.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-rpm-existing-resource-list.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-bra-transitional-system-capability-study-results.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2029-2030/2029-2030-default-new-entry-mopr-offer-prices.xlsx",
@@ -456,11 +465,10 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-aep-apco-ferc-informational-filing.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-template.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-rate-work-papers.pdf",
-    "http://www.pjm.com/markets-and-operations/rpm",
-    "http://www.pjm.com/markets-and-operations/etools/capacity-exchange",
-    "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
-    "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
-    "http://www.pjm.com/planning/rtep-development/powerflow-cases/rpm-base-cases"
+    "https://www.pjm.com/markets-and-operations/rpm",
+    "https://www.pjm.com/markets-and-operations/etools/capacity-exchange",
+    "https://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
+    "https://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates"
   ],
   "ambiguous": []
 }
