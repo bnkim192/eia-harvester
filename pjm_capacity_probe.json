@@ -47,7 +47,7 @@
       "url": "https://www.pjm.com/sitemap.xml",
       "http": 200,
       "ok": true,
-      "note": "링크 5건 · 본문 134KB"
+      "note": "링크 5건 · 본문 133KB"
     },
     {
       "id": "PDF_2029-2030",
@@ -465,10 +465,10 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-aep-apco-ferc-informational-filing.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-template.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-rate-work-papers.pdf",
-    "https://www.pjm.com/markets-and-operations/rpm",
-    "https://www.pjm.com/markets-and-operations/etools/capacity-exchange",
-    "https://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
-    "https://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates"
+    "http://www.pjm.com/markets-and-operations/rpm",
+    "http://www.pjm.com/markets-and-operations/etools/capacity-exchange",
+    "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
+    "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates"
   ],
   "ambiguous": []
 }
