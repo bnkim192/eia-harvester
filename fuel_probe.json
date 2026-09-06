@@ -142,7 +142,7 @@
       "url": "https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download",
       "http": 200,
       "ok": true,
-      "note": "파일 1건 ['https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx'] | 경로후보 7건 ['https://www.eex.com/en/markets/energy-certificates/french-auctions-power', 'https://www.eex.com/en/markets/energy-certificates/french-auctions-biogas', 'https://www.eex.com/en/markets/environmentals/eu-ets1-eu-ets2-auctions', 'https://www.eex.com/en/markets/environme"
+      "note": "파일 1건 ['https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx'] | 경로후보 9건 ['https://www.eex.com/en/markets/energy-certificates/french-auctions-power', 'https://www.eex.com/en/markets/energy-certificates/french-auctions-biogas', 'https://www.eex.com/en/markets/environmentals/eu-ets1-eu-ets2-auctions', 'https://www.eex.com/en/markets/environme"
     },
     {
       "id": "EUA_EEXauc_dl",
