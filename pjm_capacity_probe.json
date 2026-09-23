@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 361건 · 본문 387KB"
+      "note": "링크 361건 · 본문 388KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -19,28 +19,28 @@
       "url": "https://www.pjm.com/markets-and-operations/etools/capacity-exchange",
       "http": 200,
       "ok": true,
-      "note": "링크 11건 · 본문 82KB"
+      "note": "링크 11건 · 본문 83KB"
     },
     {
       "id": "PJM_rpm_sub3",
       "url": "https://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
       "http": 200,
       "ok": false,
-      "note": "링크 0건 · 본문 69KB"
+      "note": "링크 0건 · 본문 70KB"
     },
     {
       "id": "PJM_rpm_sub4",
       "url": "https://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
       "http": 200,
       "ok": true,
-      "note": "링크 23건 · 본문 91KB"
+      "note": "링크 27건 · 본문 96KB"
     },
     {
       "id": "PJM_rpm_user",
       "url": "https://www.pjm.com/markets-and-operations/rpm/rpm-auction-user-info",
       "http": 200,
       "ok": false,
-      "note": "링크 0건 · 본문 26KB"
+      "note": "링크 0건 · 본문 27KB"
     },
     {
       "id": "PJM_sitemap",
@@ -441,6 +441,10 @@
     "https://www.pjm.com/-/media/DotCom/etools/capacity-exchange/erpm-designated.csv",
     "https://www.pjm.com/-/media/DotCom/etools/capacity-exchange/erpm-delisting.csv",
     "https://www.pjm.com/-/media/DotCom/markets-ops/duke-integration/duke-capacity-payment-agreements-2011-2012-through-2014-2015.zip",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2026/transmittal-apco-2025-frr-rate.pdf",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2026/schedule-8-1-appendix-2.pdf",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2026/aep-apco-va-frr-2025-formula-update-workpapers.xlsx",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2026/aep-apco-va-2025-capacity-formula-update.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2025/transmittal-apco-2024-frr-rate.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2025/schedule-8-1-appendix-2.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2025/aep-apco-va-frr-2024-formula-update-workpapers.xlsx",
@@ -464,10 +468,7 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-template.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-rate-work-papers.pdf",
     "http://www.pjm.com/markets-and-operations/rpm",
-    "http://www.pjm.com/markets-and-operations/etools/capacity-exchange",
-    "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
-    "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
-    "http://www.pjm.com/planning/rtep-development/powerflow-cases/rpm-base-cases"
+    "http://www.pjm.com/markets-and-operations/etools/capacity-exchange"
   ],
   "ambiguous": []
 }
