@@ -6,7 +6,7 @@
   "timezone": "Eastern"
  },
  "probe": {
-  "checked_at": "2026-09-23T13:57",
+  "checked_at": "2026-09-24T13:53",
   "rto_routes": [
    "region-data",
    "fuel-type-data",
@@ -34,10 +34,10 @@
   },
   "timezone_values": [
    "Mountain",
-   "Arizona",
    "Eastern",
-   "Pacific",
-   "Central"
+   "Central",
+   "Arizona",
+   "Pacific"
   ],
   "candidates": [
    {
@@ -50,12 +50,12 @@
    }
   ],
   "rowcount_check": {
-   "actual": 16909,
-   "expect_max": 25704,
+   "actual": 16915,
+   "expect_max": 25710,
    "ratio": 0.658
   },
   "timezone_in_response": {
-   "Eastern": 16909
+   "Eastern": 16915
   },
   "duplicate_overwrites": 0
  },
@@ -70,7 +70,7 @@
   "NG"
  ],
  "start": "2015-01-01",
- "daily_rows": 16909,
+ "daily_rows": 16915,
  "months": 93,
  "range": [
   "2019-01",
@@ -815,12 +815,12 @@
     "ng_mwh": 64367948.0
    },
    "2026-09": {
-    "days": 22,
-    "load_mwh": 45410746.0,
+    "days": 23,
+    "load_mwh": 47235518.0,
     "peak_day_mwh": 2404431.0,
-    "mean_day_mwh": 2064124.8,
-    "df_err": -0.018596,
-    "ng_mwh": 44594559.0
+    "mean_day_mwh": 2053718.2,
+    "df_err": -0.018811,
+    "ng_mwh": 46404376.0
    }
   },
   "PJM": {
@@ -1561,12 +1561,12 @@
     "ng_mwh": 85479821.0
    },
    "2026-09": {
-    "days": 22,
-    "load_mwh": 55786082.0,
+    "days": 23,
+    "load_mwh": 57862208.0,
     "peak_day_mwh": 3004852.0,
-    "mean_day_mwh": 2535731.0,
-    "df_err": 0.022019,
-    "ng_mwh": 58602518.0
+    "mean_day_mwh": 2515748.2,
+    "df_err": 0.02112,
+    "ng_mwh": 60738284.0
    }
   }
  }

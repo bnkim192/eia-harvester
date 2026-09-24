@@ -1,13 +1,13 @@
 {
   "source": "Frankfurter (ECB reference rates)",
-  "date": "2026-09-22",
+  "date": "2026-09-23",
   "unit": "KRW per 1 unit foreign currency",
   "rates": {
-    "USD": 1356.1459,
-    "EUR": 1554.55,
-    "PLN": 357.5322,
-    "CNY": 202.4075,
-    "CAD": 965.619,
-    "IDR": 0.0761
+    "USD": 1365.3492,
+    "EUR": 1558.0,
+    "PLN": 355.9922,
+    "CNY": 203.559,
+    "CAD": 969.0863,
+    "IDR": 0.0767
   }
 }
