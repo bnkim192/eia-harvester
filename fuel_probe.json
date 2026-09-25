@@ -22,7 +22,7 @@
       "url": "https://www.imf.org/-/media/Files/Research/CommodityPrices/Monthly/external-data.ashx",
       "http": 403,
       "ok": false,
-      "note": "len=464"
+      "note": "len=466"
     },
     {
       "id": "IMF_xlsx",
@@ -150,7 +150,7 @@
       "url": "https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx",
       "http": 200,
       "ok": true,
-      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 162건 → 월 9건"
+      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 163건 → 월 9건"
     },
     {
       "id": "EUA_EEXemis",
@@ -302,7 +302,7 @@
       "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_203?format=JSON&lang=EN&geo=PL",
       "http": 200,
       "ok": true,
-      "note": "ct=application/json | {\"version\":\"2.0\",\"class\":\"dataset\",\"label\":\"Gas prices for industrial consumers - bi-annual data (from 2007 onwards)\",\"source\":\"ESTAT\",\"updated\":\"2026-08-11T23:00:00+0200\",\"value\":{\"1939\":10.2653,\"1940\":11.1386,\"1941\":13"
+      "note": "ct=application/json | {\"version\":\"2.0\",\"class\":\"dataset\",\"label\":\"Gas prices for industrial consumers - bi-annual data (from 2007 onwards)\",\"source\":\"ESTAT\",\"updated\":\"2026-09-24T23:00:00+0200\",\"value\":{\"3915\":10.2653,\"3916\":11.1386,\"3917\":13"
     }
   ],
   "seriesFound": [

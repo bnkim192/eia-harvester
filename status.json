@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-24",
+ "built_at": "2026-09-25",
  "base_ym": "2026-09",
  "sources": {
   "steo_gas": {
@@ -10,8 +10,8 @@
    "note": ""
   },
   "eia_retail": {
-   "rows": 828,
-   "latest_ym": "2026-06",
+   "rows": 834,
+   "latest_ym": "2026-07",
    "first_ym": "2015-01",
    "ok": true,
    "note": ""
@@ -34,7 +34,7 @@
    "ok": true,
    "note": "",
    "partial_months": [
-    "2026-09(23일)"
+    "2026-09(24일)"
    ]
   },
   "miso_lmp": {
@@ -79,11 +79,11 @@
   }
  },
  "panel": {
-  "added": 0,
-  "revised": 32,
-  "unchanged": 4101,
-  "rows": 5529,
-  "keys": 4145
+  "added": 6,
+  "revised": 33,
+  "unchanged": 4100,
+  "rows": 5568,
+  "keys": 4151
  },
  "vintages": {
   "rows": 33,
@@ -221,10 +221,10 @@
    ]
   },
   "US-RETAIL/retail_ind": {
-   "months": 138,
+   "months": 139,
    "range": [
     "2015-01",
-    "2026-06"
+    "2026-07"
    ],
    "entities": [
     "AZ",
@@ -348,7 +348,7 @@
  },
  "notes": [
   "STEO 실적/전망 경계는 '발표월 이전=실적' 휴리스틱이다. 최근 1~2개월은 잠정치 가능.",
-  "일별 RTO 부분월(일수<25) status=partial: ['2026-09(23일)']",
+  "일별 RTO 부분월(일수<25) status=partial: ['2026-09(24일)']",
   "OT 에너지 계열에 13개월 영구 결손(HOEP 종료~존가격 보존 시작). 두 계열은 가격 정의가 달라 결합하지 않는다."
  ],
  "excluded": {
