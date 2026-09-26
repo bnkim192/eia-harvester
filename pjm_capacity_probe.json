@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 361건 · 본문 384KB"
+      "note": "링크 361건 · 본문 385KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -19,14 +19,14 @@
       "url": "https://www.pjm.com/markets-and-operations/etools/capacity-exchange",
       "http": 200,
       "ok": true,
-      "note": "링크 11건 · 본문 81KB"
+      "note": "링크 11건 · 본문 82KB"
     },
     {
       "id": "PJM_rpm_sub3",
       "url": "https://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
       "http": 200,
       "ok": false,
-      "note": "링크 0건 · 본문 68KB"
+      "note": "링크 0건 · 본문 69KB"
     },
     {
       "id": "PJM_rpm_sub4",
