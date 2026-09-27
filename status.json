@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-26",
+ "built_at": "2026-09-27",
  "base_ym": "2026-09",
  "sources": {
   "steo_gas": {
@@ -78,9 +78,9 @@
  },
  "panel": {
   "added": 0,
-  "revised": 23,
-  "unchanged": 4116,
-  "rows": 5591,
+  "revised": 21,
+  "unchanged": 4118,
+  "rows": 5612,
   "keys": 4151
  },
  "vintages": {
