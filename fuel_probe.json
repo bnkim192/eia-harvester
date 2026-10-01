@@ -22,7 +22,7 @@
       "url": "https://www.imf.org/-/media/Files/Research/CommodityPrices/Monthly/external-data.ashx",
       "http": 403,
       "ok": false,
-      "note": "len=462"
+      "note": "len=466"
     },
     {
       "id": "IMF_xlsx",
@@ -142,7 +142,7 @@
       "url": "https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download",
       "http": 200,
       "ok": true,
-      "note": "파일 1건 ['https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx'] | 경로후보 9건 ['https://www.eex.com/en/markets/energy-certificates/french-auctions-power', 'https://www.eex.com/en/markets/energy-certificates/french-auctions-biogas', 'https://www.eex.com/en/markets/environmentals/eu-ets1-eu-ets2-auctions', 'https://www.eex.com/en/markets/environme"
+      "note": "파일 1건 ['https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx'] | 경로후보 8건 ['https://www.eex.com/en/markets/energy-certificates/french-auctions-power', 'https://www.eex.com/en/markets/energy-certificates/french-auctions-biogas', 'https://www.eex.com/en/markets/environmentals/eu-ets1-eu-ets2-auctions', 'https://www.eex.com/en/trading-resources"
     },
     {
       "id": "EUA_EEXauc_dl",
@@ -150,7 +150,7 @@
       "url": "https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx",
       "http": 200,
       "ok": true,
-      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 166건 → 월 9건"
+      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 167건 → 월 9건"
     },
     {
       "id": "EUA_EEXemis",

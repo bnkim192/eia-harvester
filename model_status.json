@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-30",
+ "built_at": "2026-10-01",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
@@ -10,7 +10,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": false,
    "pass_through": 1.0,
    "rto": null,
@@ -57,7 +57,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
@@ -104,7 +104,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": "MISO",
@@ -173,7 +173,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": "PJM",
@@ -242,7 +242,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
@@ -289,7 +289,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
@@ -329,10 +329,10 @@
    }
   },
   "PL-ENTSOE/PL/pl_price": {
-   "months": 82,
+   "months": 83,
    "range": [
     "2019-12",
-    "2026-09"
+    "2026-10"
    ],
    "transform": "log",
    "gas_transform": "log",
@@ -343,18 +343,18 @@
    "sets": {
     "A": {
      "1": {
-      "n_origins": 29,
-      "mape": 11.605,
+      "n_origins": 30,
+      "mape": 12.105,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 23,
-      "mape": 14.295,
-      "gate": "insufficient_n"
+      "n_origins": 24,
+      "mape": 14.599,
+      "gate": "pass"
      },
      "6": {
-      "n_origins": 14,
-      "mape": 13.43,
+      "n_origins": 15,
+      "mape": 14.086,
       "gate": "insufficient_n"
      }
     }
@@ -368,7 +368,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 17,
+   "lag_months": 18,
    "live": false,
    "pass_through": 0.6,
    "rto": null,
@@ -399,18 +399,19 @@
   }
  },
  "steo_vintages": {
-  "count": 2,
+  "count": 3,
   "list": [
    "2026-08",
-   "2026-09"
+   "2026-09",
+   "2026-10"
   ]
  },
  "summary": {
   "scorecard_rows": 213,
   "growth_rows": 32,
-  "pass": 24,
+  "pass": 25,
   "fail": 5,
-  "insufficient_n": 31
+  "insufficient_n": 30
  },
  "gas_path_note": "백테스트는 gas_path=realized 다. STEO forward 의 과거 vintage 가 없어 완전연쇄(가스 예측오차 포함) 검증은 steo_vintages.csv 축적 후에 가능하다."
 }
