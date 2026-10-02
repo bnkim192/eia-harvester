@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-01",
+ "built_at": "2026-10-02",
  "base_ym": "2026-10",
  "sources": {
   "steo_gas": {
@@ -28,16 +28,18 @@
    ]
   },
   "eia_rto_daily": {
-   "rows": 930,
-   "latest_ym": "2026-09",
+   "rows": 940,
+   "latest_ym": "2026-10",
    "first_ym": "2019-01",
    "ok": true,
    "note": "",
-   "partial_months": []
+   "partial_months": [
+    "2026-10(1일)"
+   ]
   },
   "miso_lmp": {
-   "rows": 9,
-   "latest_ym": "2026-09",
+   "rows": 10,
+   "latest_ym": "2026-10",
    "first_ym": "2026-01",
    "ok": true,
    "note": ""
@@ -49,17 +51,17 @@
    "ok": true,
    "note": "",
    "partial_months": [
-    "2026-10(1일)"
+    "2026-10(2일)"
    ]
   },
   "ieso_price": {
-   "rows": 100,
-   "latest_ym": "2026-09",
+   "rows": 103,
+   "latest_ym": "2026-10",
    "first_ym": "2018-01",
    "ok": true,
    "note": "",
    "gap_months": 13,
-   "zonal_months": 4,
+   "zonal_months": 5,
    "hoep_months": 88
   },
   "ieso_ga": {
@@ -79,15 +81,15 @@
   }
  },
  "panel": {
-  "added": 26,
-  "revised": 22,
-  "unchanged": 4117,
-  "rows": 5753,
-  "keys": 4177
+  "added": 14,
+  "revised": 23,
+  "unchanged": 4142,
+  "rows": 5790,
+  "keys": 4191
  },
  "vintages": {
   "rows": 48,
-  "added": 15
+  "added": 0
  },
  "coverage": {
   "CA-IESO/ga_class_b_amount": {
@@ -121,10 +123,10 @@
    ]
   },
   "CA-IESO/ot_cong": {
-   "months": 4,
+   "months": 5,
    "range": [
     "2026-06",
-    "2026-09"
+    "2026-10"
    ],
    "entities": [
     "OT"
@@ -141,20 +143,20 @@
    ]
   },
   "CA-IESO/ot_energy_zonal": {
-   "months": 4,
+   "months": 5,
    "range": [
     "2026-06",
-    "2026-09"
+    "2026-10"
    ],
    "entities": [
     "OT"
    ]
   },
   "CA-IESO/ot_loss": {
-   "months": 4,
+   "months": 5,
    "range": [
     "2026-06",
-    "2026-09"
+    "2026-10"
    ],
    "entities": [
     "OT"
@@ -211,10 +213,10 @@
    ]
   },
   "US-MISO/lmp_da": {
-   "months": 9,
+   "months": 10,
    "range": [
     "2026-01",
-    "2026-09"
+    "2026-10"
    ],
    "entities": [
     "MICHIGAN.HUB"
@@ -236,10 +238,10 @@
    ]
   },
   "US-RTO/d_df_err": {
-   "months": 93,
+   "months": 94,
    "range": [
     "2019-01",
-    "2026-09"
+    "2026-10"
    ],
    "entities": [
     "MISO",
@@ -247,10 +249,10 @@
    ]
   },
   "US-RTO/d_load_factor": {
-   "months": 93,
+   "months": 94,
    "range": [
     "2019-01",
-    "2026-09"
+    "2026-10"
    ],
    "entities": [
     "MISO",
@@ -258,10 +260,10 @@
    ]
   },
   "US-RTO/d_load_mwh": {
-   "months": 93,
+   "months": 94,
    "range": [
     "2019-01",
-    "2026-09"
+    "2026-10"
    ],
    "entities": [
     "MISO",
@@ -269,10 +271,10 @@
    ]
   },
   "US-RTO/d_ng_mwh": {
-   "months": 93,
+   "months": 94,
    "range": [
     "2019-01",
-    "2026-09"
+    "2026-10"
    ],
    "entities": [
     "MISO",
@@ -280,10 +282,10 @@
    ]
   },
   "US-RTO/d_peak_day_mwh": {
-   "months": 93,
+   "months": 94,
    "range": [
     "2019-01",
-    "2026-09"
+    "2026-10"
    ],
    "entities": [
     "MISO",
@@ -348,7 +350,8 @@
  },
  "notes": [
   "STEO 실적/전망 경계는 '발표월 이전=실적' 휴리스틱이다. 최근 1~2개월은 잠정치 가능.",
-  "FX 부분월(영업일<15) status=partial: ['2026-10(1일)']",
+  "일별 RTO 부분월(일수<25) status=partial: ['2026-10(1일)']",
+  "FX 부분월(영업일<15) status=partial: ['2026-10(2일)']",
   "OT 에너지 계열에 13개월 영구 결손(HOEP 종료~존가격 보존 시작). 두 계열은 가격 정의가 달라 결합하지 않는다."
  ],
  "excluded": {
