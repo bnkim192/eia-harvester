@@ -14,7 +14,7 @@
       "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
       "http": 200,
       "ok": true,
-      "note": "sheet=Monthly Prices headerRow=0~5(concat) dateCol=0 계열=['TTF_EU', 'HH_US', 'LNG_JP', 'COAL_ZA', 'COAL_AU'] pts=3388"
+      "note": "sheet=Monthly Prices headerRow=0~5(concat) dateCol=0 계열=['TTF_EU', 'HH_US', 'LNG_JP', 'COAL_ZA', 'COAL_AU'] pts=3393"
     },
     {
       "id": "IMF_xlsx",
