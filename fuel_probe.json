@@ -172,9 +172,9 @@
       "id": "EC_spec",
       "tier": 1,
       "url": "https://api.energy-charts.info/openapi.json",
-      "http": 200,
-      "ok": true,
-      "note": "전체 37경로 · 관련 ['/v2/price', '/v2/price_current', '/v2/price_next_day', '/price']"
+      "http": 503,
+      "ok": false,
+      "note": "<html><body><h1>503 Service Unavailable</h1>\nNo server is available to handle this request.\n</body></html>\n"
     },
     {
       "id": "EMBER_spec",
