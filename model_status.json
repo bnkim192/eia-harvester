@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-04",
+ "built_at": "2026-10-05",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
@@ -144,22 +144,22 @@
     "B": {
      "1": {
       "n_origins": 26,
-      "mape": 3.106,
+      "mape": 3.021,
       "gate": "pass"
      },
      "3": {
       "n_origins": 22,
-      "mape": 2.859,
+      "mape": 2.964,
       "gate": "insufficient_n"
      },
      "6": {
       "n_origins": 16,
-      "mape": 3.346,
+      "mape": 3.417,
       "gate": "insufficient_n"
      },
      "12": {
       "n_origins": 4,
-      "mape": 3.772,
+      "mape": 3.777,
       "gate": "insufficient_n"
      }
     }
@@ -213,22 +213,22 @@
     "B": {
      "1": {
       "n_origins": 26,
-      "mape": 6.631,
+      "mape": 6.905,
       "gate": "fail"
      },
      "3": {
       "n_origins": 22,
-      "mape": 7.222,
+      "mape": 7.096,
       "gate": "insufficient_n"
      },
      "6": {
       "n_origins": 16,
-      "mape": 10.955,
+      "mape": 11.21,
       "gate": "insufficient_n"
      },
      "12": {
       "n_origins": 4,
-      "mape": 18.4,
+      "mape": 18.265,
       "gate": "insufficient_n"
      }
     }

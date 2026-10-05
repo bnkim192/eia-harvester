@@ -150,7 +150,7 @@
       "url": "https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx",
       "http": 200,
       "ok": true,
-      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 168건 → 월 9건"
+      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 169건 → 월 9건"
     },
     {
       "id": "EUA_EEXemis",
@@ -172,9 +172,9 @@
       "id": "EC_spec",
       "tier": 1,
       "url": "https://api.energy-charts.info/openapi.json",
-      "http": 503,
-      "ok": false,
-      "note": "<html><body><h1>503 Service Unavailable</h1>\nNo server is available to handle this request.\n</body></html>\n"
+      "http": 200,
+      "ok": true,
+      "note": "전체 37경로 · 관련 ['/v2/price', '/v2/price_current', '/v2/price_next_day', '/price']"
     },
     {
       "id": "EMBER_spec",
