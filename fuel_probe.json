@@ -140,25 +140,17 @@
       "id": "EUA_EEXauc",
       "tier": 1,
       "url": "https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download",
-      "http": 200,
-      "ok": true,
-      "note": "파일 1건 ['https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx'] | 경로후보 8건 ['https://www.eex.com/en/markets/energy-certificates/french-auctions-power', 'https://www.eex.com/en/markets/energy-certificates/french-auctions-biogas', 'https://www.eex.com/en/markets/environmentals/eu-ets1-eu-ets2-auctions', 'https://www.eex.com/en/trading-resources"
-    },
-    {
-      "id": "EUA_EEXauc_dl",
-      "tier": 1,
-      "url": "https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx",
-      "http": 200,
-      "ok": true,
-      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 180건 → 월 9건"
+      "http": 503,
+      "ok": false,
+      "note": "<!DOCTYPE html>\r\n<html lang=\"en-US\">\r\n\r\n<head>\r\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n\t<title>503</title>\r\n\t<meta ht"
     },
     {
       "id": "EUA_EEXemis",
       "tier": 1,
       "url": "https://www.eex.com/en/market-data/environmental-markets",
-      "http": 200,
-      "ok": true,
-      "note": "파일 0건 [] | 경로후보 5건 ['https://www.eex.com/en/markets/energy-certificates/french-auctions-power', 'https://www.eex.com/en/markets/energy-certificates/french-auctions-biogas', 'https://www.eex.com/en/markets/environmentals/eu-ets1-eu-ets2-auctions', 'https://www.eex.com/en/trading-resources/participants/auctioneers']"
+      "http": 503,
+      "ok": false,
+      "note": "<!DOCTYPE html>\r\n<html lang=\"en-US\">\r\n\r\n<head>\r\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n\t<title>503</title>\r\n\t<meta ht"
     },
     {
       "id": "EUA_ICAP",
@@ -252,17 +244,17 @@
       "id": "EEX_auc",
       "tier": 3,
       "url": "https://www.eex.com/en/market-data/environmental-markets/eua-primary-auction-spot-download",
-      "http": 200,
-      "ok": true,
-      "note": "ct=text/html; charset=utf-8 | <!DOCTYPE html> <html lang=\"en-US\"> <head> <meta charset=\"utf-8\"> <!-- ________________________________________________________________________________________________ This website is powered by TYPO3 - inspiring pe"
+      "http": 503,
+      "ok": false,
+      "note": "ct=text/html | <!DOCTYPE html> <html lang=\"en-US\"> <head> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"> <title>503</title> <meta http-equiv=\"x-ua-compatible\" content=\"IE=edge\"> <meta name=\"generator\""
     },
     {
       "id": "EEX_gas",
       "tier": 3,
       "url": "https://www.eex.com/en/market-data/natural-gas/futures",
-      "http": 200,
-      "ok": true,
-      "note": "ct=text/html; charset=utf-8 | <!DOCTYPE html> <html lang=\"en-US\"> <head> <meta charset=\"utf-8\"> <!-- ________________________________________________________________________________________________ This website is powered by TYPO3 - inspiring pe"
+      "http": 503,
+      "ok": false,
+      "note": "ct=text/html | <!DOCTYPE html> <html lang=\"en-US\"> <head> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"> <title>503</title> <meta http-equiv=\"x-ua-compatible\" content=\"IE=edge\"> <meta name=\"generator\""
     },
     {
       "id": "ICE_report",
@@ -310,7 +302,6 @@
     "WB_HH_US",
     "WB_LNG_JP",
     "WB_COAL_ZA",
-    "WB_COAL_AU",
-    "EUA_EUA_EEXauc"
+    "WB_COAL_AU"
   ]
 }
