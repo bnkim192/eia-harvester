@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-21",
+ "built_at": "2026-10-22",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
@@ -18,27 +18,27 @@
     "A": {
      "1": {
       "n_origins": 48,
-      "mape": 7.384,
+      "mape": 7.373,
       "gate": "fail"
      },
      "3": {
       "n_origins": 44,
-      "mape": 8.521,
+      "mape": 8.458,
       "gate": "fail"
      },
      "6": {
       "n_origins": 38,
-      "mape": 7.328,
+      "mape": 7.33,
       "gate": "fail"
      },
      "12": {
       "n_origins": 26,
-      "mape": 9.444,
+      "mape": 9.634,
       "gate": "fail"
      },
      "17": {
       "n_origins": 16,
-      "mape": 15.228,
+      "mape": 15.636,
       "gate": "insufficient_n"
      },
      "24": {
@@ -65,27 +65,27 @@
     "A": {
      "1": {
       "n_origins": 48,
-      "mape": 10.89,
+      "mape": 10.837,
       "gate": "pass"
      },
      "3": {
       "n_origins": 44,
-      "mape": 9.507,
+      "mape": 9.433,
       "gate": "pass"
      },
      "6": {
       "n_origins": 38,
-      "mape": 11.185,
+      "mape": 11.141,
       "gate": "pass"
      },
      "12": {
       "n_origins": 26,
-      "mape": 11.162,
+      "mape": 10.898,
       "gate": "pass"
      },
      "17": {
       "n_origins": 16,
-      "mape": 11.724,
+      "mape": 11.425,
       "gate": "insufficient_n"
      },
      "24": {
@@ -112,27 +112,27 @@
     "A": {
      "1": {
       "n_origins": 48,
-      "mape": 2.888,
+      "mape": 3.006,
       "gate": "pass"
      },
      "3": {
       "n_origins": 44,
-      "mape": 3.012,
+      "mape": 3.217,
       "gate": "pass"
      },
      "6": {
       "n_origins": 38,
-      "mape": 3.12,
+      "mape": 3.455,
       "gate": "pass"
      },
      "12": {
       "n_origins": 26,
-      "mape": 3.591,
+      "mape": 4.148,
       "gate": "pass"
      },
      "17": {
       "n_origins": 16,
-      "mape": 3.975,
+      "mape": 4.488,
       "gate": "insufficient_n"
      },
      "24": {
@@ -144,22 +144,22 @@
     "B": {
      "1": {
       "n_origins": 26,
-      "mape": 3.106,
+      "mape": 3.279,
       "gate": "pass"
      },
      "3": {
       "n_origins": 22,
-      "mape": 2.859,
+      "mape": 3.297,
       "gate": "insufficient_n"
      },
      "6": {
       "n_origins": 16,
-      "mape": 3.346,
+      "mape": 4.012,
       "gate": "insufficient_n"
      },
      "12": {
       "n_origins": 4,
-      "mape": 3.772,
+      "mape": 4.621,
       "gate": "insufficient_n"
      }
     }
@@ -181,27 +181,27 @@
     "A": {
      "1": {
       "n_origins": 48,
-      "mape": 6.139,
+      "mape": 6.18,
       "gate": "pass"
      },
      "3": {
       "n_origins": 44,
-      "mape": 6.836,
+      "mape": 6.921,
       "gate": "pass"
      },
      "6": {
       "n_origins": 38,
-      "mape": 8.324,
+      "mape": 8.273,
       "gate": "pass"
      },
      "12": {
       "n_origins": 26,
-      "mape": 13.428,
+      "mape": 13.124,
       "gate": "pass"
      },
      "17": {
       "n_origins": 16,
-      "mape": 19.446,
+      "mape": 18.734,
       "gate": "insufficient_n"
      },
      "24": {
@@ -213,22 +213,22 @@
     "B": {
      "1": {
       "n_origins": 26,
-      "mape": 6.631,
+      "mape": 6.789,
       "gate": "fail"
      },
      "3": {
       "n_origins": 22,
-      "mape": 7.222,
+      "mape": 7.441,
       "gate": "insufficient_n"
      },
      "6": {
       "n_origins": 16,
-      "mape": 10.955,
+      "mape": 11.222,
       "gate": "insufficient_n"
      },
      "12": {
       "n_origins": 4,
-      "mape": 18.4,
+      "mape": 19.582,
       "gate": "insufficient_n"
      }
     }
@@ -250,27 +250,27 @@
     "A": {
      "1": {
       "n_origins": 48,
-      "mape": 5.916,
+      "mape": 6.022,
       "gate": "pass"
      },
      "3": {
       "n_origins": 44,
-      "mape": 5.276,
+      "mape": 5.285,
       "gate": "pass"
      },
      "6": {
       "n_origins": 38,
-      "mape": 4.692,
+      "mape": 4.484,
       "gate": "pass"
      },
      "12": {
       "n_origins": 26,
-      "mape": 4.107,
+      "mape": 3.928,
       "gate": "pass"
      },
      "17": {
       "n_origins": 16,
-      "mape": 5.646,
+      "mape": 5.582,
       "gate": "insufficient_n"
      },
      "24": {
@@ -297,27 +297,27 @@
     "A": {
      "1": {
       "n_origins": 48,
-      "mape": 2.987,
+      "mape": 3.259,
       "gate": "pass"
      },
      "3": {
       "n_origins": 44,
-      "mape": 3.055,
+      "mape": 3.338,
       "gate": "pass"
      },
      "6": {
       "n_origins": 38,
-      "mape": 2.731,
+      "mape": 3.116,
       "gate": "pass"
      },
      "12": {
       "n_origins": 26,
-      "mape": 2.677,
+      "mape": 3.501,
       "gate": "pass"
      },
      "17": {
       "n_origins": 16,
-      "mape": 2.287,
+      "mape": 3.004,
       "gate": "insufficient_n"
      },
      "24": {
