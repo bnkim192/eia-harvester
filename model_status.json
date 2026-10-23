@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-22",
+ "built_at": "2026-10-23",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
@@ -344,17 +344,17 @@
     "A": {
      "1": {
       "n_origins": 30,
-      "mape": 12.096,
+      "mape": 12.124,
       "gate": "pass"
      },
      "3": {
       "n_origins": 24,
-      "mape": 14.576,
+      "mape": 14.606,
       "gate": "pass"
      },
      "6": {
       "n_origins": 15,
-      "mape": 14.03,
+      "mape": 14.076,
       "gate": "insufficient_n"
      }
     }
