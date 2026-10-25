@@ -268,9 +268,9 @@
       "id": "ICE_report",
       "tier": 3,
       "url": "https://www.theice.com/marketdata/reports/api/getReport?reportId=178",
-      "http": 500,
+      "http": 403,
       "ok": false,
-      "note": "ct= | <bin 0B>"
+      "note": "ct=text/html; charset=UTF-8 | <!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-js ie8 oldie\" lang=\""
     },
     {
       "id": "ICAP_api",
