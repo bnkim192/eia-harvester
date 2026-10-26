@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-25",
+ "built_at": "2026-10-26",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
@@ -408,7 +408,7 @@
  },
  "summary": {
   "scorecard_rows": 213,
-  "growth_rows": 24,
+  "growth_rows": 32,
   "pass": 25,
   "fail": 5,
   "insufficient_n": 30
