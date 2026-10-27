@@ -76,65 +76,65 @@
       "id": "STQ_ttf.f",
       "tier": 2,
       "url": "https://stooq.com/q/d/l/?s=ttf.f&i=m",
-      "http": null,
+      "http": 200,
       "ok": false,
-      "note": "EXC HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=ttf.f&i=m (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f37bb5804a0>, 'Connection to stooq.com timed out. (connect timeout=60)'))"
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
     },
     {
       "id": "STQ_co2.f",
       "tier": 2,
       "url": "https://stooq.com/q/d/l/?s=co2.f&i=m",
-      "http": null,
+      "http": 200,
       "ok": false,
-      "note": "EXC HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=co2.f&i=m (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f37afd190a0>, 'Connection to stooq.com timed out. (connect timeout=60)'))"
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
     },
     {
       "id": "STQ_eua.f",
       "tier": 2,
       "url": "https://stooq.com/q/d/l/?s=eua.f&i=m",
-      "http": null,
+      "http": 200,
       "ok": false,
-      "note": "EXC HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=eua.f&i=m (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f37afd199d0>, 'Connection to stooq.com timed out. (connect timeout=60)'))"
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
     },
     {
       "id": "STQ_atw.f",
       "tier": 2,
       "url": "https://stooq.com/q/d/l/?s=atw.f&i=m",
-      "http": null,
+      "http": 200,
       "ok": false,
-      "note": "EXC HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=atw.f&i=m (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f37afd1a390>, 'Connection to stooq.com timed out. (connect timeout=60)'))"
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
     },
     {
       "id": "STQ_coal.f",
       "tier": 2,
       "url": "https://stooq.com/q/d/l/?s=coal.f&i=m",
-      "http": null,
+      "http": 200,
       "ok": false,
-      "note": "EXC HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=coal.f&i=m (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f37afd1ad50>, 'Connection to stooq.com timed out. (connect timeout=60)'))"
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
     },
     {
       "id": "STQ_ng.f",
       "tier": 2,
       "url": "https://stooq.com/q/d/l/?s=ng.f&i=m",
-      "http": null,
+      "http": 200,
       "ok": false,
-      "note": "EXC HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=ng.f&i=m (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f37be591e20>, 'Connection to stooq.com timed out. (connect timeout=60)'))"
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
     },
     {
       "id": "STQ_ttfg.f",
       "tier": 2,
       "url": "https://stooq.com/q/d/l/?s=ttfg.f&i=m",
-      "http": null,
+      "http": 200,
       "ok": false,
-      "note": "EXC HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=ttfg.f&i=m (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f37bbbcd370>, 'Connection to stooq.com timed out. (connect timeout=60)'))"
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
     },
     {
       "id": "STQ_carb.f",
       "tier": 2,
       "url": "https://stooq.com/q/d/l/?s=carb.f&i=m",
-      "http": null,
+      "http": 200,
       "ok": false,
-      "note": "EXC HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=carb.f&i=m (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f37afd19a90>, 'Connection to stooq.com timed out. (connect timeout=60)'))"
+      "note": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>T"
     },
     {
       "id": "EUA_EEXauc",
@@ -150,7 +150,7 @@
       "url": "https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx",
       "http": 200,
       "ok": true,
-      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 183건 → 월 10건"
+      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 184건 → 월 10건"
     },
     {
       "id": "EUA_EEXemis",
