@@ -22,7 +22,7 @@
       "url": "https://www.imf.org/-/media/Files/Research/CommodityPrices/Monthly/external-data.ashx",
       "http": 403,
       "ok": false,
-      "note": "len=464"
+      "note": "len=466"
     },
     {
       "id": "IMF_xlsx",
@@ -30,7 +30,7 @@
       "url": "https://www.imf.org/-/media/Files/Research/CommodityPrices/Monthly/ExternalData.ashx",
       "http": 403,
       "ok": false,
-      "note": "len=459"
+      "note": "len=461"
     },
     {
       "id": "YH_KEUA",
@@ -150,7 +150,7 @@
       "url": "https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-2026-data.xlsx",
       "http": 200,
       "ok": true,
-      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 184건 → 월 10건"
+      "note": "xlsx(YYYYMnn) 미발견 hdr=-1 dcol=-1 → 날짜셀 파서: 날짜열1 가격열6(Prices Auction Price €/t) 일별 185건 → 월 10건"
     },
     {
       "id": "EUA_EEXemis",
