@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 363건 · 본문 383KB"
+      "note": "링크 364건 · 본문 384KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -86,6 +86,7 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-supply-curves.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-pre-auction-credit-calculator.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-scenario-analysis.xlsx",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-reliability-backstop-baseload-generation-check.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-frr-resource-list.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-transitional-system-capability-study-results.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-default-gross-acr-values-for-mopr-and-msoc-purposes.xlsx",
@@ -467,8 +468,7 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2021/2021-capacity-formula-rate-work-papers.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-rate-summary.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-aep-apco-ferc-informational-filing.pdf",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-template.xlsx",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-rate-work-papers.pdf"
+    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-template.xlsx"
   ],
   "ambiguous": []
 }
