@@ -1,5 +1,5 @@
 {
- "built_at": "2026-10-31",
+ "built_at": "2026-11-01",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
@@ -10,7 +10,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": false,
    "pass_through": 1.0,
    "rto": null,
@@ -57,7 +57,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
@@ -104,7 +104,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": "MISO",
@@ -173,7 +173,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": "PJM",
@@ -242,7 +242,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
@@ -289,7 +289,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 2,
+   "lag_months": 3,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
@@ -329,10 +329,10 @@
    }
   },
   "PL-ENTSOE/PL/pl_price": {
-   "months": 83,
+   "months": 84,
    "range": [
     "2019-12",
-    "2026-10"
+    "2026-11"
    ],
    "transform": "log",
    "gas_transform": "log",
@@ -343,18 +343,18 @@
    "sets": {
     "A": {
      "1": {
-      "n_origins": 30,
-      "mape": 12.124,
+      "n_origins": 31,
+      "mape": 12.449,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 24,
-      "mape": 14.606,
+      "n_origins": 25,
+      "mape": 15.182,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 15,
-      "mape": 14.076,
+      "n_origins": 16,
+      "mape": 14.948,
       "gate": "insufficient_n"
      }
     }
@@ -368,7 +368,7 @@
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 18,
+   "lag_months": 19,
    "live": false,
    "pass_through": 0.6,
    "rto": null,
@@ -399,11 +399,12 @@
   }
  },
  "steo_vintages": {
-  "count": 3,
+  "count": 4,
   "list": [
    "2026-08",
    "2026-09",
-   "2026-10"
+   "2026-10",
+   "2026-11"
   ]
  },
  "summary": {
