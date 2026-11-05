@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-04",
+ "built_at": "2026-11-05",
  "base_ym": "2026-11",
  "sources": {
   "steo_gas": {
@@ -34,7 +34,7 @@
    "ok": true,
    "note": "",
    "partial_months": [
-    "2026-11(3일)"
+    "2026-11(4일)"
    ]
   },
   "miso_lmp": {
@@ -51,18 +51,18 @@
    "ok": true,
    "note": "",
    "partial_months": [
-    "2026-11(3일)"
+    "2026-11(4일)"
    ]
   },
   "ieso_price": {
-   "rows": 82,
+   "rows": 106,
    "latest_ym": "2026-11",
    "first_ym": "2018-01",
    "ok": true,
    "note": "",
    "gap_months": 13,
    "zonal_months": 6,
-   "hoep_months": 64
+   "hoep_months": 88
   },
   "ieso_ga": {
    "rows": 48,
@@ -82,9 +82,9 @@
  },
  "panel": {
   "added": 0,
-  "revised": 34,
-  "unchanged": 4167,
-  "rows": 6841,
+  "revised": 33,
+  "unchanged": 4192,
+  "rows": 6874,
   "keys": 4237
  },
  "vintages": {
@@ -350,8 +350,8 @@
  },
  "notes": [
   "STEO 실적/전망 경계는 '발표월 이전=실적' 휴리스틱이다. 최근 1~2개월은 잠정치 가능.",
-  "일별 RTO 부분월(일수<25) status=partial: ['2026-11(3일)']",
-  "FX 부분월(영업일<15) status=partial: ['2026-11(3일)']",
+  "일별 RTO 부분월(일수<25) status=partial: ['2026-11(4일)']",
+  "FX 부분월(영업일<15) status=partial: ['2026-11(4일)']",
   "OT 에너지 계열에 13개월 영구 결손(HOEP 종료~존가격 보존 시작). 두 계열은 가격 정의가 달라 결합하지 않는다."
  ],
  "excluded": {
