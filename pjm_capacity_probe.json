@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 365건 · 본문 385KB"
+      "note": "링크 356건 · 본문 384KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -19,7 +19,7 @@
       "url": "https://www.pjm.com/markets-and-operations/etools/capacity-exchange",
       "http": 200,
       "ok": true,
-      "note": "링크 11건 · 본문 83KB"
+      "note": "링크 11건 · 본문 82KB"
     },
     {
       "id": "PJM_rpm_sub3",
@@ -33,7 +33,7 @@
       "url": "https://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
       "http": 200,
       "ok": true,
-      "note": "링크 27건 · 본문 96KB"
+      "note": "링크 27건 · 본문 95KB"
     },
     {
       "id": "PJM_rpm_user",
@@ -362,11 +362,6 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-rpm-second-incremental-auction-parameters.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-second-incremental-auction-report.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-second-incremental-auction-results.xls",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-rpm-first-incremental-auction-parameters.xls",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-first-incremental-auction-report.pdf",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-first-incremental-auction-results.xls",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-cp-transition-auction-report.pdf",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-cp-transition-auction-results.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/mopr-exemption-request-quantities-for-2017-2018-bra.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/frr-resources-2017-2018.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-bra-supply-curves.pdf",
@@ -378,12 +373,8 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-rpm-3rd-ia-parameters.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-final-zonal-ucap-obligations-capacity-prices-ctr-credit-rates.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-excess-commitment-allocation.xlsx",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2016-2017-transition-incremental-auction-results.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-final-phpa-calculator.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-rpm-daily-zonal-scaling-factors.xlsx",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-rpm-pricing-points.xls",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-third-incremental-auction-results.xls",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2015-2016-final-zonal-ucap-obligations-capacity-prices-ctr-credit-rates.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2014-2015-rpm-pricing-points.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/20110513-2014-15-base-residual-auction-report.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/sensitivity-scenario-requests.xls",
@@ -468,7 +459,14 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2021/2021-capacity-formula-template.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2021/2021-capacity-formula-rate-work-papers.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-rate-summary.pdf",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-aep-apco-ferc-informational-filing.pdf"
+    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-aep-apco-ferc-informational-filing.pdf",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-template.xlsx",
+    "https://www.pjm.com/-/media/DotCom/markets-ops/settlements/frr-lse-capacity-rates/2020-capacity-formula-rate-work-papers.pdf",
+    "http://www.pjm.com/markets-and-operations/rpm",
+    "http://www.pjm.com/markets-and-operations/etools/capacity-exchange",
+    "http://www.pjm.com/markets-and-operations/ftr/historical-ftr-auction",
+    "http://www.pjm.com/markets-and-operations/billing-settlements-and-credit/frr-lse-capacity-rates",
+    "http://www.pjm.com/planning/rtep-development/powerflow-cases/rpm-base-cases"
   ],
   "ambiguous": []
 }
