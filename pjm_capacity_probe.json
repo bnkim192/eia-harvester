@@ -5,7 +5,7 @@
       "url": "https://www.pjm.com/markets-and-operations/rpm",
       "http": 200,
       "ok": true,
-      "note": "링크 357건 · 본문 381KB"
+      "note": "링크 356건 · 본문 381KB"
     },
     {
       "id": "PJM_rpm_sub1",
@@ -47,7 +47,7 @@
       "url": "https://www.pjm.com/sitemap.xml",
       "http": 200,
       "ok": true,
-      "note": "링크 5건 · 본문 137KB"
+      "note": "링크 5건 · 본문 108KB"
     },
     {
       "id": "PDF_2029-2030",
@@ -348,7 +348,6 @@
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-first-incremental-auction-results.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-1st-incremental-auction-capacity-performance-pre-auction-credit-calculator.xlsx",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-bra-scenario-analysis.xlsx",
-    "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-frr-resource-posting.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2018-2019-bra-supply-curves.pdf",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/net-cone-for-market-seller-offer-cap-purposes.xls",
     "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2017-2018-rpm-daily-zonal-scaling-factors.xlsx",
