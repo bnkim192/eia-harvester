@@ -1,328 +1,328 @@
 {
- "built_at": "2026-11-23",
+ "built_at": "2026-11-24",
  "notes": [],
  "targets": {
   "US-RETAIL/AZ/retail_ind": {
-   "months": 140,
+   "months": 141,
    "range": [
     "2015-01",
-    "2026-08"
+    "2026-09"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": false,
    "pass_through": 1.0,
    "rto": null,
    "sets": {
     "A": {
      "1": {
-      "n_origins": 49,
-      "mape": 7.428,
+      "n_origins": 50,
+      "mape": 7.321,
       "gate": "fail"
      },
      "3": {
-      "n_origins": 45,
-      "mape": 8.593,
+      "n_origins": 46,
+      "mape": 8.468,
       "gate": "fail"
      },
      "6": {
-      "n_origins": 39,
-      "mape": 7.347,
+      "n_origins": 40,
+      "mape": 7.197,
       "gate": "fail"
      },
      "12": {
-      "n_origins": 27,
-      "mape": 9.317,
+      "n_origins": 28,
+      "mape": 9.192,
       "gate": "fail"
      },
      "17": {
-      "n_origins": 17,
-      "mape": 14.923,
+      "n_origins": 18,
+      "mape": 14.622,
       "gate": "insufficient_n"
      },
      "24": {
-      "n_origins": 3,
-      "mape": 11.917,
+      "n_origins": 4,
+      "mape": 11.416,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/GA/retail_ind": {
-   "months": 140,
+   "months": 141,
    "range": [
     "2015-01",
-    "2026-08"
+    "2026-09"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
    "sets": {
     "A": {
      "1": {
-      "n_origins": 49,
-      "mape": 11.255,
+      "n_origins": 50,
+      "mape": 11.329,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 45,
-      "mape": 9.845,
+      "n_origins": 46,
+      "mape": 9.862,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 39,
-      "mape": 11.738,
+      "n_origins": 40,
+      "mape": 11.661,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 27,
-      "mape": 11.759,
+      "n_origins": 28,
+      "mape": 11.555,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 17,
-      "mape": 12.417,
+      "n_origins": 18,
+      "mape": 12.454,
       "gate": "insufficient_n"
      },
      "24": {
-      "n_origins": 3,
-      "mape": 13.449,
+      "n_origins": 4,
+      "mape": 12.055,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/MI/retail_ind": {
-   "months": 140,
+   "months": 141,
    "range": [
     "2015-01",
-    "2026-08"
+    "2026-09"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": "MISO",
    "sets": {
     "A": {
      "1": {
-      "n_origins": 49,
-      "mape": 2.948,
+      "n_origins": 50,
+      "mape": 2.927,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 45,
-      "mape": 3.162,
+      "n_origins": 46,
+      "mape": 3.148,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 39,
-      "mape": 3.483,
+      "n_origins": 40,
+      "mape": 3.611,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 27,
-      "mape": 4.103,
+      "n_origins": 28,
+      "mape": 4.216,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 17,
-      "mape": 4.605,
+      "n_origins": 18,
+      "mape": 4.819,
       "gate": "insufficient_n"
      },
      "24": {
-      "n_origins": 3,
-      "mape": 3.134,
+      "n_origins": 4,
+      "mape": 3.764,
       "gate": "insufficient_n"
      }
     },
     "B": {
      "1": {
-      "n_origins": 27,
-      "mape": 3.158,
+      "n_origins": 28,
+      "mape": 3.147,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 23,
-      "mape": 3.234,
-      "gate": "insufficient_n"
+      "n_origins": 24,
+      "mape": 3.17,
+      "gate": "pass"
      },
      "6": {
-      "n_origins": 17,
-      "mape": 4.092,
+      "n_origins": 18,
+      "mape": 4.384,
       "gate": "insufficient_n"
      },
      "12": {
-      "n_origins": 5,
-      "mape": 4.19,
+      "n_origins": 6,
+      "mape": 4.689,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/OH/retail_ind": {
-   "months": 140,
+   "months": 141,
    "range": [
     "2015-01",
-    "2026-08"
+    "2026-09"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": "PJM",
    "sets": {
     "A": {
      "1": {
-      "n_origins": 49,
-      "mape": 6.262,
+      "n_origins": 50,
+      "mape": 6.217,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 45,
-      "mape": 6.987,
+      "n_origins": 46,
+      "mape": 6.851,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 39,
-      "mape": 8.137,
+      "n_origins": 40,
+      "mape": 8.194,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 27,
-      "mape": 13.442,
+      "n_origins": 28,
+      "mape": 13.579,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 17,
-      "mape": 18.824,
+      "n_origins": 18,
+      "mape": 18.986,
       "gate": "insufficient_n"
      },
      "24": {
-      "n_origins": 3,
-      "mape": 25.815,
+      "n_origins": 4,
+      "mape": 26.739,
       "gate": "insufficient_n"
      }
     },
     "B": {
      "1": {
-      "n_origins": 27,
-      "mape": 6.946,
+      "n_origins": 28,
+      "mape": 6.792,
       "gate": "fail"
      },
      "3": {
-      "n_origins": 23,
-      "mape": 7.845,
-      "gate": "insufficient_n"
+      "n_origins": 24,
+      "mape": 7.757,
+      "gate": "pass"
      },
      "6": {
-      "n_origins": 17,
-      "mape": 10.646,
+      "n_origins": 18,
+      "mape": 10.386,
       "gate": "insufficient_n"
      },
      "12": {
-      "n_origins": 5,
-      "mape": 19.007,
+      "n_origins": 6,
+      "mape": 18.579,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/TN/retail_ind": {
-   "months": 140,
+   "months": 141,
    "range": [
     "2015-01",
-    "2026-08"
+    "2026-09"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
    "sets": {
     "A": {
      "1": {
-      "n_origins": 49,
-      "mape": 6.096,
+      "n_origins": 50,
+      "mape": 5.987,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 45,
-      "mape": 5.17,
+      "n_origins": 46,
+      "mape": 5.211,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 39,
-      "mape": 4.541,
+      "n_origins": 40,
+      "mape": 4.645,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 27,
-      "mape": 3.885,
+      "n_origins": 28,
+      "mape": 3.986,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 17,
-      "mape": 5.478,
+      "n_origins": 18,
+      "mape": 5.438,
       "gate": "insufficient_n"
      },
      "24": {
-      "n_origins": 3,
-      "mape": 3.303,
+      "n_origins": 4,
+      "mape": 3.392,
       "gate": "insufficient_n"
      }
     }
    }
   },
   "US-RETAIL/US/retail_ind": {
-   "months": 140,
+   "months": 141,
    "range": [
     "2015-01",
-    "2026-08"
+    "2026-09"
    ],
    "transform": "log",
    "gas_transform": "log",
-   "lag_months": 3,
+   "lag_months": 2,
    "live": true,
    "pass_through": 1.0,
    "rto": null,
    "sets": {
     "A": {
      "1": {
-      "n_origins": 49,
-      "mape": 3.184,
+      "n_origins": 50,
+      "mape": 3.173,
       "gate": "pass"
      },
      "3": {
-      "n_origins": 45,
-      "mape": 3.252,
+      "n_origins": 46,
+      "mape": 3.236,
       "gate": "pass"
      },
      "6": {
-      "n_origins": 39,
-      "mape": 3.102,
+      "n_origins": 40,
+      "mape": 3.146,
       "gate": "pass"
      },
      "12": {
-      "n_origins": 27,
-      "mape": 3.477,
+      "n_origins": 28,
+      "mape": 3.436,
       "gate": "pass"
      },
      "17": {
-      "n_origins": 17,
-      "mape": 3.01,
+      "n_origins": 18,
+      "mape": 3.128,
       "gate": "insufficient_n"
      },
      "24": {
-      "n_origins": 3,
-      "mape": 1.199,
+      "n_origins": 4,
+      "mape": 1.232,
       "gate": "insufficient_n"
      }
     }
@@ -409,10 +409,10 @@
  },
  "summary": {
   "scorecard_rows": 213,
-  "growth_rows": 32,
-  "pass": 25,
+  "growth_rows": 24,
+  "pass": 27,
   "fail": 5,
-  "insufficient_n": 30
+  "insufficient_n": 28
  },
  "gas_path_note": "백테스트는 gas_path=realized 다. STEO forward 의 과거 vintage 가 없어 완전연쇄(가스 예측오차 포함) 검증은 steo_vintages.csv 축적 후에 가능하다."
 }
